@@ -6,14 +6,15 @@ from TFPlotter import plotTF
 
 fout = TFile("bin/TF.root","RECREATE")
 
-f = TFile("AllMETHistos/AllMETHistos_v17_08_00_00_all.root", "READ")
+f = TFile("AllMETHistos/AllMETHistos_v17_12_00_00_Jet1Pt100.root", "READ")
 
 ## macro is setup for the inverted transfer factors. 
 
 def GetTF(sr_bkg, cr_bkg, postfix=""): 
     print ("histogram used for TF are:", sr_bkg+postfix, cr_bkg+postfix)
     
-    h_sr_bkg = f.Get(sr_bkg+postfix)
+    if postfix=="Prefire" or postfix=="JEC" or postfix=="allbin":h_sr_bkg = f.Get(sr_bkg+postfix)
+    else:h_sr_bkg = f.Get(sr_bkg)
     h_cr_bkg = f.Get(cr_bkg+postfix)
     
     tf_sr_cr = h_sr_bkg.Clone()
@@ -96,7 +97,8 @@ def GetStatsUncTF(sr_bkg, cr_bkg, nbin=4):
     return [tf_sr_cr_bin1up, tf_sr_cr_bin1down]
     
 
-systematic_source = ["Prefire","JEC","allbin"]
+#systematic_source = ["Prefire","JEC","allbin"]
+systematic_source = ["EleTrig","EleID","EleRECO","allbin","MuID","MuTRK"]
 analysis="bbDM"
 year="2017"
 analysisType=analysis+year
@@ -104,12 +106,14 @@ analysisType=analysis+year
 alltfhists=[]
 for icat in ["1b", "2b"]:
     for isyst in systematic_source: 
-        tf_wmunu_wjets = GetAllTF(analysisType+"_"+icat+"_SR_wjets",  analysisType+"_"+icat+"_WMU_wjets", isyst);      alltfhists.append(tf_wmunu_wjets)
-        tf_wenu_wjets  = GetAllTF(analysisType+"_"+icat+"_SR_wjets",  analysisType+"_"+icat+"_WE_wjets" , isyst);      alltfhists.append(tf_wenu_wjets)
-        tf_topmu_top   = GetAllTF(analysisType+"_"+icat+"_SR_tt"   ,  analysisType+"_"+icat+"_TOPMU_tt" , isyst);      alltfhists.append(tf_topmu_top)
-        tf_topen_top   = GetAllTF(analysisType+"_"+icat+"_SR_tt"   ,  analysisType+"_"+icat+"_TOPE_tt"  , isyst);      alltfhists.append(tf_topen_top)
-        tf_zmumu_zj    = GetAllTF(analysisType+"_"+icat+"_SR_zjets"   ,  analysisType+"_"+icat+"_ZMUMU_dyjets" , isyst);      alltfhists.append(tf_zmumu_zj)
-        tf_zee_zj      = GetAllTF(analysisType+"_"+icat+"_SR_zjets"   ,  analysisType+"_"+icat+"_ZEE_dyjets"  , isyst);      alltfhists.append(tf_zee_zj)
+        if (isyst=="MuID" or isyst=="MuTRK" or isyst=="allbin" or isyst=="METtrig"):
+            tf_wmunu_wjets = GetAllTF(analysisType+"_"+icat+"_SR_wjets",  analysisType+"_"+icat+"_WMU_wjets", isyst);      alltfhists.append(tf_wmunu_wjets)
+            tf_topmu_top   = GetAllTF(analysisType+"_"+icat+"_SR_tt"   ,  analysisType+"_"+icat+"_TOPMU_tt" , isyst);      alltfhists.append(tf_topmu_top)
+            tf_zmumu_zj    = GetAllTF(analysisType+"_"+icat+"_SR_zjets"   ,  analysisType+"_"+icat+"_ZMUMU_dyjets" , isyst);      alltfhists.append(tf_zmumu_zj)
+        if  (isyst=="EleTrig" or isyst=="EleID" or isyst=="EleRECO" or isyst=="allbin"):
+            tf_wenu_wjets  = GetAllTF(analysisType+"_"+icat+"_SR_wjets",  analysisType+"_"+icat+"_WE_wjets" , isyst);      alltfhists.append(tf_wenu_wjets)
+            tf_topen_top   = GetAllTF(analysisType+"_"+icat+"_SR_tt"   ,  analysisType+"_"+icat+"_TOPE_tt"  , isyst);      alltfhists.append(tf_topen_top)
+            tf_zee_zj      = GetAllTF(analysisType+"_"+icat+"_SR_zjets"   ,  analysisType+"_"+icat+"_ZEE_dyjets"  , isyst);      alltfhists.append(tf_zee_zj)
 
 
 
@@ -130,7 +134,9 @@ CALLING TF PLotter Macro
 infile='bin/TF.root'
 SR_BKG = ['SR_zjets','SR_zjets','SR_wjets','SR_wjets','SR_tt','SR_tt']
 CR_BKG = ['ZEE_dyjets','ZMUMU_dyjets','WE_wjets','WMU_wjets','TOPE_tt','TOPMU_tt']  #PLEASE MAKE SURE YOU GIVE PROCESS NAME IN AN ORDER AS SR
-postfix= ['allbinUp','JECUp','PrefireUp']
+#postfix= ['allbinUp','JECUp','PrefireUp']
+postfix=["allbinUp","EleTrigUp","EleIDUp","EleRECOUp","MuIDUp","MuTRKUp"] #PROVIDE SYS HISTS WITH UP OR DOWN 
+
 cats   = ['1b','2b']
 yaxis  = ['transfer factor (z#nu#nu SR/zee )','transfer factor (z#nu#nu SR/z#mu#mu )',\
         'transfer factor (wl#nu SR/we#nu )','transfer factor (wl#nu SR/w#mu#nu )',\

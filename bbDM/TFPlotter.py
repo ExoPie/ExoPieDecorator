@@ -34,6 +34,8 @@ def addMultiHistBinErr(f, HISTNAME,HISTNAMELIST):
     bins = mainHist.GetXaxis().GetNbins()
     for ih in HISTNAMELIST:
         h_temp = f.Get(ih)
+	print "checking for hist  ",ih 
+	print "integral ", h_temp.Integral()
         # h_temp.Add(mainHist,-1)
         hists.append(h_temp)
 
@@ -215,30 +217,6 @@ def DrawOverlap(histList, titleVec,legendtext,pngname,logstatus=[0,0],xRange=[-9
     
 
 
-print "calling the plotter"
-
-
-# infile = 'TF.root'
-# f=ROOT.TFile.Open(infile)
-# myhist='tf_2b_SR_zjets_to_2b_ZEE_dyjets'
-# hstatsUnc ='tf_2b_SR_zjets_to_2b_ZEE_dyjets_allbinUp'
-# hList = ['tf_2b_SR_zjets_to_2b_ZEE_dyjets_allbinUp','tf_2b_SR_zjets_to_2b_ZEE_dyjets_JECUp','tf_2b_SR_zjets_to_2b_ZEE_dyjets_PrefireUp']
-
-# statsHist      = addHistBinError(f,myhist,hstatsUnc)
-
-# statsSystHist  = addMultiHistBinErr(f,myhist,hList)
-# print "integral1", statsHist.Integral(), 'int2  ', statsSystHist.Integral()
-
-# # legend = ['TF(stats)','TF(stats+syst)']
-# # hists = [statsHist,statsSystHist]
-# legend = ['TF(stats+syst)','TF(stats)']
-# hists = [statsSystHist,statsHist]
-
-# xtitle='Recoil [GeV]'
-# ytitle='TF'
-# axistitle = [xtitle, ytitle]
-
-# DrawOverlap(hists,axistitle,legend,'test',[0,0],[200,1000])
 
 
 
@@ -247,6 +225,7 @@ def plotTF(infile,SR_BKG,CR_BKG,postfix,cats,yaxisTitle):
     for cat in cats:
         i=0
         for sr_bkg , cr_bkg in zip(SR_BKG,CR_BKG):
+	    
             histname     = "tf_"+cat+"_"+sr_bkg+"_to_"+cat+"_"+cr_bkg
             statsUncHist = histname+"_allbinUp"
             uncHists = []
@@ -256,6 +235,9 @@ def plotTF(infile,SR_BKG,CR_BKG,postfix,cats,yaxisTitle):
                 #     uncHists.append(UncHistname)
                 # else:
                 UncHistname = "tf_"+cat+"_"+sr_bkg+"_to_"+cat+"_"+cr_bkg+"_"+pf
+		if ("ZEE" in UncHistname or "WE" in UncHistname or "TOPE" in UncHistname) and "Mu" in UncHistname:continue
+                if ("ZMUMU" in UncHistname or "WMU" in UncHistname or "TOPMU" in UncHistname) and "Ele" in UncHistname:continue
+
                 uncHists.append(UncHistname)
 
             '''
@@ -266,7 +248,8 @@ def plotTF(infile,SR_BKG,CR_BKG,postfix,cats,yaxisTitle):
             ytitle=yaxisTitle[i]
             i+=1
             axistitle = [xtitle, ytitle]
-
+	    print "central histname", histname, "  statsUncHist",statsUncHist
+	    print "list of unc hists",uncHists
             TFHist_stats       = addHistBinError(f,histname,statsUncHist)
             TFHist_stats_syst  = addMultiHistBinErr(f,histname,uncHists)
 
