@@ -30,14 +30,14 @@ then
     # create cards
     #python RunLimits.py -c --model 2hdma_all --region "SR WE WMU ZEE ZMUMU" --category=sr1 --year ${year}
 #    python RunLimits.py -c --model 2hdma_all --region "SR TOPE TOPMU ZEE ZMUMU" --category=sr2 --year ${year}
-#    python prepareCards.py -c R  -m THDMa -reg SR TOPE TOPMU ZEE ZMUMU -y ${year}
-#    root -l -b -q PrepareWS_withnuisanceInvertTF_noW_nBins.C"(\"monoHbb\", \"R\", \"RECREATE\", \"AllMETHistos\", \"$rootfile\", \"${year}\", $nbins)"
-#    cp monoHbb_${year}_WS.root datacards_monoHbb_${year}/monoHbb_${year}_WS.root
+    python prepareCards.py -c R  -m THDMa -reg SR TOPE TOPMU ZEE ZMUMU -y ${year}
+    root -l -b -q PrepareWS_withnuisanceInvertTF_noW_nBins.C"(\"monoHbb\", \"R\", \"RECREATE\", \"AllMETHistos\", \"$rootfile\", \"${year}\", $nbins)"
+    cp monoHbb_${year}_WS.root datacards_monoHbb_${year}/monoHbb_${year}_WS.root
     #python RunLimits.py -c --model 2hdma_all --region "bbDM${year}_datacardslist_1b_2hdma_all.txt bbDM${year}_datacardslist_2b_2hdma_all.txt" --category=srall --year ${year}
     
     # run limits 
     #python RunLimits.py -A -L -v 0 -i bbDM${year}_datacardslist_1b_2hdma_all.txt --category=sr1 --postfix $postfix --savepdf --outlog="running limits for 1b"  --year ${year}
-    #python RunLimits.py -A -L -v 0 -i  monohbb${year}_datacardslist_R_combo_THDMa_all_ma600.txt --category=sr2 --postfix $postfix --savepdf --outlog="running limits for R"  --year ${year}
+    python RunLimits.py -A -L -v 0 -i  monohbb${year}_datacardslist_R_combo_THDMa_all_ma600.txt --category=sr2 --postfix $postfix --savepdf --outlog="running limits for R"  --year ${year}
     #python RunLimits.py -A -L -v 0 -i bbDM${year}_datacardslist_C_2hdma_all.txt --category=srall --postfix $postfix --savepdf --outlog="running limits for 1b+2b"  --year ${year}
     
     #python RunLimits.py  --savepdf --limitTextFile bin/$postfix/limits_monoHbb_2hdma_R_${year}.txt --outlog "saving pdf for Resolved" --category=sr2  --year ${year} 

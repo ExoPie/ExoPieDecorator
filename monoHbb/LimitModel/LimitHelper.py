@@ -182,7 +182,7 @@ class RunLimits:
         
         allparameters  = self.datacard_to_mparameters(logfile)
         print "allparameters:", allparameters
-        towrite =  str(allparameters[1])+" "+str(allparameters[0])+" "+expected25_+" "+expected16_+" "+ expected50_+" "+ expected84_+" "+ expected975_+" "+ observed_+"\n"
+        towrite =  str(allparameters[0])+" "+str(allparameters[1])+" "+expected25_+" "+expected16_+" "+ expected50_+" "+ expected84_+" "+ expected975_+" "+ observed_+"\n"
         
         print towrite
         os.system ("mkdir -p bin/"+self.postfix_)
