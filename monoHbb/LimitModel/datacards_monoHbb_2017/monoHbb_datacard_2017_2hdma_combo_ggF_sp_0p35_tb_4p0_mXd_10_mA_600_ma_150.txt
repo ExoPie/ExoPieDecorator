@@ -1,7 +1,7 @@
 Combination of sr=datacards_monoHbb_2017/monoHbb_datacard_2017_SR_R_ggF_sp_0p35_tb_4p0_mXd_10_mA_600_ma_150.txt  zee=datacards_monoHbb_2017/monoHbb_datacard_2017_ZEE_R.txt  zmumu=datacards_monoHbb_2017/monoHbb_datacard_2017_ZMUMU_R.txt  topmu=datacards_monoHbb_2017/monoHbb_datacard_2017_TOPMU_R.txt  tope=datacards_monoHbb_2017/monoHbb_datacard_2017_TOPE_R.txt
 imax 5 number of bins
 jmax 8 number of processes minus 1
-kmax * number of nuisance parameters
+kmax 49 number of nuisance parameters
 ----------------------------------------------------------------------------------------------------------------------------------
 shapes *       sr      datacards_monoHbb_2017/monoHbb_2017_WS.root ws_monoHbb_R_2017:monoHbb2017_R_SR_$PROCESS ws_monoHbb_R_2017:monoHbb2017_R_SR_$PROCESS_$SYSTEMATIC
 shapes tt      sr      datacards_monoHbb_2017/monoHbb_2017_WS.root ws_monoHbb_R_2017:rph_SR_tt_R_2017
