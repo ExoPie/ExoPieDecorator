@@ -9,6 +9,7 @@ echo $nbins
 
 #root -l -b -q PrepareWS_withnuisanceInvertTF_noW_8Bins.C"(\"bbDM\", \"1b\", \"RECREATE\", \"AllMETHistos\", \"$rootfile\", \"${year}\", $nbins)"
 #root -l -b -q PrepareWS_withnuisanceInvertTF_noW_nBins.C"(\"monoHbb\", \"R\", \"RECREATE\", \"AllMETHistos\", \"$rootfile\", \"${year}\", $nbins)"
+root -l -b -q PrepareWS_withnuisanceInvertTF_noW_nBins.C"(\"monoHbb\", \"B\", \"RECREATE\", \"AllMETHistos\", \"$rootfile\", \"${year}\", $nbins)"
 
 #root -l -b -q PrepareWS_withnuisanceInvertTF_noW_nBins.C"(\"bbDM\", \"2b_ML\", \"RECREATE\", \"AllMETHistos\", \"$rootfile\", \"${year}\", $nbins)"
 #python RunLimits.py -c --model 2hdma_all --region "SR TOPE TOPMU ZEE ZMUMU" --category=sr2 --year ${year}
@@ -39,7 +40,7 @@ then
     #python RunLimits.py -A -L -v 0 -i  monohbb${year}_datacardslist_R_combo_THDMa_all_ma600.txt --category=sr2 --postfix $postfix --savepdf --outlog="running limits for R"  --year ${year}
     #python RunLimits.py -A -L -v 0 -i bbDM${year}_datacardslist_C_2hdma_all.txt --category=srall --postfix $postfix --savepdf --outlog="running limits for 1b+2b"  --year ${year}
     
-    python RunLimits.py  --savepdf --limitTextFile bin/$postfix/limits_monoHbb_2hdma_R_${year}.txt --outlog "saving pdf for Resolved" --category=sr2  --year ${year} 
+    #python RunLimits.py  --savepdf --limitTextFile bin/$postfix/limits_monoHbb_2hdma_R_${year}.txt --outlog "saving pdf for Resolved" --category=sr2  --year ${year} 
 
     #python RunLimits.py --savepdf --limitTextFile bin/$postfix/limits_bbDM_${model}_1b_${year}.txt --outlog "saving pdf for 1b" --category=sr1  --year ${year} 
     #python RunLimits.py --savepdf --limitTextFile bin/$postfix/limits_bbDM_${model}_2b_${year}.txt --outlog "saving pdf for 2b" --category=sr2  --year ${year} 
