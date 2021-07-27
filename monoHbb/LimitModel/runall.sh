@@ -19,30 +19,31 @@ then
     
     #####################    #####################    #####################    #####################    #####################
     # create cards for resolved 
-    python prepareCards.py -c R  -m THDMa -reg SR TOPE TOPMU ZEE ZMUMU -y ${year}
+#    python prepareCards.py -c R  -m THDMa -reg SR TOPE TOPMU ZEE ZMUMU -y ${year}
     # create cards for boosted 
-    python prepareCards.py -c B  -m THDMa -reg SR TOPE TOPMU ZEE ZMUMU -y ${year}
+#    python prepareCards.py -c B  -m THDMa -reg SR TOPE TOPMU ZEE ZMUMU -y ${year}
     
     #####################    #####################    #####################    #####################    #####################
     ## create workspace for resolved 
-    root -l -b -q PrepareWS_withnuisanceInvertTF_noW_nBins.C"(\"monoHbb\", \"R\", \"RECREATE\", \"AllMETHistos\", \"$rootfile\", \"${year}\", $nbins)"
+#    root -l -b -q PrepareWS_withnuisanceInvertTF_noW_nBins.C"(\"monoHbb\", \"R\", \"RECREATE\", \"AllMETHistos\", \"$rootfile\", \"${year}\", $nbins)"
     ## create workspace for boosted 
-    root -l -b -q PrepareWS_withnuisanceInvertTF_noW_nBins.C"(\"monoHbb\", \"B\", \"UPDATE\", \"AllMETHistos\", \"$rootfile\", \"${year}\", $nbins)"
+ #   root -l -b -q PrepareWS_withnuisanceInvertTF_noW_nBins.C"(\"monoHbb\", \"B\", \"UPDATE\", \"AllMETHistos\", \"$rootfile\", \"${year}\", $nbins)"
     
     #####################    #####################    #####################    #####################    #####################
     ## copy the workspace 
-    #cp monoHbb_${year}_WS.root datacards_monoHbb_${year}/monoHbb_${year}_WS.root
+#    cp monoHbb_${year}_WS.root datacards_monoHbb_${year}/monoHbb_${year}_WS.root
     
     #####################    #####################    #####################    #####################    #####################
     ## run limits for resolved 
-    #python RunLimits.py -A -L -v 0 -i  monohbb${year}_datacardslist_R_allregion_THDMa_all_ma600.txt --category=sr2 --postfix $postfix --savepdf --outlog="running limits for R"  --year ${year}
-    ## run limits for boosted 
-    #python RunLimits.py -A -L -v 0 -i  monohbb${year}_datacardslist_B_allregion_THDMa_all_ma600.txt --category=sr1 --postfix $postfix --savepdf --outlog="running limits for B"  --year ${year}
+    python RunLimits.py -A -L -v 0 -i  monohbb${year}_datacardslist_R_allregion_THDMa_all_ma150.txt --category=sr2 --postfix $postfix --savepdf --outlog="running limits for R"  --year ${year}
+#    python RunLimits.py -A -L -v 0 -i  monohbb${year}_datacardslist_R_allregion_2hdma_all_2D.txt --category=sr2 --postfix $postfix --savepdf --outlog="running limits for R" --year ${year}
+   ## run limits for boosted 
+#    python RunLimits.py -A -L -v 0 -i  monohbb${year}_datacardslist_B_allregion_THDMa_all_ma150.txt --category=sr1 --postfix $postfix --savepdf --outlog="running limits for B"  --year ${year}
     
     
     ## create combination cards resolved + boosted 
-    #python RunLimits.py -c --model 2hdma_all --region "monohbb${year}_datacardslist_R_allregion_THDMa_all_ma600.txt monohbb${year}_datacardslist_B_region_THDMa_all_ma600.txt" --category=srall --year ${year}
-    #python RunLimits.py -A -L -v 0 -i bbDM${year}_datacardslist_C_2hdma_all.txt --category=srall --postfix $postfix --savepdf --outlog="running limits for R and B"  --year ${year} --model 2hdma_all
+#    python RunLimits.py -c --model 2hdma_all --region "monohbb${year}_datacardslist_B_allregion_THDMa_all_ma150.txt monohbb${year}_datacardslist_R_allregion_THDMa_all_ma150.txt" --category=srall --year ${year}
+#    python RunLimits.py -A -L -v 0 -i bbDM${year}_datacardslist_C_2hdma_all.txt --category=srall --postfix $postfix --savepdf --outlog="running limits for R and B"  --year ${year} --model 2hdma_all
 
 fi 
 

@@ -49,46 +49,46 @@ lumi                    lnN                 1.025                               
 norm_diboson            lnN                 -                                         -                                         1.2                                       -                                         -                                         -                                         -                                         -                                         -                                         -                                         1.2                                       -                                         -                                         -                                         -                                         -                                         -                                         -                                         1.2                                       -                                         -                                         -                                         -                                         -                                         -                                         -                                         1.2                                       -                                         -                                         -                                         -                                         -                                         -                                         -                                         1.2                                       -                                         -                                         -                                         -                                         -                                         -                                       
 norm_smh                lnN                 -                                         -                                         -                                         -                                         1.2                                       -                                         -                                         -                                         -                                         -                                         -                                         -                                         1.2                                       -                                         -                                         -                                         -                                         -                                         -                                         -                                         1.2                                       -                                         -                                         -                                         -                                         -                                         -                                         -                                         1.2                                       -                                         -                                         -                                         -                                         -                                         -                                         -                                         1.2                                       -                                         -                                         -                                         -                                       
 norm_stop               lnN                 -                                         -                                         -                                         -                                         -                                         1.1                                       -                                         -                                         -                                         -                                         -                                         -                                         -                                         1.1                                       -                                         -                                         -                                         -                                         -                                         -                                         -                                         1.1                                       -                                         -                                         -                                         -                                         -                                         -                                         -                                         1.1                                       -                                         -                                         -                                         -                                         -                                         -                                         -                                         1.1                                       -                                         -                                         -                                       
-CMS2017_MuISO  param  0.0 1
-CMS2017_prefire  param  0.0 1
-CMS2017_trig_ele  param  0.0 1
-rrv_CMS2017_stats_err_TOPMU_tt_R_bin4  param  0.0 1
-rrv_CMS2017_stats_err_TOPMU_tt_R_bin3  param  0.0 1
-rrv_CMS2017_stats_err_TOPMU_tt_R_bin2  param  0.0 1
-rrv_CMS2017_stats_err_TOPMU_tt_R_bin1  param  0.0 1
-CMS2017_MuID  param  0.0 1
-CMS2017_eff_b  param  0.0 1
-rrv_CMS2017_stats_err_ZMUMU_dyjets_R_bin1  param  0.0 1
-rrv_CMS2017_stats_err_ZMUMU_dyjets_R_bin3  param  0.0 1
-rrv_CMS2017_stats_err_ZMUMU_dyjets_R_bin2  param  0.0 1
-rrv_CMS2017_stats_err_ZMUMU_dyjets_R_bin4  param  0.0 1
-CMS2017_EleRECO  param  0.0 1
-rrv_CMS2017_stats_err_TOPE_tt_R_bin1  param  0.0 1
-rrv_CMS2017_stats_err_TOPE_tt_R_bin3  param  0.0 1
-rrv_CMS2017_stats_err_TOPE_tt_R_bin2  param  0.0 1
-rrv_CMS2017_stats_err_TOPE_tt_R_bin4  param  0.0 1
-CMS2017_EleID  param  0.0 1
 rrv_CMS2017_stats_err_ZEE_dyjets_R_bin4  param  0.0 1
 rrv_CMS2017_stats_err_ZEE_dyjets_R_bin1  param  0.0 1
-rrv_CMS2017_stats_err_ZEE_dyjets_R_bin3  param  0.0 1
 rrv_CMS2017_stats_err_ZEE_dyjets_R_bin2  param  0.0 1
-tf2_TOPE_tt_R_2017  flatParam
+rrv_CMS2017_stats_err_ZEE_dyjets_R_bin3  param  0.0 1
+rrv_CMS2017_stats_err_TOPMU_tt_R_bin4  param  0.0 1
+rrv_CMS2017_stats_err_TOPMU_tt_R_bin2  param  0.0 1
+rrv_CMS2017_stats_err_TOPMU_tt_R_bin3  param  0.0 1
+rrv_CMS2017_stats_err_TOPMU_tt_R_bin1  param  0.0 1
+CMS2017_eff_b  param  0.0 1
+CMS2017_EleID  param  0.0 1
+CMS2017_MuID  param  0.0 1
+CMS2017_prefire  param  0.0 1
+rrv_CMS2017_stats_err_ZMUMU_dyjets_R_bin4  param  0.0 1
+rrv_CMS2017_stats_err_ZMUMU_dyjets_R_bin1  param  0.0 1
+rrv_CMS2017_stats_err_ZMUMU_dyjets_R_bin2  param  0.0 1
+rrv_CMS2017_stats_err_ZMUMU_dyjets_R_bin3  param  0.0 1
+rrv_CMS2017_stats_err_TOPE_tt_R_bin4  param  0.0 1
+rrv_CMS2017_stats_err_TOPE_tt_R_bin2  param  0.0 1
+rrv_CMS2017_stats_err_TOPE_tt_R_bin3  param  0.0 1
+rrv_CMS2017_stats_err_TOPE_tt_R_bin1  param  0.0 1
+CMS2017_trig_ele  param  0.0 1
+CMS2017_EleRECO  param  0.0 1
+CMS2017_MuISO  param  0.0 1
 tf1_ZEE_dyjets_R_2017  flatParam
-rrvbc_SR_tt_R3_2017  flatParam
-rrvbc_SR_tt_R2_2017  flatParam
-tf4_ZEE_dyjets_R_2017  flatParam
-tf2_ZMUMU_dyjets_R_2017  flatParam
-rrvbc_SR_zjets_R3_2017  flatParam
-tf1_TOPE_tt_R_2017  flatParam
-rrvbc_SR_tt_R1_2017  flatParam
-tf2_ZEE_dyjets_R_2017  flatParam
 tf3_TOPE_tt_R_2017  flatParam
-tf4_ZMUMU_dyjets_R_2017  flatParam
-tf4_TOPE_tt_R_2017  flatParam
-rrvbc_SR_zjets_R4_2017  flatParam
-tf3_ZMUMU_dyjets_R_2017  flatParam
-rrvbc_SR_zjets_R1_2017  flatParam
 tf3_ZEE_dyjets_R_2017  flatParam
-rrvbc_SR_zjets_R2_2017  flatParam
+tf2_TOPE_tt_R_2017  flatParam
+tf4_TOPE_tt_R_2017  flatParam
+rrvbc_SR_tt_R1_2017  flatParam
+tf4_ZEE_dyjets_R_2017  flatParam
+rrvbc_SR_zjets_R3_2017  flatParam
+tf2_ZMUMU_dyjets_R_2017  flatParam
+rrvbc_SR_zjets_R1_2017  flatParam
+tf3_ZMUMU_dyjets_R_2017  flatParam
+rrvbc_SR_zjets_R4_2017  flatParam
 tf1_ZMUMU_dyjets_R_2017  flatParam
+rrvbc_SR_zjets_R2_2017  flatParam
+rrvbc_SR_tt_R2_2017  flatParam
 rrvbc_SR_tt_R4_2017  flatParam
+tf2_ZEE_dyjets_R_2017  flatParam
+tf4_ZMUMU_dyjets_R_2017  flatParam
+tf1_TOPE_tt_R_2017  flatParam
+rrvbc_SR_tt_R3_2017  flatParam

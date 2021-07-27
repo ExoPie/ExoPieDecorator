@@ -665,7 +665,6 @@ void PrepareWS_withnuisanceInvertTF_noW_nBins(TString model_="monoHbb",TString a
   nuisanceName.push_back(nuisancePostfix+"MuTRK");                nuisanceValue.push_back(0.03) ;   // 3
   nuisanceName.push_back(nuisancePostfix+"MuID");                 nuisanceValue.push_back(0.01) ;   // 4
   nuisanceName.push_back(nuisancePostfix+"MuISO");                nuisanceValue.push_back(0.01) ;   // 5
-
   nuisanceName.push_back(nuisancePostfix+"metTrig");              nuisanceValue.push_back(0.05) ;   // 6
   nuisanceName.push_back(nuisancePostfix+"prefire");            nuisanceValue.push_back(0.005) ;   // 7
   nuisanceName.push_back(nuisancePostfix+"eff_b");                nuisanceValue.push_back(0.005) ;   // 8
@@ -679,7 +678,7 @@ void PrepareWS_withnuisanceInvertTF_noW_nBins(TString model_="monoHbb",TString a
 
   std::vector<int> nuisIndex; nuisIndex.clear(); // this is the index of nuisances which are to be used for mu CR
 
-  if(anacat_=="R"){
+  if(anacat_=="R" | anacat_=="B" ){
     
   std::cout<<" calling function for Top mu: "<<AnaYearCat+"SR_tt"<<std::endl;
   TH1F* h_sr_top = (TH1F*) fin->Get(AnaYearCat+"SR_tt");
@@ -729,7 +728,7 @@ void PrepareWS_withnuisanceInvertTF_noW_nBins(TString model_="monoHbb",TString a
 
 
   std::cout<<" anacat_: "<<(anacat_=="B")<<std::endl;
-  if (anacat_=="B"){
+  if (anacat_==""){
   nuisIndex.clear();
   nuisIndex.push_back(0);
   nuisIndex.push_back(1);
@@ -983,19 +982,22 @@ void PrepareWS_withnuisanceInvertTF_noW_nBins(TString model_="monoHbb",TString a
   //open root file
 
 
-  ifstream testFile("monohbb2017_datacardslist_"+cat__+"_SR_THDMa_all.txt");
+  ifstream testFile("monohbb2017_datacardslist_"+cat__+"_SR_2hdma_all.txt");
+  std::cout<<"monika opening file "<<"monohbb2017_datacardslist_"+cat__+"_SR_THDMa_all.txt" <<std::endl;
   string line;
 
   while (testFile.good()){
+    std::cout<<"monika  file is good " <<std::endl;
+
     getline(testFile, line);  
     TString tmpname=line.c_str();
     TString tmpname_nuis =" ";
     if ((TH1F*) fin->Get(tmpname) == 0 ) {
-      std::cout<<" histogram: "<<  tmpname <<" does not exist"<<std::endl;
+      std::cout<<" monika Signal histogram: "<<  tmpname <<" does not exist"<<std::endl;
     }
 
     if ((TH1F*) fin->Get(line.c_str()) != 0 )  {                                                                                                                                
-      std::cout<<" histogram nuisance : "<<  tmpname <<" exist and saving "<<std::endl;
+      std::cout<<" monika histogram nuisance is good  : "<<  tmpname <<" exist and saving "<<std::endl;
       addTemplate(wspace, vars, (TH1F*) fin->Get(tmpname)  );
     }  
     // adding for nuisiances
@@ -1053,11 +1055,11 @@ void PrepareWS_withnuisanceInvertTF_noW_nBins(TString model_="monoHbb",TString a
 
   if (!usebkgsum){
     addTemplate(wspace, vars, (TH1F*) fin->Get(AnaYearCat+"SR_data_obs" ) );
-    if (anacat_=="R"){
+    if (anacat_=="R" | anacat_=="B"){
     addTemplate(wspace, vars, (TH1F*) fin->Get(AnaYearCat+"TOPE_data_obs" ) );
     addTemplate(wspace, vars, (TH1F*) fin->Get(AnaYearCat+"TOPMU_data_obs" ) );
     }
-    if (anacat_=="B"){
+    if (anacat_==""){
       addTemplate(wspace, vars, (TH1F*) fin->Get(AnaYearCat+"WE_data_obs" ) );
       addTemplate(wspace, vars, (TH1F*) fin->Get(AnaYearCat+"WMU_data_obs" ) );
     }
@@ -1082,8 +1084,8 @@ void PrepareWS_withnuisanceInvertTF_noW_nBins(TString model_="monoHbb",TString a
   regions.push_back("SR");
   regions.push_back("TOPE");
   regions.push_back("TOPMU");
-  regions.push_back("WE");
-  regions.push_back("WMU");
+  //regions.push_back("WE");
+  //regions.push_back("WMU");
   regions.push_back("ZEE");
   regions.push_back("ZMUMU");
 

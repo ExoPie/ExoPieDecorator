@@ -52,63 +52,63 @@ CMSYEAR_trig_ele param 0.0 1
 CMSYEAR_MuISO param  0.0 1
 CMSYEAR_eff_b param 0.0 1
 CMSYEAR_prefire param 0.0 1
-rrv_CMSYEAR_stats_err_TOPE_tt_R_bin1 param 0.0 1
-rrv_CMSYEAR_stats_err_TOPE_tt_R_bin2 param 0.0 1
-rrv_CMSYEAR_stats_err_TOPE_tt_R_bin3 param 0.0 1
-rrv_CMSYEAR_stats_err_TOPE_tt_R_bin4 param 0.0 1
-rrv_CMSYEAR_stats_err_TOPMU_tt_R_bin1 param 0.0 1
-rrv_CMSYEAR_stats_err_TOPMU_tt_R_bin2 param 0.0 1
-rrv_CMSYEAR_stats_err_TOPMU_tt_R_bin3 param 0.0 1
-rrv_CMSYEAR_stats_err_TOPMU_tt_R_bin4 param 0.0 1
-rrv_CMSYEAR_stats_err_ZEE_dyjets_R_bin1 param 0.0 1
-rrv_CMSYEAR_stats_err_ZEE_dyjets_R_bin2 param 0.0 1
-rrv_CMSYEAR_stats_err_ZEE_dyjets_R_bin3 param 0.0 1
-rrv_CMSYEAR_stats_err_ZEE_dyjets_R_bin4 param 0.0 1
-rrv_CMSYEAR_stats_err_ZMUMU_dyjets_R_bin1 param 0.0 1
-rrv_CMSYEAR_stats_err_ZMUMU_dyjets_R_bin2 param 0.0 1
-rrv_CMSYEAR_stats_err_ZMUMU_dyjets_R_bin3 param 0.0 1
-rrv_CMSYEAR_stats_err_ZMUMU_dyjets_R_bin4 param 0.0 1
+rrv_CMSYEAR_stats_err_TOPE_tt_'''+category+'''_bin1 param 0.0 1
+rrv_CMSYEAR_stats_err_TOPE_tt_'''+category+'''_bin2 param 0.0 1
+rrv_CMSYEAR_stats_err_TOPE_tt_'''+category+'''_bin3 param 0.0 1
+rrv_CMSYEAR_stats_err_TOPE_tt_'''+category+'''_bin4 param 0.0 1
+rrv_CMSYEAR_stats_err_TOPMU_tt_'''+category+'''_bin1 param 0.0 1
+rrv_CMSYEAR_stats_err_TOPMU_tt_'''+category+'''_bin2 param 0.0 1
+rrv_CMSYEAR_stats_err_TOPMU_tt_'''+category+'''_bin3 param 0.0 1
+rrv_CMSYEAR_stats_err_TOPMU_tt_'''+category+'''_bin4 param 0.0 1
+rrv_CMSYEAR_stats_err_ZEE_dyjets_'''+category+'''_bin1 param 0.0 1
+rrv_CMSYEAR_stats_err_ZEE_dyjets_'''+category+'''_bin2 param 0.0 1
+rrv_CMSYEAR_stats_err_ZEE_dyjets_'''+category+'''_bin3 param 0.0 1
+rrv_CMSYEAR_stats_err_ZEE_dyjets_'''+category+'''_bin4 param 0.0 1
+rrv_CMSYEAR_stats_err_ZMUMU_dyjets_'''+category+'''_bin1 param 0.0 1
+rrv_CMSYEAR_stats_err_ZMUMU_dyjets_'''+category+'''_bin2 param 0.0 1
+rrv_CMSYEAR_stats_err_ZMUMU_dyjets_'''+category+'''_bin3 param 0.0 1
+rrv_CMSYEAR_stats_err_ZMUMU_dyjets_'''+category+'''_bin4 param 0.0 1
 '''
 
     if reg =='ZMUMU':
         end_='''
-rrvbc_SR_zjets_R1_YEAR flatParam
-rrvbc_SR_zjets_R2_YEAR flatParam
-rrvbc_SR_zjets_R3_YEAR flatParam
-rrvbc_SR_zjets_R4_YEAR flatParam
-tf1_ZMUMU_dyjets_R_YEAR flatParam
-tf2_ZMUMU_dyjets_R_YEAR flatParam
-tf3_ZMUMU_dyjets_R_YEAR flatParam
-tf4_ZMUMU_dyjets_R_YEAR flatParam
+rrvbc_SR_zjets_'''+category+'''1_YEAR flatParam
+rrvbc_SR_zjets_'''+category+'''2_YEAR flatParam
+rrvbc_SR_zjets_'''+category+'''3_YEAR flatParam
+rrvbc_SR_zjets_'''+category+'''4_YEAR flatParam
+tf1_ZMUMU_dyjets_'''+category+'''_YEAR flatParam
+tf2_ZMUMU_dyjets_'''+category+'''_YEAR flatParam
+tf3_ZMUMU_dyjets_'''+category+'''_YEAR flatParam
+tf4_ZMUMU_dyjets_'''+category+'''_YEAR flatParam
 '''
     if reg =='ZEE':
         end_='''
-rrvbc_SR_zjets_R1_YEAR flatParam
-rrvbc_SR_zjets_R2_YEAR flatParam
-rrvbc_SR_zjets_R3_YEAR flatParam
-rrvbc_SR_zjets_R4_YEAR flatParam
-tf1_ZEE_dyjets_R_YEAR flatParam
-tf2_ZEE_dyjets_R_YEAR flatParam
-tf3_ZEE_dyjets_R_YEAR flatParam
-tf4_ZEE_dyjets_R_YEAR flatParam
+rrvbc_SR_zjets_'''+category+'''1_YEAR flatParam
+rrvbc_SR_zjets_'''+category+'''2_YEAR flatParam
+rrvbc_SR_zjets_'''+category+'''3_YEAR flatParam
+rrvbc_SR_zjets_'''+category+'''4_YEAR flatParam
+tf1_ZEE_dyjets_'''+category+'''_YEAR flatParam
+tf2_ZEE_dyjets_'''+category+'''_YEAR flatParam
+tf3_ZEE_dyjets_'''+category+'''_YEAR flatParam
+tf4_ZEE_dyjets_'''+category+'''_YEAR flatParam
 '''
     if reg =='TOPMU':
         end_='''  
-rrvbc_SR_tt_R1_YEAR flatParam
-rrvbc_SR_tt_R2_YEAR flatParam
-rrvbc_SR_tt_R3_YEAR flatParam
-rrvbc_SR_tt_R4_YEAR flatParam
+rrvbc_SR_tt_'''+category+'''1_YEAR flatParam
+rrvbc_SR_tt_'''+category+'''2_YEAR flatParam
+rrvbc_SR_tt_'''+category+'''3_YEAR flatParam
+rrvbc_SR_tt_'''+category+'''4_YEAR flatParam
 '''
     if reg =='TOPE':
         end_='''  
-tf1_TOPE_tt_R_YEAR flatParam
-tf2_TOPE_tt_R_YEAR flatParam
-tf3_TOPE_tt_R_YEAR flatParam
-tf4_TOPE_tt_R_YEAR flatParam
-rrvbc_SR_tt_R1_YEAR flatParam
-rrvbc_SR_tt_R2_YEAR flatParam
-rrvbc_SR_tt_R3_YEAR flatParam
-rrvbc_SR_tt_R4_YEAR flatParam
+tf1_TOPE_tt_'''+category+'''_YEAR flatParam
+tf2_TOPE_tt_'''+category+'''_YEAR flatParam
+tf3_TOPE_tt_'''+category+'''_YEAR flatParam
+tf4_TOPE_tt_'''+category+'''_YEAR flatParam
+rrvbc_SR_tt_'''+category+'''1_YEAR flatParam
+rrvbc_SR_tt_'''+category+'''2_YEAR flatParam
+rrvbc_SR_tt_'''+category+'''3_YEAR flatParam
+rrvbc_SR_tt_'''+category+'''4_YEAR flatParam
 '''
     if end_ =='' :
         print("Inside getEndPart fix end_")
@@ -445,7 +445,7 @@ if modelName == 'THDMa' :
     modelRename = '2hdma'
 
 
-monohbb_file='monohbb'+year+'_datacardslist_'+category+'_'+'combo_'+modelRename+'_all.txt'
+monohbb_file='monohbb'+year+'_datacardslist_'+category+'_'+'allregion_'+modelRename+'_all.txt'
 monohbb_file_SR='monohbb'+year+'_datacardslist_'+category+'_'+'SR_'+modelRename+'_all.txt'
 #monohbb_file='monohbb'+year+'_datacardslist_'+category+'_'+modelName+'_all.txt'
 
@@ -458,9 +458,9 @@ ftxt_SR= open(monohbb_file_SR,'w')
 for sigHist in getSignalHists(signalDoc,modelName):
     outfile_SR = 'monoHbb'+year+'_'+category+'_SR_'+sigHist
     srfile = 'monoHbb_datacard_'+year+'_SR_'+category+'_'+sigHist+'.txt'
-    outfile= 'monoHbb_datacard_'+year+'_'+modelRename+'_combo_'+sigHist+'.txt'
+    outfile= 'monoHbb_datacard_'+year+'_'+modelRename+'_'+category+'_allregion_'+sigHist+'.txt'
     # os.system('combineCards.py sr='+outdir+'/'+srfile+' zee='+outdir+'/monoHbb_datacard_2017_ZEE_R.txt  zmumu='+outdir+'/monoHbb_datacard_2017_ZMUMU_R.txt wmu='+outdir+'/monoHbb_datacard_2017_WMU_R.txt we='+outdir+'/monoHbb_datacard_2017_WE_R.txt topmu='+outdir+'/monoHbb_datacard_2017_TOPMU_R.txt tope='+outdir+'/monoHbb_datacard_2017_TOPE_R.txt >'+outdir+'/'+outfile)
-    os.system('combineCards.py sr='+outdir+'/'+srfile+' zee='+outdir+'/monoHbb_datacard_2017_ZEE_R.txt  zmumu='+outdir+'/monoHbb_datacard_2017_ZMUMU_R.txt topmu='+outdir+'/monoHbb_datacard_2017_TOPMU_R.txt tope='+outdir+'/monoHbb_datacard_2017_TOPE_R.txt >'+outdir+'/'+outfile)
+    os.system('combineCards.py sr='+outdir+'/'+srfile+' zee='+outdir+'/monoHbb_datacard_2017_ZEE_'+category+'.txt  zmumu='+outdir+'/monoHbb_datacard_2017_ZMUMU_'+category+'.txt topmu='+outdir+'/monoHbb_datacard_2017_TOPMU_'+category+'.txt tope='+outdir+'/monoHbb_datacard_2017_TOPE_'+category+'.txt >'+outdir+'/'+outfile)
     ftxt.write(outdir+'/'+outfile+' \n')
     ftxt_SR.write(outfile_SR+'\n')
     

@@ -146,8 +146,9 @@ class RunLimits:
         print ("LimitHelper.py::datacard_to_mparameters: ",analysis_, self.analysis_, self.model_, name_)
         
         if ("2hdma" in self.model_) and (analysis_ == self.analysis_):
-            mparameters_ = ((name_.split("combo")[1]).replace(".log","")).split("_")
+            mparameters_ = ((name_.split("allregion")[1]).replace(".log","")).split("_")
             mparameters_ = [mp.replace("p",".") for mp in mparameters_]
+            print ("mparameters_", mparameters_)
             ## ma, mA, tb, st, mdm
             return ([mparameters_[11], mparameters_[9], mparameters_[5], mparameters_[3], mparameters_[7]])
             
@@ -274,7 +275,7 @@ class RunLimits:
         exp2s.SetLineWidth(2)
         exp2s.SetFillColor(rt.kYellow);
         exp2s.SetLineColor(rt.kYellow)
-        exp2s.GetXaxis().SetTitle("m_{a} (GeV)");
+        exp2s.GetXaxis().SetTitle("m_{A} (GeV)");
         exp2s.GetYaxis().SetRangeUser(.1,yaxis)
         exp2s.GetXaxis().SetTitleOffset(1.1)
         #exp2s.GetYaxis().SetTitle("95% C.L. asymptotic limit on #mu=#sigma/#sigma_{theory}");
@@ -348,16 +349,16 @@ class RunLimits:
         CMS_lumi.CMS_lumi(c, iPeriod, iPos)
 
         category=""
-        if "_1b_" in rootfile: category="1b"
-        if "_2b_" in rootfile: category="2b"
-        if "combined" in rootfile: category="1b+2b"
+        if "_R_" in rootfile: category="Resolved"
+        if "_B_" in rootfile: category="Boosted"
+        if "combined" in rootfile: category="R+B"
         
         if "2hdma" in self.model_:
-            MA_="600"
-            latex.DrawLatex(0.20, 0.7, "bb+p_{T}^{miss}  "+category);
+            MA_="150"
+            latex.DrawLatex(0.20, 0.7, "mono-h bb "+category);
             latex.DrawLatex(0.20, 0.64, "2HDM+a");
-            latex.DrawLatex(0.15, 0.58, "m_{A}="+MA_+" GeV, tan#beta = 35"); #sin#theta = 0.7, m_{\chi} = 1 GeV");
-            latex.DrawLatex(0.15, 0.52, "sin#theta = 0.7, m_{\chi} = 1 GeV");
+            latex.DrawLatex(0.15, 0.58, "m_{a}="+MA_+" GeV, tan#beta = 1"); #sin#theta = 0.7, m_{\chi} = 1 GeV");
+            latex.DrawLatex(0.15, 0.52, "sin#theta = 0.35, m_{\chi} = 1 GeV");
 
         if "dmsimp" in self.model_:
             MA_="600"
