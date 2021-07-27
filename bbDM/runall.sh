@@ -7,8 +7,8 @@ model=$5
 echo $nbins
 
 
-#root -l -b -q PrepareWS_withnuisanceInvertTF_noW_6Bins.C"(\"bbDM\", \"1b\", \"RECREATE\", \"AllMETHistos\", \"$rootfile\", \"${year}\", $nbins)"
-root -l -b -q PrepareWS_withnuisanceInvertTF_noW_6Bins.C"(\"bbDM\", \"2b\", \"RECREATE\", \"AllMETHistos\", \"$rootfile\", \"${year}\", $nbins)"
+root -l -b -q PrepareWS_withnuisanceInvertTF_noW_nBins.C"(\"bbDM\", \"1b\", \"RECREATE\", \"AllMETHistos\", \"$rootfile\", \"${year}\", $nbins)"
+root -l -b -q PrepareWS_withnuisanceInvertTF_noW_nBins.C"(\"bbDM\", \"2b\", \"UPDATE\", \"AllMETHistos\", \"$rootfile\", \"${year}\", $nbins)"
 
 #root -l -b -q PrepareWS_withnuisanceInvertTF_noW_nBins.C"(\"bbDM\", \"2b_ML\", \"RECREATE\", \"AllMETHistos\", \"$rootfile\", \"${year}\", $nbins)"
 #python RunLimits.py -c --model 2hdma_all --region "SR TOPE TOPMU ZEE ZMUMU" --category=sr2 --year ${year}
@@ -27,14 +27,14 @@ then
     sleep 2
     
     # create cards
-#    python RunLimits.py -c --model 2hdma_all --region "SR WE WMU ZEE ZMUMU" --category=sr1 --year ${year}
+    python RunLimits.py -c --model 2hdma_all --region "SR WE WMU ZEE ZMUMU" --category=sr1 --year ${year}
     python RunLimits.py -c --model 2hdma_all --region "SR TOPE TOPMU ZEE ZMUMU" --category=sr2 --year ${year}
-    #python RunLimits.py -c --model 2hdma_all --region "bbDM${year}_datacardslist_1b_2hdma_all.txt bbDM${year}_datacardslist_2b_2hdma_all.txt" --category=srall --year ${year}
+    python RunLimits.py -c --model 2hdma_all --region "bbDM${year}_datacardslist_1b_2hdma_all.txt bbDM${year}_datacardslist_2b_2hdma_all.txt" --category=srall --year ${year}
     
     # run limits #
-#    python RunLimits.py -A -L -v 0 -i bbDM${year}_datacardslist_1b_2hdma_all.txt --category=sr1 --postfix $postfix --savepdf --outlog="running limits for 1b"  --year ${year}
+    python RunLimits.py -A -L -v 0 -i bbDM${year}_datacardslist_1b_2hdma_all.txt --category=sr1 --postfix $postfix --savepdf --outlog="running limits for 1b"  --year ${year}
     python RunLimits.py -A -L -v 0 -i bbDM${year}_datacardslist_2b_2hdma_all.txt --category=sr2 --postfix $postfix --savepdf --outlog="running limits for 2b"  --year ${year}
-    #python RunLimits.py -A -L -v 0 -i bbDM${year}_datacardslist_C_2hdma_all.txt --category=srall --postfix $postfix --savepdf --outlog="running limits for 1b+2b"  --year ${year}
+    python RunLimits.py -A -L -v 0 -i bbDM${year}_datacardslist_C_2hdma_all.txt --category=srall --postfix $postfix --savepdf --outlog="running limits for 1b+2b"  --year ${year}
 
     #python RunLimits.py --savepdf --limitTextFile bin/$postfix/limits_bbDM_${model}_1b_${year}.txt --outlog "saving pdf for 1b" --category=sr1  --year ${year} 
     #python RunLimits.py --savepdf --limitTextFile bin/$postfix/limits_bbDM_${model}_2b_${year}.txt --outlog "saving pdf for 2b" --category=sr2  --year ${year} 

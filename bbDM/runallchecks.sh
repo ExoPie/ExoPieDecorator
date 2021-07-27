@@ -1,9 +1,10 @@
 #dirname=$1
 #datacard=datacards_bbDM_2017/datacard_bbDM2017_2b_Merged_sp_0p7_tb_35_mXd_1_mA_600_ma_100.txt
-dirname=combotesting
-datacard=datacards_bbDM_2017/datacard_bbDM2017_2b_Merged_sp_0p7_tb_35_mXd_1_mA_600_ma_200.txt
-year=2017
-catg=2b
+dirname=checkscombo2016
+#datacard=datacards_bbDM_run2/datacard_bbDMrun2_C_Merged_sp_0p7_tb_35_mXd_1_mA_600_ma_100.txt
+datacard=datacards_bbDM_2016/datacard_bbDM2016_C_Merged_sp_0p7_tb_35_mXd_1_mA_600_ma_200.txt
+year=2016
+catg=C
 
 mode=asimov_t_0
 
@@ -55,8 +56,12 @@ plotImpacts.py -i  impacts_t1.json -o  ${dirname}/impacts_t1_${dirname}
 mode=fit_CRonly_result
 
 ## CR only fit pulls 
-combine -M FitDiagnostics -d $datacardws -n _${catg}_${year}_${mode}_${dirname}  --saveShapes --saveWithUncertainties --setParameters mask_SR=1 --X-rtd MINIMIZER_analytic --cminFallbackAlgo Minuit2,0:1.0
+combine -M FitDiagnostics -d $datacardws -n _${catg}_${year}_${mode}_${dirname}  --saveShapes --saveWithUncertainties --setParameters mask_SR=1,mask_cat_1b_SR=1,mask_cat_2b_SR=1 --X-rtd MINIMIZER_analytic --cminFallbackAlgo Minuit2,0:1.0
 root -l -b -q plotPostNuisance_combine.C\(\"fitDiagnostics_${catg}_${year}_${mode}_${dirname}.root\",\"${dirname}/\",\"${catg}_${year}_${mode}_${dirname}\"\)
+
+
+#combine -M FitDiagnostics -d $datacardws -n _${catg}_${year}_${mode}_${dirname}  --saveShapes --saveWithUncertainties --setParameters mask_SR=1,mask_d2016_cat_1b_SR=1,mask_d2016_cat_2b_SR=1,mask_d2017_cat_1b_SR=1,mask_d2017_cat_2b_SR=1,mask_d2018_cat_1b_SR=1,mask_d2018_cat_2b_SR=1, --X-rtd MINIMIZER_analytic --cminFallbackAlgo Minuit2,0:1.0
+
 
 ## CR only postfit summary plot  ## need to work on this one. 
 #python stackhist.py  fitDiagnostics_$catg_$year_$mode.root $catg $mode $year

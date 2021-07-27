@@ -182,10 +182,9 @@ xtitle='m_{A}[GeV]'
 ytitle='#mu'
 axistitle = [xtitle, ytitle]
 DrawOverlap(files,histoname1,axistitle,legend,'limit_B_R_C_2018',[0,1],[200,1700])
-'''
 
 
-'''
+
 files=['bin/limits_monoH_merged_2017.root', 'bin/limits_monoH_resolved_2017.root', 'bin/limits_monoH_combined_2017.root']
 legend=['resolved', 'merged', 'combined']
 
@@ -195,9 +194,8 @@ xtitle='m_{A}[GeV]'
 ytitle='#mu'
 axistitle = [xtitle, ytitle]
 DrawOverlap(files,histoname1,axistitle,legend,'limit_B_R_C_2017',[0,1],[200,1700])
-'''
 
-'''
+
 
 files=['bin/limits_bbDM_combined_2016_4bin.root', 'bin/limits_bbDM_combined_2016_binv2.root' , 'bin/limits_bbDM_combined_2016_binv3.root']
 legend=['4 bins', '5 bins V2', '5 bins V3']
@@ -208,8 +206,8 @@ xtitle='m_{A}[GeV]'
 ytitle='#mu'
 axistitle = [xtitle, ytitle]
 DrawOverlap(files,histoname1,axistitle,legend,'limit_2016_binOptimisation',[0,1],[10,1000])
-'''
-'''
+
+
 files=['bin/limits_bbDM_combined_2017_FixedSignalSamples.root', 'bin/limits_bbDM_2b_2017_MonoHCode.root']
 legend=['bb+DM', 'bb+DM with monoH f/w']
 
@@ -255,34 +253,47 @@ DrawOverlap(files,histoname1,axistitle,legend,'limit_bbDM_2016_comparison',[0,1]
 
 
 
+##dirname='bin/'
+##files=[dirname+'/AllMETHistos_v16_12-00-03_1bMET_2bCTS/limits_bbDM_2hdma_2b_2016.root', dirname+'/AllMETHistos_v17_12-00-03_1bMET_2bCTS/limits_bbDM_2hdma_2b_2017.root', dirname+'/AllMETHistos_v18_12-00-03_1bMET_2bCTS/limits_bbDM_2hdma_2b_2018.root',dirname+'/Run2Combo_2b/limits_bbDM_2hdma_2b_run2.root'] 
+##legend=['2016', '2017', '2018','run-2']
+##
+##histoname1=['expmed']
+##
+##xtitle='m_{A}[GeV]'
+##ytitle='#mu'
+##axistitle = [xtitle, ytitle]
+##DrawOverlap(files,histoname1,axistitle,legend,'limit_bbDM_2b_2hdma_run2_comparison',[0,1],[10,1000])
+##
+
+
+## 
+##dirname='bin/'
+##files=[dirname+'/AllMETHistos_v16_12-00-03_1bMET_2bCTS/limits_bbDM_1b_2016.root', dirname+'/AllMETHistos_v17_12-00-03_1bMET_2bCTS/limits_bbDM_1b_2017.root', dirname+'/AllMETHistos_v18_12-00-03_1bMET_2bCTS/limits_bbDM_1b_2018.root',dirname+'/Run2Combo_1b/limits_bbDM_1b_run2.root']
+##legend=['2016', '2017', '2018','run-2']
+##
+##histoname1=['expmed']
+##
+##xtitle='m_{A}[GeV]'
+##ytitle='#mu'
+##axistitle = [xtitle, ytitle]
+##DrawOverlap(files,histoname1,axistitle,legend,'limit_bbDM_1b_run2_comparison',[0,1],[10,1000])
+
+
+
 dirname='bin/'
-files=[dirname+'/AllMETHistos_v16_12-00-03_1bMET_2bCTS/limits_bbDM_2hdma_2b_2016.root', dirname+'/AllMETHistos_v17_12-00-03_1bMET_2bCTS/limits_bbDM_2hdma_2b_2017.root', dirname+'/AllMETHistos_v18_12-00-03_1bMET_2bCTS/limits_bbDM_2hdma_2b_2018.root',dirname+'/Run2Combo_2b/limits_bbDM_2hdma_2b_run2.root'] 
-legend=['2016', '2017', '2018','run-2']
+files=[dirname+'/AllMETHistos_v17_12-00-03_phoClean/limits_bbDM_2hdma_2b_2017.root', dirname+'/AllMETHistos_v17_12-00-03_genMCwgt/limits_bbDM_2hdma_2b_2017.root',dirname+'AllMETHistos_v17_12-00-04/limits_bbDM_2hdma_2b_2017.root']
+legend=['2017-pho-clean','2017-old-pho-veto', '2017-pho-clean_bjet_combi']
 
 histoname1=['expmed']
 
 xtitle='m_{A}[GeV]'
 ytitle='#mu'
 axistitle = [xtitle, ytitle]
-DrawOverlap(files,histoname1,axistitle,legend,'limit_bbDM_2b_2hdma_run2_comparison',[0,1],[10,1000])
+DrawOverlap(files,histoname1,axistitle,legend,'limit_bbDM_2b_2017_pho_clean_bjetcombinatorics',[0,1],[10,1000])
 
 
-
-
-dirname='bin/'
-files=[dirname+'/AllMETHistos_v16_12-00-03_1bMET_2bCTS/limits_bbDM_1b_2016.root', dirname+'/AllMETHistos_v17_12-00-03_1bMET_2bCTS/limits_bbDM_1b_2017.root', dirname+'/AllMETHistos_v18_12-00-03_1bMET_2bCTS/limits_bbDM_1b_2018.root',dirname+'/Run2Combo_1b/limits_bbDM_1b_run2.root']
-legend=['2016', '2017', '2018','run-2']
-
-histoname1=['expmed']
-
-xtitle='m_{A}[GeV]'
-ytitle='#mu'
-axistitle = [xtitle, ytitle]
-DrawOverlap(files,histoname1,axistitle,legend,'limit_bbDM_1b_run2_comparison',[0,1],[10,1000])
 
 '''
-
-
 files=["bin/AllMETHistos_v17_12-00-02_noBjetsCond_onlyZ__NO_WCR_In_The_Fit/limits_bbDM_2b_2017.root", "bin/AllMETHistos_v17_12-00-03_withBDT_binset2/limits_bbDM_2b_2017.root"]
 legend=["MET", "BDT"]
 
@@ -293,9 +304,7 @@ ytitle='#mu'
 axistitle = [xtitle, ytitle]
 DrawOverlap(files,histoname1,axistitle,legend,'limit_bbDM_MET_vs_BDT',[0,1],[10,1000])
 
-'''
 
-'''
 
 files=["AllMETHistos/AllMETHistos_v17_12_00_02.root"]
 legend=["tt in SR", "tt in Top CR", "tt in W CR"]

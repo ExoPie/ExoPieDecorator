@@ -7,17 +7,7 @@ model=$5
 echo $nbins
 
 
-#root -l -b -q PrepareWS_withnuisanceInvertTF_noW_8Bins.C"(\"bbDM\", \"1b\", \"RECREATE\", \"AllMETHistos\", \"$rootfile\", \"${year}\", $nbins)"
-#root -l -b -q PrepareWS_withnuisanceInvertTF_noW_nBins.C"(\"monoHbb\", \"R\", \"RECREATE\", \"AllMETHistos\", \"$rootfile\", \"${year}\", $nbins)"
-root -l -b -q PrepareWS_withnuisanceInvertTF_noW_nBins.C"(\"monoHbb\", \"B\", \"RECREATE\", \"AllMETHistos\", \"$rootfile\", \"${year}\", $nbins)"
 
-#root -l -b -q PrepareWS_withnuisanceInvertTF_noW_nBins.C"(\"bbDM\", \"2b_ML\", \"RECREATE\", \"AllMETHistos\", \"$rootfile\", \"${year}\", $nbins)"
-#python RunLimits.py -c --model 2hdma_all --region "SR TOPE TOPMU ZEE ZMUMU" --category=sr2 --year ${year}
-#cp bbDM_${year}_WS.root datacards_bbDM_${year}/bbDM_${year}_WS.root
-#python RunLimits.py -A -L -v 0 -i bbDM${year}_datacardslist_2b_ML_2hdma_all.txt --category=sr2 --postfix $postfix --savepdf --outlog="running limits for 2b"  --year ${year}
-
-
-#cp bbDM_${year}_WS.root datacards_bbDM_${year}/bbDM_${year}_WS.root
 
 
 
@@ -27,62 +17,36 @@ then
     echo "preparing datacards for :", $model
     #sleep 2
     
-    # create cards
-    #python RunLimits.py -c --model 2hdma_all --region "SR WE WMU ZEE ZMUMU" --category=sr1 --year ${year}
-#    python RunLimits.py -c --model 2hdma_all --region "SR TOPE TOPMU ZEE ZMUMU" --category=sr2 --year ${year}
+    #####################    #####################    #####################    #####################    #####################
+    # create cards for resolved 
     python prepareCards.py -c R  -m THDMa -reg SR TOPE TOPMU ZEE ZMUMU -y ${year}
+    # create cards for boosted 
+    python prepareCards.py -c B  -m THDMa -reg SR TOPE TOPMU ZEE ZMUMU -y ${year}
+    
+    #####################    #####################    #####################    #####################    #####################
+    ## create workspace for resolved 
     root -l -b -q PrepareWS_withnuisanceInvertTF_noW_nBins.C"(\"monoHbb\", \"R\", \"RECREATE\", \"AllMETHistos\", \"$rootfile\", \"${year}\", $nbins)"
-    cp monoHbb_${year}_WS.root datacards_monoHbb_${year}/monoHbb_${year}_WS.root
-    #python RunLimits.py -c --model 2hdma_all --region "bbDM${year}_datacardslist_1b_2hdma_all.txt bbDM${year}_datacardslist_2b_2hdma_all.txt" --category=srall --year ${year}
+    ## create workspace for boosted 
+    root -l -b -q PrepareWS_withnuisanceInvertTF_noW_nBins.C"(\"monoHbb\", \"B\", \"UPDATE\", \"AllMETHistos\", \"$rootfile\", \"${year}\", $nbins)"
     
-    # run limits 
-    #python RunLimits.py -A -L -v 0 -i bbDM${year}_datacardslist_1b_2hdma_all.txt --category=sr1 --postfix $postfix --savepdf --outlog="running limits for 1b"  --year ${year}
-    python RunLimits.py -A -L -v 0 -i  monohbb${year}_datacardslist_R_combo_THDMa_all_ma600.txt --category=sr2 --postfix $postfix --savepdf --outlog="running limits for R"  --year ${year}
-    #python RunLimits.py -A -L -v 0 -i bbDM${year}_datacardslist_C_2hdma_all.txt --category=srall --postfix $postfix --savepdf --outlog="running limits for 1b+2b"  --year ${year}
+    #####################    #####################    #####################    #####################    #####################
+    ## copy the workspace 
+    #cp monoHbb_${year}_WS.root datacards_monoHbb_${year}/monoHbb_${year}_WS.root
     
-    #python RunLimits.py  --savepdf --limitTextFile bin/$postfix/limits_monoHbb_2hdma_R_${year}.txt --outlog "saving pdf for Resolved" --category=sr2  --year ${year} 
-
-    #python RunLimits.py --savepdf --limitTextFile bin/$postfix/limits_bbDM_${model}_1b_${year}.txt --outlog "saving pdf for 1b" --category=sr1  --year ${year} 
-    #python RunLimits.py --savepdf --limitTextFile bin/$postfix/limits_bbDM_${model}_2b_${year}.txt --outlog "saving pdf for 2b" --category=sr2  --year ${year} 
-    #python RunLimits.py --savepdf --limitTextFile bin/$postfix/limits_bbDM_${model}_combined_${year}.txt --outlog "saving pdf for 1b+2b" --category=srall  --year ${year} 
+    #####################    #####################    #####################    #####################    #####################
+    ## run limits for resolved 
+    #python RunLimits.py -A -L -v 0 -i  monohbb${year}_datacardslist_R_allregion_THDMa_all_ma600.txt --category=sr2 --postfix $postfix --savepdf --outlog="running limits for R"  --year ${year}
+    ## run limits for boosted 
+    #python RunLimits.py -A -L -v 0 -i  monohbb${year}_datacardslist_B_allregion_THDMa_all_ma600.txt --category=sr1 --postfix $postfix --savepdf --outlog="running limits for B"  --year ${year}
+    
+    
+    ## create combination cards resolved + boosted 
+    #python RunLimits.py -c --model 2hdma_all --region "monohbb${year}_datacardslist_R_allregion_THDMa_all_ma600.txt monohbb${year}_datacardslist_B_region_THDMa_all_ma600.txt" --category=srall --year ${year}
+    #python RunLimits.py -A -L -v 0 -i bbDM${year}_datacardslist_C_2hdma_all.txt --category=srall --postfix $postfix --savepdf --outlog="running limits for R and B"  --year ${year} --model 2hdma_all
 
 fi 
 
 
-
-if  [[ $model == "dmsimp" ]] 
-then
-    echo "preparing datacards for :", $model
-    sleep 2
-    
-    # create cards
-    #python RunLimits.py -c --model dmsimp_all --region "SR WE WMU ZEE ZMUMU" --category=sr1 --year ${year}
-    #python RunLimits.py -c --model dmsimp_all --region "SR TOPE TOPMU ZEE ZMUMU" --category=sr2 --year ${year}
-    #python RunLimits.py -c --model dmsimp_all --region "bbDM${year}_datacardslist_1b_dmsimp_all.txt bbDM${year}_datacardslist_2b_dmsimp_all.txt" --category=srall --year ${year}
-
-    # run limits
-    #python RunLimits.py -A -L -v 0 -i bbDM${year}_datacardslist_1b_dmsimp_all.txt --category=sr1 --postfix $postfix --savepdf --outlog="running limits for 1b"  --year ${year} --model dmsimp_all
-    #python RunLimits.py -A -L -v 0 -i bbDM${year}_datacardslist_2b_dmsimp_all.txt --category=sr2 --postfix $postfix --savepdf --outlog="running limits for 2b"  --year ${year} --model dmsimp_all
-    #python RunLimits.py -A -L -v 0 -i bbDM${year}_datacardslist_C_dmsimp_all.txt --category=srall --postfix $postfix --savepdf --outlog="running limits for 1b+2b"  --year ${year} --model dmsimp_all
-
-    #python RunLimits.py --savepdf --limitTextFile bin/$postfix/limits_bbDM_${model}_all_1b_${year}.txt --outlog "saving pdf for 1b" --category=sr1  --year ${year} --model dmsimp
-    #python RunLimits.py --savepdf --limitTextFile bin/$postfix/limits_bbDM_${model}_all_2b_${year}.txt --outlog "saving pdf for 2b" --category=sr2  --year ${year} --model dmsimp
-    #python RunLimits.py --savepdf --limitTextFile bin/$postfix/limits_bbDM_${model}_all_combined_${year}.txt --outlog "saving pdf for 1b+2b" --category=srall  --year ${year} --model dmsimp
-
-fi
-
-
-
-#cp index.php plots_limit/$postfix
-#cp -r plots_limit/$postfix /afs/cern.ch/work/k/khurana/public/AnalysisStuff/bbDM/LimitStuff
-
-
-
-
-
-
-#python RunLimits.py --savepdf --limitTextFile bin/$postfix/limits_bbDM_2b_${year}.txt --outlog "saving pdf for 2b" --category=sr2  --year ${year}
-#python RunLimits.py --savepdf --limitTextFile bin/limits_bbDM_combined_${year}.txt --outlog "saving pdf for 1b+2b" --category=srall  --year ${year}
 
 
 
