@@ -69,10 +69,10 @@ JECHF_YEAR shape 1 - - 1 1 1 1	1
 JECRelativeBal shape 1 - - 1 1 1 1	1
 JECRelativeSample_YEAR shape 1 - -	1 1 1 1	1
 
-eff_bin1 shape 1 - - - - - - -
-eff_bin2 shape 1 - - - - - - -
-eff_bin3 shape 1 - - - - - - -
-eff_bin4 shape 1 - - - - - - -
+stat_bin1 shape 1 - - - - - - -
+stat_bin2 shape 1 - - - - - - -
+stat_bin3 shape 1 - - - - - - -
+stat_bin4 shape 1 - - - - - - -
 
 
 #wj_hf                   lnN     -            -        1.05       -          -          -      -       -  

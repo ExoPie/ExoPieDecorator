@@ -1,9 +1,9 @@
 #dirname=$1
 #datacard=datacards_bbDM_2017/datacard_bbDM2017_2b_Merged_sp_0p7_tb_35_mXd_1_mA_600_ma_100.txt
-dirname=checkscombo2016
+dirname=checkscombo2018
 #datacard=datacards_bbDM_run2/datacard_bbDMrun2_C_Merged_sp_0p7_tb_35_mXd_1_mA_600_ma_100.txt
-datacard=datacards_bbDM_2016/datacard_bbDM2016_C_Merged_sp_0p7_tb_35_mXd_1_mA_600_ma_200.txt
-year=2016
+datacard=datacards_bbDM_2018/datacard_bbDM2018_C_Merged_sp_0p7_tb_35_mXd_1_mA_600_ma_100.txt
+year=2018
 catg=C
 
 mode=asimov_t_0

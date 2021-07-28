@@ -4,7 +4,7 @@
 
 
 #sed -i 's/CMSYEAR_MuTRK/#CMSYEAR_MuTRK/g' *b_workspace.txt
-sed -i 's/CMS2017/CMSYEAR/g' *b_workspace.txt
+sed -i 's/eff_bin/stat_bin/g' *b_workspace.txt
 
 
 #sed -i 's/monoHbbYEAR/bbDMYEAR/g' *.txt

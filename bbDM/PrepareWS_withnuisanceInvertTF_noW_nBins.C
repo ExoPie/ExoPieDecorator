@@ -125,7 +125,7 @@ void plotSystPrefit(){
 
 
 std::vector<TH1F*> h_vec_tf;
-TFile* f_TF = new TFile("TF_v17_12-00-03_1bMET_2bCTS.root","READ");
+//TFile* f_TF = new TFile("TF_v17_12-00-03_1bMET_2bCTS.root","READ");
 
 std::vector<std::string> createnuisance(float value_,int  nbins, int nuisanceCounter){
   std::vector<std::string> logN_nuisance_vec;
@@ -436,6 +436,7 @@ void createRegion(RooRealVar met, TH1F* h_sr_bkg , TH1F* h_cr_bkg,
       std::vector<float> btaguncvec = GetBinContents(btagunc);
       add_logN_systematic = createnuisance(btaguncvec, nHistbins, syst_counter++);
       }*/
+    
     //for (int i =0; i<4; i++)  std::cout<<" add_logN_systematic = "<<add_logN_systematic[i]<<std::endl;
     rfv_bin1 += "*"+add_logN_systematic[0];
     rfv_bin2 += "*"+add_logN_systematic[1];
@@ -902,15 +903,15 @@ void PrepareWS_withnuisanceInvertTF_noW_nBins(TString model_="monoHbb",TString a
   nuisancesName.push_back("CMS"+year+"_prefireDown");
 
   // stats  only for signal for now
-  nuisancesName.push_back("eff_bin1Up");
-  nuisancesName.push_back("eff_bin2Up");
-  nuisancesName.push_back("eff_bin3Up");
-  nuisancesName.push_back("eff_bin4Up");
+  nuisancesName.push_back("stat_bin1Up");
+  nuisancesName.push_back("stat_bin2Up");
+  nuisancesName.push_back("stat_bin3Up");
+  nuisancesName.push_back("stat_bin4Up");
 
-  nuisancesName.push_back("eff_bin1Down");
-  nuisancesName.push_back("eff_bin2Down");
-  nuisancesName.push_back("eff_bin3Down");
-  nuisancesName.push_back("eff_bin4Down");
+  nuisancesName.push_back("stat_bin1Down");
+  nuisancesName.push_back("stat_bin2Down");
+  nuisancesName.push_back("stat_bin3Down");
+  nuisancesName.push_back("stat_bin4Down");
 
   
   //-------------------------------------------------//
