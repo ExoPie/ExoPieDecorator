@@ -29,7 +29,14 @@ process                               1        2           3           4        
 rate                                 -1        1         -1          -1       -1       -1    -1   
 ------------					        
 
-lumi                    lnN         1.025       -         1.025      1.025    1.025   1.025  1.025
+
+lumi_YEAR         lnN    LUMIVAL         -        LUMIVAL      LUMIVAL    LUMIVAL    LUMIVAL    LUMIVAL
+lumi_BeamCC       lnN    LUMIBCC         -        LUMIBCC      LUMIBCC    LUMIBCC    LUMIBCC    LUMIBCC
+lumi_BeamBE       lnN    LUMIBBE         -        LUMIBBE      LUMIBBE    LUMIBBE    LUMIBBE    LUMIBBE
+lumi_GhostS       lnN    LUMIGHS         -        LUMIGHS      LUMIGHS    LUMIGHS    LUMIGHS    LUMIGHS
+lumi_LengthS      lnN    LUMILS          -        LUMILS       LUMILS     LUMILS     LUMILS     LUMILS
+lumi_X_Y_Fact     lnN    LUMIXYF         -        LUMIXYF      LUMIXYF    LUMIXYF    LUMIXYF    LUMIXYF
+
 CMSYEAR_PU              shape         1       -         1      1    1   1  1 
 						        
 CMSYEAR_trig_met                shape          1       -          1      1     1    1   1

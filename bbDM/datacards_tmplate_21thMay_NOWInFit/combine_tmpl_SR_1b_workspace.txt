@@ -38,7 +38,15 @@ process          0        1        2        3        4               5       6  
 rate             -1       1       1       -1       -1             -1         -1    -1
 ------------
 
-lumi                    lnN    1.025         -        -         1.025        1.025    1.025    1.025    1.025
+
+lumi_YEAR         lnN    LUMIVAL         -           -    LUMIVAL     LUMIVAL    LUMIVAL    LUMIVAL    LUMIVAL
+lumi_BeamCC       lnN    LUMIBCC         -           -    LUMIBCC     LUMIBCC    LUMIBCC    LUMIBCC    LUMIBCC
+lumi_BeamBE       lnN    LUMIBBE         -           -    LUMIBBE     LUMIBBE    LUMIBBE    LUMIBBE    LUMIBBE
+lumi_GhostS       lnN    LUMIGHS         -           -    LUMIGHS     LUMIGHS    LUMIGHS    LUMIGHS    LUMIGHS
+lumi_LengthS      lnN    LUMILS          -           -    LUMILS      LUMILS     LUMILS     LUMILS     LUMILS
+lumi_X_Y_Fact     lnN    LUMIXYF         -           -    LUMIXYF     LUMIXYF    LUMIXYF    LUMIXYF    LUMIXYF
+
+
 CMSYEAR_PU        shape    1         -        -         1        1     1     1     1
 
 CMSYEAR_trig_met                shape    1 - - 1	1 1 1 1
@@ -50,7 +58,7 @@ CMSYEAR_fake_b          shape    1 - - 1      1      1     1     1
 CMSYEAR_EleID         shape     -            -        -         -          -          -      -       -   ## this is dummy for SR, it exist only for ele CRs 
 CMSYEAR_EleRECO       shape     -            -        -         -          -          -      -       -   ## this is dummy for SR, it exist only for ele CRs 
 
-#CMSYEAR_MuTRK         shape     -            -        -         -          -          -      -       -   ## this is dummy for SR, it exist only for mu CRs 
+MSYEAR_MuTRK         shape     -            -        -         -          -          -      -       -   ## this is dummy for SR, it exist only for mu CRs 
 CMSYEAR_MuID         shape     -            -        -         -          -          -      -       -   ## this is dummy for SR, it exist only for mu CRs 
 CMSYEAR_MuISO         shape     -            -        -         -          -          -      -       -   ## this is dummy for SR, it exist only for mu CRs 
 
@@ -69,14 +77,31 @@ JECHF_YEAR shape 1 - - 1 1 1 1	1
 JECRelativeBal shape 1 - - 1 1 1 1	1
 JECRelativeSample_YEAR shape 1 - -	1 1 1 1	1
 
-stat_bin1 shape 1 - - - - - - -
-stat_bin2 shape 1 - - - - - - -
-stat_bin3 shape 1 - - - - - - -
-stat_bin4 shape 1 - - - - - - -
+
+CMSYEAR_1b_SR_tt_stat_bin1 shape - - - 1 - - - -
+CMSYEAR_1b_SR_tt_stat_bin2 shape - - - 1 - - - -
+CMSYEAR_1b_SR_tt_stat_bin3 shape - - - 1 - - - -
+CMSYEAR_1b_SR_tt_stat_bin4 shape - - - 1 - - - -
+
+CMSYEAR_1b_SR_singlet_stat_bin1 shape - - - - 1 - - -
+CMSYEAR_1b_SR_singlet_stat_bin2 shape - - - - 1 - - -
+CMSYEAR_1b_SR_singlet_stat_bin3 shape - - - - 1 - - -
+CMSYEAR_1b_SR_singlet_stat_bin4 shape - - - - 1 - - -
+
+CMSYEAR_1b_SR_diboson_stat_bin1 shape - - - - - - 1 -
+CMSYEAR_1b_SR_diboson_stat_bin2 shape - - - - - - 1 -
+CMSYEAR_1b_SR_diboson_stat_bin3 shape - - - - - - 1 -
+CMSYEAR_1b_SR_diboson_stat_bin4 shape - - - - - - 1 -
+
+CMSYEAR_1b_SR_smh_stat_bin1 shape - - - - - - - 1
+CMSYEAR_1b_SR_smh_stat_bin2 shape - - - - - - - 1
+CMSYEAR_1b_SR_smh_stat_bin3 shape - - - - - - - 1
+CMSYEAR_1b_SR_smh_stat_bin4 shape - - - - - - - 1
 
 
-#wj_hf                   lnN     -            -        1.05       -          -          -      -       -  
-#zj_hf                   lnN     -            1.05        -       -          -          -      -       -  
+wj_hf                   lnN     -            -        1.07       -          -          -      -       -  
+zj_hf                   lnN     -            1.07        -       -          -          -      -       -  
+topReweighting          lnN     -            -		       	  -    	     1.10          -         -      -       -
 
 norm_stop               lnN     -            -        -         -          1.1       -      -         -
 norm_diboson            lnN     -            -        -         -          -         -      1.2       -

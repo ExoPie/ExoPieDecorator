@@ -28,7 +28,14 @@ process                                   tt        singlet        dyjets  dibos
 process                               1        2           3           4        5        
 rate                                 -1        -1         1          -1       -1           
 ------------					        
-lumi                    lnN               1.025     1.025     -       1.025   1.025 
+lumi_2016         lnN    1.01         1.01         -        1.01    1.01
+lumi_BeamCC       lnN    1.002         1.002         -        1.002    1.002
+lumi_BeamBE       lnN    1.0         1.0         -        1.0    1.0
+lumi_GhostS       lnN    1.001         1.001         -        1.001    1.001
+lumi_LengthS      lnN    1.003          1.003          -        1.003     1.003
+lumi_X_Y_Fact     lnN    1.005         1.005         -        1.005    1.005
+
+
 CMS2016_PU        shape               1      1     -    1   1 
 						        
 CMS2016_eff_b           shape                1            1      -       -       1    
@@ -41,7 +48,7 @@ CMS2016_trig_ele                shape                 1       1     -      1    
 CMS2016_EleID         shape                  1     1       -       1      1     
 CMS2016_EleRECO         shape                  1     1       -       1      1   
 
-#CMS2016_MuTRK         shape                   -        -         -          -          -     
+CMS2016_MuTRK         shape                   -        -         -          -          -     
 CMS2016_MuISO         shape                   -        -         -          -          -     
 CMS2016_MuID         shape                   -        -         -          -          -     
 

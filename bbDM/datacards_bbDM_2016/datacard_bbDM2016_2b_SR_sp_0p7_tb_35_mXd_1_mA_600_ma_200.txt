@@ -38,7 +38,13 @@ process          0        1        2        3        4               5       6  
 rate             -1       1       -1       1       -1             -1         -1    -1
 ------------
 
-lumi                    lnN    1.025         -        1.025         -        1.025    1.025    1.025    1.025
+lumi_2016         lnN    1.01         -        1.01         -        1.01    1.01    1.01    1.01
+lumi_BeamCC       lnN    1.002         -        1.002         -        1.002    1.002    1.002    1.002
+lumi_BeamBE       lnN    1.0         -        1.0         -        1.0    1.0    1.0    1.0
+lumi_GhostS       lnN    1.001         -        1.001         -        1.001    1.001    1.001    1.001
+lumi_LengthS      lnN    1.003          -        1.003          -        1.003     1.003     1.003     1.003
+lumi_X_Y_Fact     lnN    1.005         -        1.005         -        1.005    1.005    1.005    1.005
+
 CMS2016_PU        shape    1         -        1         -        1     1     1     1
 
 CMS2016_trig_met                shape    1 - 1 -	1 1 1 1
@@ -50,7 +56,7 @@ CMS2016_fake_b          shape    1 - 1 -      1      1     1     1
 CMS2016_EleID         shape     -            -        -         -          -          -      -       -   ## this is dummy for SR, it exist only for ele CRs 
 CMS2016_EleRECO       shape     -            -        -         -          -          -      -       -   ## this is dummy for SR, it exist only for ele CRs 
 
-#CMS2016_MuTRK         shape     -            -        -         -          -          -      -       -   ## this is dummy for SR, it exist only for mu CRs 
+CMS2016_MuTRK         shape     -            -        -         -          -          -      -       -   ## this is dummy for SR, it exist only for mu CRs 
 CMS2016_MuID         shape     -            -        -         -          -          -      -       -   ## this is dummy for SR, it exist only for mu CRs 
 CMS2016_MuISO shape     -            -        -         -          -          -      -       -
 CMS2016_veto_tau     lnN    1.03        -    1.03  -        1.03      1.03     1.03     1.03
@@ -73,6 +79,8 @@ stat_bin1 shape 1 - - - - - - -
 stat_bin2 shape 1 - - - - - - -
 stat_bin3 shape 1 - - - - - - -
 stat_bin4 shape 1 - - - - - - -
+
+bbb_
 
 
 #wj_hf                   lnN     -            -        1.05       -          -          -      -       -  
@@ -102,7 +110,7 @@ CMS2016_qcd_norm        lnN - - - - - 1.5 - -
 #CMS2016_EleTrig	param  0.0 1
 CMS2016_EleRECO param  0.0 1
 CMS2016_EleID param  0.0 1
-#CMS2016_MuTRK param  0.0 1
+CMS2016_MuTRK param  0.0 1
 CMS2016_MuID param  0.0 1
 CMS2016_trig_ele param 0.0 1
 CMS2016_MuISO param  0.0 1

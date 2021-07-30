@@ -6,6 +6,13 @@ import ROOT as rt
 import argparse
 import csv 
 import describe as dcb
+
+
+import yaml
+f = open('systematicsDict.yaml') 
+doc = yaml.safe_load(f)
+
+
 class RunLimits:
     ''' class to perform all tasks related to the limits once datacards are prepared '''
     ''' this class exepcts that all the steps needed to prepare the datacards and prepration of its inputs are already performed '''
@@ -135,6 +142,24 @@ class RunLimits:
             iline = iline.replace("YEAR",year)
             iline = iline.replace("_CATEGORY",category)
             iline = iline.replace("CATEGFULL",catefull)
+            
+            ## Lumi nuisance 
+            yearstr="y"+year
+            iline = iline.replace("LUMIVAL",str(doc["LUMIVAL"][yearstr]))
+            iline = iline.replace("LUMIBCC",str(doc["LUMIBCC"][yearstr]))
+            iline = iline.replace("LUMIBBE",str(doc["LUMIBBE"][yearstr]))
+            iline = iline.replace("LUMIGHS",str(doc["LUMIGHS"][yearstr]))
+            iline = iline.replace("LUMILS", str(doc["LUMILS"][yearstr]) )
+            iline = iline.replace("LUMIXYF",str(doc["LUMIXYF"][yearstr]))
+            
+            ## mu TRK nuisance , needed only for 2016, not applicable to 2017 and 18 
+            iline = iline.replace("MUTRACKVAL",str(doc["MUTRACKVAL"][yearstr]) )
+            if year != "2016": iline = iline.replace("CMS"+year+"_MuTRK","##CMSYEAR_MuTRK param")
+            
+            ## prefiring, to be applied only for 16 and 17, not applicable to 18. 
+            
+            
+                
             
             fout.write(iline)
         fout.close()

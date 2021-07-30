@@ -28,7 +28,16 @@ process                                   tt        singlet        dyjets  dibos
 process                               1        2           3           4        5        
 rate                                 -1        -1         1          -1       -1           
 ------------					        
-lumi                    lnN               1.025     1.025     -       1.025   1.025 
+
+------------
+lumi_2017         lnN    1.02         1.02         -        1.02    1.02
+lumi_BeamCC       lnN    1.003         1.003         -        1.003    1.003
+lumi_BeamBE       lnN    1.006         1.006         -        1.006    1.006
+lumi_GhostS       lnN    1.003         1.003         -        1.003    1.003
+lumi_LengthS      lnN    1.003          1.003          -        1.003     1.003
+lumi_X_Y_Fact     lnN    1.003         1.003         -        1.003    1.003
+
+
 CMS2017_PU        shape               1      1     -    1   1 
 						        
 CMS2017_eff_b           shape                1            1      -       -       1    
@@ -41,7 +50,7 @@ CMS2017_trig_ele                shape                 1       1     -      1    
 CMS2017_EleID         shape                  1     1       -       1      1     
 CMS2017_EleRECO         shape                  1     1       -       1      1   
 
-#CMS2017_MuTRK         shape                   -        -         -          -          -     
+##CMSYEAR_MuTRK param         shape                   -        -         -          -          -     
 CMS2017_MuID         shape                   -        -         -          -          -     
 CMS2017_MuISO         shape                   -        -         -          -          -     
 
@@ -59,8 +68,9 @@ JECHF_2017 shape 1 1 -	1 1
 JECRelativeBal shape 1 1 -	1 1
 JECRelativeSample_2017 shape 1 1 -	1 1
 
-#wj_hf                   lnN                   -        -       -          -          -     
-#zj_hf                   lnN                   -        -           1.05          -   -
+wj_hf                   lnN                   -        -       -          -          -     
+zj_hf                   lnN                   -        -           1.07          -   -
+topReweighting		        lnN   	                     1.10	   - - - -
 
 norm_stop               lnN                -         1.1        -       -          -           
 norm_diboson            lnN               -          -         -        1.2        -
@@ -76,6 +86,27 @@ CMS2017_qcd_norm lnN - - - - -
 
 
 #CMS2017_eff_t           lnN                1.03       1.03      1.03     1.03  1.03 
+
+CMS2017_1b_ZEE_tt_stat_bin1 shape 1 - - - -
+CMS2017_1b_ZEE_tt_stat_bin2 shape 1 - - - -
+CMS2017_1b_ZEE_tt_stat_bin3 shape 1 - - - -
+CMS2017_1b_ZEE_tt_stat_bin4 shape 1 - - - -
+
+CMS2017_1b_ZEE_singlet_stat_bin1 shape - 1 - - -
+CMS2017_1b_ZEE_singlet_stat_bin2 shape - 1 - - -
+CMS2017_1b_ZEE_singlet_stat_bin3 shape - 1 - - -
+CMS2017_1b_ZEE_singlet_stat_bin4 shape - 1 - - -
+
+CMS2017_1b_ZEE_diboson_stat_bin1 shape  - - - 1 -
+CMS2017_1b_ZEE_diboson_stat_bin2 shape  - - - 1 -
+CMS2017_1b_ZEE_diboson_stat_bin3 shape  - - - 1 -
+CMS2017_1b_ZEE_diboson_stat_bin4 shape  - - - 1 -
+
+CMS2017_1b_ZEE_smh_stat_bin1 shape  - - - - 1
+CMS2017_1b_ZEE_smh_stat_bin2 shape  - - - - 1
+CMS2017_1b_ZEE_smh_stat_bin3 shape  - - - - 1
+CMS2017_1b_ZEE_smh_stat_bin4 shape  - - - - 1
+
 
 
 rrvbc_SR_zjets_1b1_2017 flatParam

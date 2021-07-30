@@ -81,9 +81,13 @@ std::vector<float> GetBinContents(TH1F* h){
 
 
 
-void addTemplate(RooWorkspace& ws,  RooArgList& vars, TH1F* hist) {
+void addTemplate(RooWorkspace& ws,  RooArgList& vars, TH1F* hist, TString outhistnamestat="") {
   std::cout<<" name = "<<hist->GetName()<<std::endl;
-  RooDataHist rhist(hist->GetName(), hist->GetName(),  vars, hist);
+  if (outhistnamestat.IsNull()){
+    outhistnamestat=hist->GetName();
+  }
+  RooDataHist rhist(outhistnamestat, outhistnamestat,  vars, hist);
+  
   std::cout<<" integral of the histogram for "<<hist->GetName()<<" is "<<rhist.sumEntries()<<"  "<<hist->Integral()<<" bins: "<<hist->GetNbinsX()<<std::endl;
   for (int ibin=1; ibin<hist->GetXaxis()->GetNbins()+1 ;ibin++){
     if (hist->GetBinContent(ibin)<=0) std::cout<<" histogram: "<<hist->GetName()<<" has negative bin content"<<ibin<<" "<<hist->GetBinContent(ibin)<<endl;
@@ -1079,7 +1083,8 @@ void PrepareWS_withnuisanceInvertTF_noW_nBins(TString model_="monoHbb",TString a
   category.push_back(AnaYearCat);
 
   TString tempname;
-
+  TString outhistnamestat;
+  outhistnamestat="";
   for (auto inuis=0; inuis<nuisancesName.size(); inuis++){
     for (auto ir=0; ir<regions.size(); ir++){
 
@@ -1088,16 +1093,30 @@ void PrepareWS_withnuisanceInvertTF_noW_nBins(TString model_="monoHbb",TString a
 	for (auto ic=0; ic<category.size(); ic++){
 	  //if (process[ip] == "wjets" && ( (regions[ir] =="WE") || (regions[ir] =="WMU") ) ) continue ;
 	  //if (process[ip] == "tt" && ( (regions[ir] =="TOPE") || (regions[ir] =="TOPMU") ) ) continue ;
-
+	  
+	  
 	  tempname = category[ic] + regions[ir] + "_" +  process[ip] ;
-	  if (nuisancesName[inuis]!="") tempname = tempname  + "_" +nuisancesName[inuis];
+	  
+	  //outhistnamestat=tempname;
+	  //if (nuisancesName[inuis].Contains("stat_")){
+	  //  outhistnamestat = category[ic] + regions[ir] + "_" +  process[ip] + "_" + regions[ir] + "_" +  process[ip];
+	  // }
+	  
+	  if (nuisancesName[inuis]!="") {
+	    tempname = tempname  + "_" +nuisancesName[inuis];
+	    
+	    outhistnamestat=tempname;
+	    if (nuisancesName[inuis].Contains("stat_")){
+	      outhistnamestat.ReplaceAll(nuisancesName[inuis], "CMS"+year+"_"+anacat_+"_"+regions[ir] + "_" +  process[ip] + "_" + nuisancesName[inuis]);
+	    }
+	  }
 	  if ((TH1F*) fin->Get(tempname) == 0 ) {
 	    std::cout<<" histogram : "<< 	tempname <<" does not exist"<<std::endl;
 	  }
 
 	  if ((TH1F*) fin->Get(tempname) != 0 )  {
-	    std::cout<<" histogram : "<<  tempname <<" exist and saving "<<std::endl;
-	    addTemplate(wspace, vars, (TH1F*) fin->Get(tempname)  );
+	    std::cout<<" histogram : "<<  tempname <<" exist and saving "<<outhistnamestat<<std::endl;
+	    addTemplate(wspace, vars, (TH1F*) fin->Get(tempname)  ,outhistnamestat);
 	  }
 	  std::cout<<" ........ saved"<<std::endl;
 

@@ -44,7 +44,7 @@ CMS2017_fake_b          shape           -       1       1      1      1    1    
 CMS2017_EleID         shape     -            -        -         -          -          -      -         ## this is dummy for SR, it exist only for ele CRs
 CMS2017_EleRECO         shape     -            -        -         -          -          -      -         ## this is dummy for SR, it exist only for ele CRs
 
-#CMS2017_MuTRK         shape     -        1        1         1          1          1      1 
+##CMSYEAR_MuTRK param         shape     -        1        1         1          1          1      1 
 CMS2017_MuID         shape     -        1        1         1          1          1      1 
 CMS2017_MuISO         shape     -        1        1         1          1          1      1 
 
@@ -62,8 +62,11 @@ JECHF_2017 shape - 1 1 1 1 1 1
 JECRelativeBal shape - 1 1 1 1 1 1
 JECRelativeSample_2017 shape - 1 1      1 1 1 1
 
-#wj_hf                   lnN     1.05         -        -       -          -          -      -       
-#zj_hf                   lnN     -            -        -       -          1.05          -      -      
+wj_hf                   lnN                   1.07   -   -        -       -          -          -
+zj_hf                   lnN		      	           - - - - 1.07 - -
+topReweighting          lnN                   - 1.10 - - - - -
+
+
 
 norm_stop               lnN           -         -         1.1        -       -          -            -
 norm_diboson            lnN           -        -          -         -        -          1.2         - 
@@ -78,6 +81,28 @@ CMS2017_mu_scale shape - - -    - - - 1
 CMS2017_qcd_norm  lnN - - - 1.5 - - -
 #CMS2017_eff_met         lnN    1.04        1.04     1.04       1.04       1.04      1.04     1.04     
 #CMS2017_eff_t           lnN    1.03        1.03     1.03       1.03       1.03      1.03     1.03    
+
+
+CMS2017_1b_WMU_tt_stat_bin1 shape - 1 - - - - -
+CMS2017_1b_WMU_tt_stat_bin2 shape - 1 - - - - -
+CMS2017_1b_WMU_tt_stat_bin3 shape - 1 - - - - -
+CMS2017_1b_WMU_tt_stat_bin4 shape - 1 - - - - -
+
+CMS2017_1b_WMU_singlet_stat_bin1 shape - - 1 - - - -
+CMS2017_1b_WMU_singlet_stat_bin2 shape - - 1 - - - -
+CMS2017_1b_WMU_singlet_stat_bin3 shape - - 1 - - - -
+CMS2017_1b_WMU_singlet_stat_bin4 shape - - 1 - - - -
+
+
+CMS2017_1b_WMU_diboson_stat_bin1 shape  - - - - - 1 -
+CMS2017_1b_WMU_diboson_stat_bin2 shape  - - - - - 1 -
+CMS2017_1b_WMU_diboson_stat_bin3 shape  - - - - - 1 -
+CMS2017_1b_WMU_diboson_stat_bin4 shape  - - - - - 1 -
+
+CMS2017_1b_WMU_smh_stat_bin1 shape  - - - - - - 1
+CMS2017_1b_WMU_smh_stat_bin2 shape  - - - - - - 1
+CMS2017_1b_WMU_smh_stat_bin3 shape  - - - - - - 1
+CMS2017_1b_WMU_smh_stat_bin4 shape  - - - - - - 1
 
 rrvbc_SR_wjets_1b1_2017 flatParam
 rrvbc_SR_wjets_1b2_2017 flatParam

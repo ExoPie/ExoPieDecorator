@@ -29,7 +29,14 @@ process                               1        2           3           4        
 rate                                 -1        1         -1          -1       -1       -1    -1   
 ------------					        
 
-lumi                    lnN         1.025       -         1.025      1.025    1.025   1.025  1.025
+lumi_2017         lnN    1.02         -        1.02      1.02    1.02    1.02    1.02
+lumi_BeamCC       lnN    1.003         -        1.003      1.003    1.003    1.003    1.003
+lumi_BeamBE       lnN    1.006         -        1.006      1.006    1.006    1.006    1.006
+lumi_GhostS       lnN    1.003         -        1.003      1.003    1.003    1.003    1.003
+lumi_LengthS      lnN    1.003          -        1.003       1.003     1.003     1.003     1.003
+lumi_X_Y_Fact     lnN    1.003         -        1.003      1.003    1.003    1.003    1.003
+
+
 CMS2017_PU              shape         1       -         1      1    1   1  1 
 
 CMS2017_trig_met        shape          -       -          -      -     -    -   -
@@ -41,7 +48,7 @@ CMS2017_fake_b          shape          1       -      1       1     1  1 1
 CMS2017_EleID           shape           1        -     1       1       1      1     1     
 CMS2017_EleRECO         shape           1        -     1       1       1      1     1     
 
-#CMS2017_MuTRK           shape           -            -        -         -          -          -      -
+##CMSYEAR_MuTRK param           shape           -            -        -         -          -          -      -
 CMS2017_MuISO           shape           -            -        -         -          -          -      -
 CMS2017_MuID            shape           -            -        -         -          -          -      -
 
@@ -59,9 +66,10 @@ JECRelativeBal shape 1 - 1 1 1 1 1
 JECRelativeSample_2017 shape 1 - 1      1 1 1 1
 CMS2017_prefire shape 1 - 1      1 1 1 1
 
+wj_hf                   lnN                   1.07 - - - - - -
+zj_hf                   lnN                   - - - - 1.07 - -
+topReweighting          lnN                   - 1.10 - - - - -
 
-#wj_hf                   lnN           1.05         -        -       -          -          -      -
-#zj_hf                   lnN           -            -        -       -          1.05          -      -
 
 norm_stop               lnN           -         -         1.1        -       -          -            -
 norm_diboson            lnN           -        -          -         -        -          1.2         -
@@ -78,6 +86,29 @@ CMS2017_qcd_norm     lnN - - - 1.5 - - -
 
 
 #CMS2017_eff_met         lnN           1.04        1.04     1.04       1.04       1.04      1.04     1.04
+
+
+CMS2017_2b_TOPE_wjets_stat_bin1 shape 1 - - - - - -
+CMS2017_2b_TOPE_wjets_stat_bin2 shape 1 - - - - - -
+CMS2017_2b_TOPE_wjets_stat_bin3 shape 1 - - - - - -
+CMS2017_2b_TOPE_wjets_stat_bin4 shape 1 - - - - - -
+
+CMS2017_2b_TOPE_singlet_stat_bin1 shape - - 1 - - - - 
+CMS2017_2b_TOPE_singlet_stat_bin2 shape - - 1 - - - - 
+CMS2017_2b_TOPE_singlet_stat_bin3 shape - - 1 - - - - 
+CMS2017_2b_TOPE_singlet_stat_bin4 shape - - 1 - - - - 
+
+
+CMS2017_2b_TOPE_diboson_stat_bin1 shape  - - - - - 1 -
+CMS2017_2b_TOPE_diboson_stat_bin2 shape  - - - - - 1 -
+CMS2017_2b_TOPE_diboson_stat_bin3 shape  - - - - - 1 -
+CMS2017_2b_TOPE_diboson_stat_bin4 shape  - - - - - 1 -
+
+CMS2017_2b_TOPE_smh_stat_bin1 shape  - - - - - - 1
+CMS2017_2b_TOPE_smh_stat_bin2 shape  - - - - - - 1
+CMS2017_2b_TOPE_smh_stat_bin3 shape  - - - - - - 1
+CMS2017_2b_TOPE_smh_stat_bin4 shape  - - - - - - 1
+
 
 tf1_TOPE_tt_2b_2017 flatParam
 tf2_TOPE_tt_2b_2017 flatParam
