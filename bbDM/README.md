@@ -91,5 +91,3 @@ combine -M FitDiagnostics --saveShapes --abs --all --plots datacard.txt
 ```
 
 
-## MonoH combination 2016 setup is at /afs/cern.ch/work/k/khurana/monoHSignalProduction/genproductions/bin/MadGraph5_aMCatNLO/testgridpack/CMSSW_7_4_5/src/MonoHCombination
- 
