@@ -1,6 +1,14 @@
-source runall.sh AllMETHistos_v16_12-00-04.root 2016 AllMETHistos_v16_12-00-04 4 2hdma
-source runall.sh AllMETHistos_v17_12-00-04.root 2017 AllMETHistos_v17_12-00-04 4 2hdma 
-source runall.sh AllMETHistos_v18_12-00-04.root 2018 AllMETHistos_v18_12-00-04 4 2hdma
+#source runall.sh AllMETHistos_v17_12-02-01.root 2017 AllMETHistos_v17_12-02-01 4 2hdma 
+source runall.sh AllMETHistos_v16_12-02-01.root 2016 AllMETHistos_v16_12-02-01 4 2hdma 
+#source runall.sh AllMETHistos_v17_12-01-01_updatePDF.root 2017 AllMETHistos_v17_12-01-01_updatePDF 4 2hdma
+
+
+
+### used for AN V5
+###source runall.sh AllMETHistos_v16_12-00-04.root 2016 AllMETHistos_v16_12-00-04 4 2hdma
+###source runall.sh AllMETHistos_v17_12-00-04.root 2017 AllMETHistos_v17_12-00-04 4 2hdma 
+###source runall.sh AllMETHistos_v18_12-00-04.root 2018 AllMETHistos_v18_12-00-04 4 2hdma
+###python combine_run2.py
 
 
 #source runall.sh AllMETHistos_v16_12-00-03_1bMET_2bCTS_MuPdfNorm.root 2016 AllMETHistos_v16_12-00-03_1bMET_2bCTS_MuPdfNorm 4 2hdma

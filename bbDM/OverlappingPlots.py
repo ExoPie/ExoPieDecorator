@@ -293,6 +293,22 @@ DrawOverlap(files,histoname1,axistitle,legend,'limit_bbDM_2b_2017_pho_clean_bjet
 
 
 
+
+
+
+dirname='bin/'
+files=[dirname+'/v17_12-00-04_pfMetCorrPt/limits_bbDM_2hdma_2b_2017.root', dirname+'/AllMETHistos_v17_12-00-04/limits_bbDM_2hdma_2b_2017.root']
+legend=['FV6', 'V5']
+
+histoname1=['expmed']
+
+xtitle='m_{A}[GeV]'
+ytitle='#mu'
+axistitle = [xtitle, ytitle]
+DrawOverlap(files,histoname1,axistitle,legend,'limit_bbDM_2b_2017_v5_vs_v6',[0,1],[10,1000])
+
+
+
 '''
 files=["bin/AllMETHistos_v17_12-00-02_noBjetsCond_onlyZ__NO_WCR_In_The_Fit/limits_bbDM_2b_2017.root", "bin/AllMETHistos_v17_12-00-03_withBDT_binset2/limits_bbDM_2b_2017.root"]
 legend=["MET", "BDT"]

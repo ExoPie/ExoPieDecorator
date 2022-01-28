@@ -7,10 +7,10 @@
 // Renamed to PlotPulls.C to integrate in the limits package: Raman Khurana
 // add commandline option to avoid editing the code any further : Raman Khurana 
 // added .png file for html viewing 
-
+// added multi canvas : Deepak
 
 // using  a weird default name so that code crash in cse a correct rootfile is not provided 
-void PlotPulls(TString filename="pulls_none.root", TString outdir="", TString postfix_=""){ 
+void PlotPulls(TString filename="pulls_none.root", TString outdir="", TString postfix_="",int numberOfCanvas=2){ 
   
   TString plotdir = outdir;
     TFile file(filename,"READ");
@@ -20,10 +20,14 @@ void PlotPulls(TString filename="pulls_none.root", TString outdir="", TString po
     c->SetBottomMargin(0.35);
     gStyle->SetOptStat(0);
     gStyle->SetOptTitle(0);
+    //c->GetXaxis->SetRangeUser(0,5)
     
     TH1F *h1 = (TH1F*)c->GetPrimitive("prefit_nuisancs");
     h1->LabelsOption("v");
-    
+    //h1->SetAxisRange(0, 5, "X");
+    //cout << "print " << endl;
+    //cout << " testing " << h1->GetXaxis()->GetNbins()  << endl;
+    int numberOfNuisance = h1->GetXaxis()->GetNbins();
     TLegend leg1 = TLegend(0.6, 0.74, 0.89, 0.89);
     TLegend *leg2 = (TLegend*)(c->GetPrimitive("TPave"));
     leg1.Copy(*leg2);
@@ -76,12 +80,43 @@ void PlotPulls(TString filename="pulls_none.root", TString outdir="", TString po
     pt1->Draw();
     pt2->Draw();
     pt3->Draw();
+
+    //int numberOfCanvas = 2 ; 
+    int nuisanceRange = numberOfNuisance/numberOfCanvas;
+    for (int i =1 ; i < numberOfCanvas+1 ; i++)
+	{
+	int dummy = 0;
+	string postfix= to_string(i);
+	string prefix= to_string(i-1);
+	int last = nuisanceRange * i;
+	int start = nuisanceRange * ( i -1 );
+	cout << "start  "  << start << "  last  " << last << endl;
+	if (i==1) {
+		h1->SetAxisRange(start, last, "X");
+		}
+	if (i!=1 && i < numberOfCanvas) {
+		h1->SetAxisRange(start+1, last, "X");
+		}
+	if (i == numberOfCanvas){
+		h1->SetAxisRange(start+1, numberOfNuisance+1, "X");
+		}
+	c->Update();
+        c->Modified();
+	c->SaveAs(plotdir+filename.ReplaceAll(".root","_"+postfix+"_.pdf").ReplaceAll("_"+prefix+"_",""));
+	c->SaveAs(plotdir+filename.ReplaceAll(".pdf",".png"));
+	c->SaveAs(plotdir+filename.ReplaceAll(".png",".root"));
+	
+	}
+
+    //h1->SetAxisRange(0, 15, "X");
+   
+    //c->Update();
+    //c->Modified();
     
-    c->Update();
-    c->Modified();
-    
-    c->SaveAs(plotdir+filename.ReplaceAll(".root",".pdf"));
-    c->SaveAs(plotdir+filename.ReplaceAll(".pdf",".png"));
-    c->SaveAs(plotdir+filename.ReplaceAll(".png",".root"));
-    c->SaveAs(plotdir+filename.ReplaceAll(".root",".C"));
+    //c->SaveAs(plotdir+filename.ReplaceAll(".root",".pdf"));
+    //c->SaveAs(plotdir+filename.ReplaceAll(".pdf",".png"));
+    //c->SaveAs(plotdir+filename.ReplaceAll(".png",".root"));
+    //c->SaveAs(plotdir+filename.ReplaceAll(".root",".C"));
+
+
 }

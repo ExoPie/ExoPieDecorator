@@ -44,7 +44,7 @@ CMSYEAR_PU        shape               1      1     -    1   1
 CMSYEAR_trig_met                shape                1          1      -     1    1  
 CMSYEAR_trig_ele                shape                 -       -     -      -        -
 
-CMSYEAR_eff_b           shape                1            1      -       -       1    
+CMSYEAR_eff_b           shape                1            1      -       1       1    
 CMSYEAR_fake_b          shape                1      1        -      1  1 
 
 CMSYEAR_EleID         shape                   -        -         -          -          -     
@@ -70,7 +70,7 @@ JECRelativeSample_YEAR shape 1 1 -	1 1
 
 wj_hf                   lnN                   -        -       -          -          -
 zj_hf                   lnN                   -        -           1.07          -   -
-topReweighting          lnN                   1.10 - - - -
+CMSYEAR_topReweighting          lnN                   TOPPTRWGHTVAL - - - -
 
 
 norm_stop               lnN                -         1.1        -       -          -           
@@ -86,7 +86,7 @@ norm_smh                 lnN               -          -        -        -       
 CMSYEAR_pdf shape  - -	       - - 1
 CMSYEAR_mu_scale shape	       - -     - - 1
 
-CMSYEAR_qcd_norm lnN - - - - -
+CMSYEAR_qcd_norm_mu lnN - - - - -
 #CMSYEAR_eff_t           lnN                1.03       1.03      1.03     1.03  1.03 
 #CMSYEAR_eff_met         lnN                  1.04     1.04       1.04       1.04      1.04    
 

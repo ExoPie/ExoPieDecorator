@@ -88,14 +88,14 @@ void addTemplate(RooWorkspace& ws,  RooArgList& vars, TH1F* hist, TString outhis
   }
   RooDataHist rhist(outhistnamestat, outhistnamestat,  vars, hist);
   
-  std::cout<<" integral of the histogram for "<<hist->GetName()<<" is "<<rhist.sumEntries()<<"  "<<hist->Integral()<<" bins: "<<hist->GetNbinsX()<<std::endl;
+  //std::cout<<" integral of the histogram for "<<hist->GetName()<<" is "<<rhist.sumEntries()<<"  "<<hist->Integral()<<" bins: "<<hist->GetNbinsX()<<std::endl;
   for (int ibin=1; ibin<hist->GetXaxis()->GetNbins()+1 ;ibin++){
     if (hist->GetBinContent(ibin)<=0) std::cout<<" histogram: "<<hist->GetName()<<" has negative bin content"<<ibin<<" "<<hist->GetBinContent(ibin)<<endl;
-    std::cout<<" binning histogram: "<<hist->GetName()
-	     <<" ibin: "<<ibin
-	     <<" lowedge: "<<hist->GetBinLowEdge(ibin)
-	     <<" bin content "<<hist->GetBinContent(ibin)
-	     <<std::endl;
+    //std::cout<<" binning histogram: "<<hist->GetName()
+    //	     <<" ibin: "<<ibin
+    //	     <<" lowedge: "<<hist->GetBinLowEdge(ibin)
+    //	     <<" bin content "<<hist->GetBinContent(ibin)
+    //	     <<std::endl;
   }
   ws.import(rhist);
 }
@@ -111,7 +111,7 @@ std::vector <RooRealVar> GetRooRealVar(std::vector<float>  bcs, TString name, TS
     postfix.Form("%d", i+1);
     // fix the naming here using some automation  and also in the next function
 
-    std::cout<<" name inside GetRooRealVar = "<<name+postfix<<std::endl;
+    //std::cout<<" name inside GetRooRealVar = "<<name+postfix<<std::endl;
     rrvV_.push_back(RooRealVar(name+postfix+"_"+year,"Background yield in signal region, bin 1", bcs[i], 0.02*bcs[i], 10*bcs[i]));
 
   }
@@ -187,8 +187,11 @@ void createRegion(RooRealVar met, TH1F* h_sr_bkg , TH1F* h_cr_bkg,
 		  std::vector<int> nuisIndex, std::vector<TString> nuisanceName,
 		  std::vector<float> nuisanceValue,
 		  TString anacat_,
-		  TString year_){
-
+		  TString year_,
+		  TFile* fIn_,
+		  TString crname){
+  
+  TString anacat_orig=anacat_;
   anacat_ = "_"+anacat_;
   RooArgList vars(met);
 
@@ -273,6 +276,7 @@ void createRegion(RooRealVar met, TH1F* h_sr_bkg , TH1F* h_cr_bkg,
   // writing this to the root file for presentation purpose.
   h_vec_tf.push_back(htf_cr_bkg);
 
+  /* 
   std::cout<<" ratio "<< htf_cr_bkg->GetBinContent(1)
 	   <<" "<<htf_cr_bkg->GetBinContent(2)
 	   <<" "<<htf_cr_bkg->GetBinContent(3)
@@ -289,7 +293,7 @@ void createRegion(RooRealVar met, TH1F* h_sr_bkg , TH1F* h_cr_bkg,
 	   <<" "<<h_cr_bkg->GetBinContent(4)
 	   <<std::endl   ;
 
-
+  */
   // Get bin content of each bin of this ratio histogram and save it in the RooRealVar which will be used later for the Actual Transfer Factor with effect of Nuisance parameters included
   // idelaly each of these rooreal var in following vector should be setConstat(1) otherwise it may be treated as free parameter however it should be fixed.
   std::vector <float> bincontents_htf_cr_bkg =  GetBinContents(htf_cr_bkg);
@@ -328,16 +332,35 @@ void createRegion(RooRealVar met, TH1F* h_sr_bkg , TH1F* h_cr_bkg,
 
 
   std::vector<float> tf_stats_err_vector;   tf_stats_err_vector.clear();
+  // updated stats error from root file
+  TString stats_err_hist_name = anacat_orig+"/"+crname+"/"+"allbin";
+  std::cout<<" ---------------- stats_err_hist_name: "<<stats_err_hist_name<<std::endl;
+  TH1F* stats_error_ = (TH1F*)fIn_->Get(stats_err_hist_name);
+  tf_stats_err_vector.push_back(stats_error_->GetBinContent(1));
+  tf_stats_err_vector.push_back(stats_error_->GetBinContent(2));
+  tf_stats_err_vector.push_back(stats_error_->GetBinContent(3));
+  tf_stats_err_vector.push_back(stats_error_->GetBinContent(4));
+
+  if (nHistbins>=5 ) tf_stats_err_vector.push_back(stats_error_->GetBinContent(5));
+  if (nHistbins>=6 ) tf_stats_err_vector.push_back(stats_error_->GetBinContent(6));
+  if (nHistbins>=7 ) tf_stats_err_vector.push_back(stats_error_->GetBinContent(7));
+  if (nHistbins>=8 ) tf_stats_err_vector.push_back(stats_error_->GetBinContent(8));
+
+  
+  /*
   tf_stats_err_vector.push_back(htf_cr_bkg->GetBinError(1) / htf_cr_bkg->GetBinContent(1) ) ;
   tf_stats_err_vector.push_back(htf_cr_bkg->GetBinError(2) / htf_cr_bkg->GetBinContent(2) ) ;
   tf_stats_err_vector.push_back(htf_cr_bkg->GetBinError(3) / htf_cr_bkg->GetBinContent(3) ) ;
   tf_stats_err_vector.push_back(htf_cr_bkg->GetBinError(4) / htf_cr_bkg->GetBinContent(4) ) ;
 
+
   if (nHistbins>=5 ) tf_stats_err_vector.push_back(htf_cr_bkg->GetBinError(5) / htf_cr_bkg->GetBinContent(5) ) ;
   if (nHistbins>=6 ) tf_stats_err_vector.push_back(htf_cr_bkg->GetBinError(6) / htf_cr_bkg->GetBinContent(6) ) ;
   if (nHistbins>=7 ) tf_stats_err_vector.push_back(htf_cr_bkg->GetBinError(7) / htf_cr_bkg->GetBinContent(7) ) ;
   if (nHistbins>=8 ) tf_stats_err_vector.push_back(htf_cr_bkg->GetBinError(8) / htf_cr_bkg->GetBinContent(8) ) ;
-
+  */
+  
+  /*
   std::cout<<" tf stats errors "
 	   <<" "<<tf_stats_err_vector[0]
 	   <<" "<<tf_stats_err_vector[1]
@@ -346,7 +369,7 @@ void createRegion(RooRealVar met, TH1F* h_sr_bkg , TH1F* h_cr_bkg,
 	   <<" "<<tf_stats_err_vector[4]
 	   <<" nHistbins: "<<nHistbins
 	   <<std::endl;
-
+  */
 
 
   int syst_counter = 0;
@@ -428,19 +451,29 @@ void createRegion(RooRealVar met, TH1F* h_sr_bkg , TH1F* h_cr_bkg,
   //RooRealVar* rrv_syst_bin2;
   //RooRealVar* rrv_syst_bin3;
   //RooRealVar* rrv_syst_bin4;
+  
+  std::cout<<" number of nuisances : "<<nuisIndex.size()<<std::endl;
+  
   for (int isys=0; isys < (int) nuisIndex.size(); isys++){
     std::vector<std::string> add_logN_systematic ;
+    
     add_logN_systematic.clear();
     
-    add_logN_systematic = createnuisance(nuisanceValue[nuisIndex[isys]], nHistbins, syst_counter++);                                                                              
     
-    /*if (nuisIndex[isys] != 8) add_logN_systematic = createnuisance(nuisanceValue[nuisIndex[isys]], nHistbins, syst_counter++);
-    if (nuisIndex[isys] == 8) {
-      TH1F* btagunc = (TH1F*) f_TF->Get("Unc_tf_2b_SR_zjets_to_2b_ZEE_dyjets_CMS2017_eff_bUp");
+    if (nuisIndex[isys]>16 ){
+    add_logN_systematic = createnuisance(nuisanceValue[nuisIndex[isys]], nHistbins, syst_counter++);                                                                              
+  }
+    
+    /*if (nuisIndex[isys] != 8) add_logN_systematic = createnuisance(nuisanceValue[nuisIndex[isys]], nHistbins, syst_counter++);*/
+    if (nuisIndex[isys] <=16 ) { // this will take value from the histogram NOT the flat value in vector. 
+      add_logN_systematic.clear();
+      
+      std::cout<<"------------------systematic name: "<<isys<<"  "<<nuisIndex[isys]<<" "<<anacat_orig+"/"+crname+"/"+nuisanceName[nuisIndex[isys]]<<std::endl;
+      TH1F* btagunc = (TH1F*) fIn_->Get(anacat_orig+"/"+crname+"/"+nuisanceName[nuisIndex[isys]]);
       std::vector<float> btaguncvec = GetBinContents(btagunc);
       add_logN_systematic = createnuisance(btaguncvec, nHistbins, syst_counter++);
-      }*/
-    
+    }
+  
     //for (int i =0; i<4; i++)  std::cout<<" add_logN_systematic = "<<add_logN_systematic[i]<<std::endl;
     rfv_bin1 += "*"+add_logN_systematic[0];
     rfv_bin2 += "*"+add_logN_systematic[1];
@@ -537,15 +570,13 @@ void createRegion(RooRealVar met, TH1F* h_sr_bkg , TH1F* h_cr_bkg,
   //if (nHistbins>=8 ) ral_cr_bkg.add(rfv_cr_bkg8);
 
 
-  std::cout<<" before rph "<<std::endl;
   RooParametricHist rph_cr_bkg("rph_"+region_proc_cr+anacat_+"_"+year_, "Background PDF in control region",met,ral_cr_bkg, *h_sr_data);
   RooAddition rph_cr_bkg_norm("rph_"+region_proc_cr+anacat_+"_"+year_+"_norm","Total Number of events from background in control region", ral_cr_bkg);
 
-  std::cout<<" before rph import "<<std::endl;
   wspace.import(rph_cr_bkg);
-  std::cout<<" before rph norm import"<<std::endl;
   wspace.import(rph_cr_bkg_norm ,RooFit::RecycleConflictNodes());
-
+  
+  std::cout<<" workspace for one CR is imported. "<<std::endl;
 
 
 
@@ -665,17 +696,32 @@ void PrepareWS_withnuisanceInvertTF_noW_nBins(TString model_="monoHbb",TString a
   
   nuisanceName.push_back(nuisancePostfix+"trig_ele");             nuisanceValue.push_back(0.02) ;  //  0
   nuisanceName.push_back(nuisancePostfix+"EleRECO");              nuisanceValue.push_back(0.01) ;  //  1
-  nuisanceName.push_back(nuisancePostfix+"EleID");                nuisanceValue.push_back(0.02) ;  //  2
+  nuisanceName.push_back(nuisancePostfix+"EleID");                nuisanceValue.push_back(0.07) ;  //  2
 
   nuisanceName.push_back(nuisancePostfix+"MuTRK");                nuisanceValue.push_back(0.03) ;   // 3
   nuisanceName.push_back(nuisancePostfix+"MuID");                 nuisanceValue.push_back(0.01) ;   // 4
   nuisanceName.push_back(nuisancePostfix+"MuISO");                nuisanceValue.push_back(0.01) ;   // 5
 
-  nuisanceName.push_back(nuisancePostfix+"metTrig");              nuisanceValue.push_back(0.05) ;   // 6
-  nuisanceName.push_back(nuisancePostfix+"prefire");            nuisanceValue.push_back(0.005) ;   // 7
-  nuisanceName.push_back(nuisancePostfix+"eff_b");                nuisanceValue.push_back(0.005) ;   // 8
+  nuisanceName.push_back(nuisancePostfix+"metTrig");              nuisanceValue.push_back(0.01) ;   // 6
+  nuisanceName.push_back(nuisancePostfix+"prefire");              nuisanceValue.push_back(0.01) ;   // 7
+  nuisanceName.push_back(nuisancePostfix+"eff_b");                nuisanceValue.push_back(0.10) ;   // 8
 
+  nuisanceName.push_back("JECAbsolute");          nuisanceValue.push_back(0.01); // 9
+  nuisanceName.push_back("JECFlavorQCD");         nuisanceValue.push_back(0.01); // 10
+  nuisanceName.push_back("JECBBEC1");             nuisanceValue.push_back(0.01); // 11
+  nuisanceName.push_back("JECRelativeBal");   nuisanceValue.push_back(0.01); // 12
 
+  nuisanceName.push_back("JECAbsolute_"+year);   nuisanceValue.push_back(0.01); // 13
+  nuisanceName.push_back("JECRelativeSample_"+year);   nuisanceValue.push_back(0.01); // 14
+  
+  nuisanceName.push_back(nuisancePostfix+"pdf"); nuisanceValue.push_back(0.10); // 15 
+  nuisanceName.push_back(nuisancePostfix+"mu_scale"); nuisanceValue.push_back(0.10); // 16 
+				   
+  
+  /*nuisanceName.push_back(nuisancePostfix+"");   nuisanceValue.push_back(0.01); // 15
+  nuisanceName.push_back(nuisancePostfix+"");   nuisanceValue.push_back(0.01); // 16
+  */
+  
   /*
     -------------------------------------------------------------------------------------------------------------------
     ---------------------------------------------- Top mu CR -----------------------------------------------------------
@@ -695,14 +741,31 @@ void PrepareWS_withnuisanceInvertTF_noW_nBins(TString model_="monoHbb",TString a
   // Create all the inputs needed for this CR
   // list of systematics for Top mu CR
   if (year=="2016"){
-    nuisIndex.push_back(3); }
+    nuisIndex.push_back(3); 
+    nuisIndex.push_back(7);
+  }
+  
   nuisIndex.push_back(4);
   nuisIndex.push_back(5);
-  if (year=="2017") nuisIndex.push_back(7);
-
+  
+  //JECs  9-14 
+  nuisIndex.push_back(9);
+  nuisIndex.push_back(10);
+  nuisIndex.push_back(11);
+  nuisIndex.push_back(12);
+  nuisIndex.push_back(13);
+  nuisIndex.push_back(14);
+  nuisIndex.push_back(15);
+  nuisIndex.push_back(16);
+  
+  
+  if (year=="2017"){ 
+    nuisIndex.push_back(7);
+  }
+  
 
   // mu efficiency for Top mu CR
-  createRegion(met, h_sr_top, h_topmu_2b_top, h_sr_data, wspace, "TOPMU_tt", "SR_tt",  fOut, nuisIndex, nuisanceName, nuisanceValue, anacat_,year);
+  createRegion(met, h_sr_top, h_topmu_2b_top, h_sr_data, wspace, "TOPMU_tt", "SR_tt",  fOut, nuisIndex, nuisanceName, nuisanceValue, anacat_,year,fin,"TOPMU");
 
 
   /*
@@ -716,14 +779,30 @@ void PrepareWS_withnuisanceInvertTF_noW_nBins(TString model_="monoHbb",TString a
   nuisIndex.push_back(0);
   nuisIndex.push_back(1);
   nuisIndex.push_back(2);
+  
   //nuisIndex.push_back(6);
   if (year=="2017") nuisIndex.push_back(7);
 
+  if (year=="2016"){
+    nuisIndex.push_back(7);
+  }
+  
+  //JECs  9-14 
+  nuisIndex.push_back(9);
+  nuisIndex.push_back(10);
+  nuisIndex.push_back(11);
+  nuisIndex.push_back(12);
+  nuisIndex.push_back(13);
+  nuisIndex.push_back(14);
+  nuisIndex.push_back(15);
+  nuisIndex.push_back(16);
+
+  
     std::cout<<" calling function for Top e"<<std::endl;
   // Get the top hostogram in the Top mu CR
   TH1F* h_tope_2b_top = (TH1F*) fin->Get(AnaYearCat+"TOPE_tt");
   // Create all the inputs needed for this CR
-  createRegion(met, h_sr_top, h_tope_2b_top, h_sr_data, wspace, "TOPE_tt", "SR_tt",  fOut, nuisIndex, nuisanceName, nuisanceValue,anacat_,year);
+  createRegion(met, h_sr_top, h_tope_2b_top, h_sr_data, wspace, "TOPE_tt", "SR_tt",  fOut, nuisIndex, nuisanceName, nuisanceValue,anacat_,year,fin,"TOPE");
   }/// if(anacat_=="2b")
 
   /*
@@ -734,17 +813,33 @@ void PrepareWS_withnuisanceInvertTF_noW_nBins(TString model_="monoHbb",TString a
 
 
   std::cout<<" anacat_: "<<(anacat_=="1b")<<std::endl;
-  if (anacat_=="1b"){
   nuisIndex.clear();
+  if (anacat_=="1b"){
+  
   nuisIndex.push_back(0);
   nuisIndex.push_back(1);
   nuisIndex.push_back(2);
   //nuisIndex.push_back(6);
+  
+  if (year=="2016"){
+    nuisIndex.push_back(7);
+  }
+
   if (year=="2017") nuisIndex.push_back(7);
 
+  //JECs  9-14 
+  nuisIndex.push_back(9);
+  nuisIndex.push_back(10);
+  nuisIndex.push_back(11);
+  nuisIndex.push_back(12);
+  nuisIndex.push_back(13);
+  nuisIndex.push_back(14);
+  nuisIndex.push_back(15);
+  nuisIndex.push_back(16);
 
-    std::cout<<" calling function for Wenu"<<std::endl;
-
+  
+  std::cout<<" calling function for Wenu"<<nuisIndex.size()<<std::endl;
+  for (int i=0; i<(int) nuisIndex.size();i++) std::cout<< "nuisIndex : "<<nuisIndex[i]<<std::endl;
   // Get the wjets histogram in signal region
   TH1F* h_sr_wjets = (TH1F*) fin->Get(AnaYearCat+"SR_wjets");
 
@@ -753,12 +848,12 @@ void PrepareWS_withnuisanceInvertTF_noW_nBins(TString model_="monoHbb",TString a
 
   std::cout<<" integral of wenu : "<<h_sr_wjets->Integral() <<"  "<<h_wenu_2b_wjets->Integral()<<std::endl;
   // Create all the inputs needed for this CR
-  createRegion(met, h_sr_wjets, h_wenu_2b_wjets, h_sr_data, wspace, "WE_wjets", "SR_wjets",  fOut, nuisIndex, nuisanceName, nuisanceValue, anacat_, year);
+  createRegion(met, h_sr_wjets, h_wenu_2b_wjets, h_sr_data, wspace, "WE_wjets", "SR_wjets",  fOut, nuisIndex, nuisanceName, nuisanceValue, anacat_, year,fin,"WE");
 
   //  fixme, creating new for cross-transfer factors
   // ttbar in SR linked to top in W+Jets
   //TH1F* h_wenu_2b_top = (TH1F*) fin->Get(AnaYearCat+"WE_tt");
-  //createRegion(met, h_sr_top, h_wenu_2b_top, h_sr_data, wspace, "WE_tt", "SR_tt",  fOut, nuisIndex, nuisanceName, nuisanceValue, anacat_, year);
+  //createRegion(met, h_sr_top, h_wenu_2b_top, h_sr_data, wspace, "WE_tt", "SR_tt",  fOut, nuisIndex, nuisanceName, nuisanceValue, anacat_, year,fin,"WE");
   
   
   /*
@@ -771,23 +866,36 @@ void PrepareWS_withnuisanceInvertTF_noW_nBins(TString model_="monoHbb",TString a
   nuisIndex.clear();
   if (year=="2016"){
     nuisIndex.push_back(3);
+    nuisIndex.push_back(7);
   }
   nuisIndex.push_back(4);
   nuisIndex.push_back(5);
   if (year=="2017") nuisIndex.push_back(7);
+  
+  //JECs  9-14 
+  nuisIndex.push_back(9);
+  nuisIndex.push_back(10);
+  nuisIndex.push_back(11);
+  nuisIndex.push_back(12);
+  nuisIndex.push_back(13);
+  nuisIndex.push_back(14);
+  nuisIndex.push_back(15);
+  nuisIndex.push_back(16);
 
+
+  
   //TH1F* h_sr_wjets = (TH1F*) fin->Get(AnaYearCat+"SR_wjets");
 
   std::cout<<" calling function for Wmunu"<<std::endl;
   // Get the wjets hostogram in the Wmunu CR
   TH1F* h_wmunu_2b_wjets = (TH1F*) fin->Get(AnaYearCat+"WMU_wjets");
   // Create all the inputs needed for this CR
-  createRegion(met, h_sr_wjets, h_wmunu_2b_wjets, h_sr_data, wspace, "WMU_wjets", "SR_wjets",  fOut, nuisIndex, nuisanceName, nuisanceValue, anacat_, year);
+  createRegion(met, h_sr_wjets, h_wmunu_2b_wjets, h_sr_data, wspace, "WMU_wjets", "SR_wjets",  fOut, nuisIndex, nuisanceName, nuisanceValue, anacat_, year,fin,"WMU");
 
   //  fixme, creating new for cross-transfer factors
   // ttbar in SR linked to top in W+Jets
   //TH1F* h_wmunu_2b_top = (TH1F*) fin->Get(AnaYearCat+"WMU_tt");
-  //createRegion(met, h_sr_top, h_wmunu_2b_top, h_sr_data, wspace, "WMU_tt", "SR_tt",  fOut, nuisIndex, nuisanceName, nuisanceValue, anacat_, year);
+  //createRegion(met, h_sr_top, h_wmunu_2b_top, h_sr_data, wspace, "WMU_tt", "SR_tt",  fOut, nuisIndex, nuisanceName, nuisanceValue, anacat_, year,fin,WMU);
 
   }
   /*
@@ -799,18 +907,31 @@ void PrepareWS_withnuisanceInvertTF_noW_nBins(TString model_="monoHbb",TString a
   nuisIndex.clear();
   if (year=="2016"){
     nuisIndex.push_back(3);
+    nuisIndex.push_back(7);
   }
   nuisIndex.push_back(4);
   nuisIndex.push_back(5);
   if (year=="2017") nuisIndex.push_back(7);
   nuisIndex.push_back(8);
 
+  //JECs  9-14 
+  nuisIndex.push_back(9);
+  nuisIndex.push_back(10);
+  nuisIndex.push_back(11);
+  nuisIndex.push_back(12);
+  nuisIndex.push_back(13);
+  nuisIndex.push_back(14);
+  nuisIndex.push_back(15);
+  nuisIndex.push_back(16);
+
+  
+
   std::cout<<" calling function for Zmumu"<<std::endl;
   TH1F* h_sr_Z = (TH1F*) fin->Get(AnaYearCat+"SR_zjets");
   // Get the top hostogram in the Top mu CR
   TH1F* h_Zmumu_2b_Z = (TH1F*) fin->Get(AnaYearCat+"ZMUMU_dyjets");
   // Create all the inputs needed for this CR
-  createRegion(met, h_sr_Z, h_Zmumu_2b_Z, h_sr_data, wspace, "ZMUMU_dyjets", "SR_zjets",  fOut, nuisIndex, nuisanceName, nuisanceValue, anacat_, year);
+  createRegion(met, h_sr_Z, h_Zmumu_2b_Z, h_sr_data, wspace, "ZMUMU_dyjets", "SR_zjets",  fOut, nuisIndex, nuisanceName, nuisanceValue, anacat_, year,fin,"ZMUMU");
 
 
   /*
@@ -824,16 +945,33 @@ void PrepareWS_withnuisanceInvertTF_noW_nBins(TString model_="monoHbb",TString a
   nuisIndex.push_back(1);
   nuisIndex.push_back(2);
   //nuisIndex.push_back(6);
-  if (year=="2017") nuisIndex.push_back(7);
+  if (year=="2016"){
+    nuisIndex.push_back(7);
+  }
+  if (year=="2017") {
+    nuisIndex.push_back(7);
+  }
+  
   nuisIndex.push_back(8);
   
 
-    // Get the top hostogram in the Top mu CR
+  //JECs  9-14 
+  nuisIndex.push_back(9);
+  nuisIndex.push_back(10);
+  nuisIndex.push_back(11);
+  nuisIndex.push_back(12);
+  nuisIndex.push_back(13);
+  nuisIndex.push_back(14);
+  nuisIndex.push_back(15);
+  nuisIndex.push_back(16);
+
+  
+  
+  // Get the top hostogram in the Top mu CR
   TH1F* h_Zee_2b_Z = (TH1F*) fin->Get(AnaYearCat+"ZEE_dyjets");
   // Create all the inputs needed for this CR
-  createRegion(met, h_sr_Z, h_Zee_2b_Z, h_sr_data, wspace, "ZEE_dyjets", "SR_zjets",  fOut, nuisIndex, nuisanceName, nuisanceValue, anacat_, year);
-
-
+  createRegion(met, h_sr_Z, h_Zee_2b_Z, h_sr_data, wspace, "ZEE_dyjets", "SR_zjets",  fOut, nuisIndex, nuisanceName, nuisanceValue, anacat_, year,fin,"ZEE");
+  
   std::cout<<" all crs done "<<std::endl;
 
 

@@ -38,7 +38,7 @@ lumi_X_Y_Fact     lnN    1.005         1.005         -        1.005    1.005
 
 CMS2016_PU        shape               1      1     -    1   1 
 						        
-CMS2016_eff_b           shape                1            1      -       -       1    
+CMS2016_eff_b           shape                1            1      -       1       1    
 CMS2016_fake_b          shape                1      1        -      1  1 
 
 
@@ -67,8 +67,9 @@ JECRelativeBal shape 1 1 -      1 1
 JECRelativeSample_2016 shape 1 1 -      1 1
 CMS2016_prefire shape 1 1 -      1 1
 
-#wj_hf                   lnN                   -        -       -          -          -     
-#zj_hf                   lnN                   -        -           1.05          -   -
+wj_hf                   lnN                   -        -       -          -          -     
+zj_hf                   lnN                   -        -           1.07          -   -
+CMS2016_topReweighting          lnN                  1.07 - - - -
 
 norm_stop               lnN                -         1.1        -       -          -           
 norm_diboson            lnN               -          -         -        1.2        -
@@ -79,11 +80,33 @@ norm_smh                 lnN               -          -        -        -       
 
 CMS2016_pdf shape  - - - - 1
 CMS2016_mu_scale shape  - -	- - 1
-CMS2016_qcd_norm lnN - - - - -
+CMS2016_qcd_norm_e lnN - - - - -
 #CMS2016_eff_met         lnN                  1.04     1.04       1.04       1.04      1.04    
 
 
 #CMS2016_eff_t           lnN                1.03       1.03      1.03     1.03  1.03 
+
+
+CMS2016_2b_ZEE_tt_stat_bin1 shape 1 - - - -
+CMS2016_2b_ZEE_tt_stat_bin2 shape 1 - - - -
+CMS2016_2b_ZEE_tt_stat_bin3 shape 1 - - - -
+CMS2016_2b_ZEE_tt_stat_bin4 shape 1 - - - -
+
+CMS2016_2b_ZEE_singlet_stat_bin1 shape - 1 - - -
+CMS2016_2b_ZEE_singlet_stat_bin2 shape - 1 - - -
+CMS2016_2b_ZEE_singlet_stat_bin3 shape - 1 - - -
+CMS2016_2b_ZEE_singlet_stat_bin4 shape - 1 - - -
+
+CMS2016_2b_ZEE_diboson_stat_bin1 shape  - - - 1 -
+CMS2016_2b_ZEE_diboson_stat_bin2 shape  - - - 1 -
+CMS2016_2b_ZEE_diboson_stat_bin3 shape  - - - 1 -
+CMS2016_2b_ZEE_diboson_stat_bin4 shape  - - - 1 -
+
+CMS2016_2b_ZEE_smh_stat_bin1 shape  - - - - 1
+CMS2016_2b_ZEE_smh_stat_bin2 shape  - - - - 1
+CMS2016_2b_ZEE_smh_stat_bin3 shape  - - - - 1
+CMS2016_2b_ZEE_smh_stat_bin4 shape  - - - - 1
+
 
 
 rrvbc_SR_zjets_2b1_2016 flatParam

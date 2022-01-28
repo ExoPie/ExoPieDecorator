@@ -1,6 +1,7 @@
 combine -M GoodnessOfFit -d $datacardws --algo=saturated -n _result_bonly_CRonly --setParametersForFit mask_SR=1 --setParametersForEval mask_SR=0 --freezeParameters r --setParameters r=0
-combine -M GoodnessOfFit -d  $datacardws --algo=saturated -n _result_bonly_CRonly_toy --setParametersForFit mask_SR=1 --setParametersForEval mask_SR=0 --freezeParameters r --setParameters r=0,mask_SR=1 -t 100 --toysFrequentist -s 12431
-combine -M GoodnessOfFit -d  $datacardws --algo=saturated -n _result_bonly_CRonly_toy --setParametersForFit mask_SR=1 --setParametersForEval mask_SR=0 --freezeParameters r --setParameters r=0,mask_SR=1 -t 100 --toysFrequentist -s 12432
+
+combine -M GoodnessOfFit -d $datacardws --algo=saturated -n _result_bonly_CRonly_toy --setParametersForFit mask_SR=1 --setParametersForEval mask_SR=0 --freezeParameters r --setParameters r=0,mask_SR=1 -t 100 --toysFrequentist -s 12431 &
+combine -M GoodnessOfFit -d  $datacardws --algo=saturated -n _result_bonly_CRonly_toy --setParametersForFit mask_SR=1 --setParametersForEval mask_SR=0 --freezeParameters r --setParameters r=0,mask_SR=1 -t 100 --toysFrequentist -s 12432 &
 combine -M GoodnessOfFit -d  $datacardws --algo=saturated -n _result_bonly_CRonly_toy --setParametersForFit mask_SR=1 --setParametersForEval mask_SR=0 --freezeParameters r --setParameters r=0,mask_SR=1 -t 100 --toysFrequentist -s 12433 &
 combine -M GoodnessOfFit -d  $datacardws --algo=saturated -n _result_bonly_CRonly_toy --setParametersForFit mask_SR=1 --setParametersForEval mask_SR=0 --freezeParameters r --setParameters r=0,mask_SR=1 -t 100 --toysFrequentist -s 12434 &
 combine -M GoodnessOfFit -d  $datacardws --algo=saturated -n _result_bonly_CRonly_toy --setParametersForFit mask_SR=1 --setParametersForEval mask_SR=0 --freezeParameters r --setParameters r=0,mask_SR=1 -t 100 --toysFrequentist -s 12435 &

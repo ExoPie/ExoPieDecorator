@@ -47,7 +47,7 @@ lumi_LengthS      lnN    LUMILS          -           -    LUMILS      LUMILS    
 lumi_X_Y_Fact     lnN    LUMIXYF         -           -    LUMIXYF     LUMIXYF    LUMIXYF    LUMIXYF    LUMIXYF
 
 
-CMSYEAR_PU        shape    1         -        -         1        1     1     1     1
+CMSYEAR_PU        shape    1         -        -         1        1     -     1     1
 
 CMSYEAR_trig_met                shape    1 - - 1	1 1 1 1
 CMSYEAR_trig_ele                shape     -            -        -         -          -          -      -       -   ## this is dummy for SR, it exist only for ele CRs 
@@ -58,24 +58,24 @@ CMSYEAR_fake_b          shape    1 - - 1      1      1     1     1
 CMSYEAR_EleID         shape     -            -        -         -          -          -      -       -   ## this is dummy for SR, it exist only for ele CRs 
 CMSYEAR_EleRECO       shape     -            -        -         -          -          -      -       -   ## this is dummy for SR, it exist only for ele CRs 
 
-MSYEAR_MuTRK         shape     -            -        -         -          -          -      -       -   ## this is dummy for SR, it exist only for mu CRs 
+CMSYEAR_MuTRK         shape     -            -        -         -          -          -      -       -   ## this is dummy for SR, it exist only for mu CRs 
 CMSYEAR_MuID         shape     -            -        -         -          -          -      -       -   ## this is dummy for SR, it exist only for mu CRs 
 CMSYEAR_MuISO         shape     -            -        -         -          -          -      -       -   ## this is dummy for SR, it exist only for mu CRs 
 
-CMSYEAR_veto_tau     lnN    1.03       - - 1.03       1.03      1.03     1.03     1.03
+CMSYEAR_veto_tau     lnN    1.03       - - 1.03       1.03      -     1.03     1.03
 
 
-JECAbsolute shape 1 - - 1 1 1 1 1 
-JECAbsolute_YEAR shape 1 - -  1 1 1 1	1
-JECBBEC1 shape 1 - -   1 1 1 1	1
-JECBBEC1_YEAR shape 1 - -  1 1 1 1	1
-JECEC2 shape 1 - -  1 1 1 1  1
-JECEC2_YEAR shape 1 - -	1 1 1 1	1
-JECFlavorQCD shape 1 - -  1 1 1 1	1
-JECHF shape 1 - -  1 1 1 1  1
-JECHF_YEAR shape 1 - - 1 1 1 1	1
-JECRelativeBal shape 1 - - 1 1 1 1	1
-JECRelativeSample_YEAR shape 1 - -	1 1 1 1	1
+JECAbsolute shape 1 - - 1 1 - 1 1 
+JECAbsolute_YEAR shape 1 - -  1 1 - 1	1
+JECBBEC1 shape 1 - -   1 1 - 1	1
+JECBBEC1_YEAR shape 1 - -  1 1 - 1	1
+JECEC2 shape 1 - -  1 1 - 1  1
+JECEC2_YEAR shape 1 - -	1 1 - 1	1
+JECFlavorQCD shape 1 - -  1 1 - 1	1
+JECHF shape 1 - -  1 1 - 1  1
+JECHF_YEAR shape 1 - - 1 1 - 1	1
+JECRelativeBal shape 1 - - 1 - 1 1	1
+JECRelativeSample_YEAR shape 1 - -	1 1 - 1	1
 
 
 CMSYEAR_1b_SR_tt_stat_bin1 shape - - - 1 - - - -
@@ -101,7 +101,7 @@ CMSYEAR_1b_SR_smh_stat_bin4 shape - - - - - - - 1
 
 wj_hf                   lnN     -            -        1.07       -          -          -      -       -  
 zj_hf                   lnN     -            1.07        -       -          -          -      -       -  
-topReweighting          lnN     -            -		       	  -    	     1.10          -         -      -       -
+CMSYEAR_topReweighting      lnN     -            -		       	  -    	     TOPPTRWGHTVAL          -         -      -       -
 
 norm_stop               lnN     -            -        -         -          1.1       -      -         -
 norm_diboson            lnN     -            -        -         -          -         -      1.2       -
@@ -110,7 +110,7 @@ norm_smh                lnN     -            -        -         -          -    
 CMSYEAR_pdf              shape    1        -     -       -   	  -      -     -     1
 CMSYEAR_mu_scale         shape    1        -     -       -   	  -      -     -     1
 
-CMSYEAR_qcd_norm        lnN - - - - - 1.5 - -
+CMSYEAR_qcd_norm        lnN - - - - - 2.0 - -
 
 CMSYEAR_prefire shape 1 - -  1 1 1 1 1
 

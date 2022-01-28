@@ -156,7 +156,12 @@ class RunLimits:
             iline = iline.replace("MUTRACKVAL",str(doc["MUTRACKVAL"][yearstr]) )
             if year != "2016": iline = iline.replace("CMS"+year+"_MuTRK","##CMSYEAR_MuTRK param")
             
-            ## prefiring, to be applied only for 16 and 17, not applicable to 18. 
+            ## Prefiring, needed only for 2016 and 2017, 
+            ## therefore, do nothing for 16 and 17, and comment for 18. 
+            if year == "2018": iline = iline.replace("CMS"+year+"_prefire", "##CMS"+year+"_prefire")  
+            
+            ## Top pT Reweighting 
+            iline = iline.replace("TOPPTRWGHTVAL", str(doc["TOPPTRWGHTVAL"][yearstr]))
             
             
                 

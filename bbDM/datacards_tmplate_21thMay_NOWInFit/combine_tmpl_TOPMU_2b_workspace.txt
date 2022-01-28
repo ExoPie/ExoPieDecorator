@@ -29,46 +29,46 @@ process                               1        2           3           4        
 rate                                 -1        1         -1          -1       -1       -1    -1   
 ------------					        
 
-lumi_YEAR         lnN    LUMIVAL         -        LUMIVAL      LUMIVAL    LUMIVAL    LUMIVAL    LUMIVAL
-lumi_BeamCC       lnN    LUMIBCC         -        LUMIBCC      LUMIBCC    LUMIBCC    LUMIBCC    LUMIBCC
-lumi_BeamBE       lnN    LUMIBBE         -        LUMIBBE      LUMIBBE    LUMIBBE    LUMIBBE    LUMIBBE
-lumi_GhostS       lnN    LUMIGHS         -        LUMIGHS      LUMIGHS    LUMIGHS    LUMIGHS    LUMIGHS
-lumi_LengthS      lnN    LUMILS          -        LUMILS       LUMILS     LUMILS     LUMILS     LUMILS
-lumi_X_Y_Fact     lnN    LUMIXYF         -        LUMIXYF      LUMIXYF    LUMIXYF    LUMIXYF    LUMIXYF
+lumi_YEAR         lnN    LUMIVAL         -        LUMIVAL      -    LUMIVAL    -    LUMIVAL
+lumi_BeamCC       lnN    LUMIBCC         -        LUMIBCC      -    LUMIBCC    -    LUMIBCC
+lumi_BeamBE       lnN    LUMIBBE         -        LUMIBBE      -    LUMIBBE    -    LUMIBBE
+lumi_GhostS       lnN    LUMIGHS         -        LUMIGHS      -    LUMIGHS    -    LUMIGHS
+lumi_LengthS      lnN    LUMILS          -        LUMILS       -    LUMILS     -    LUMILS
+lumi_X_Y_Fact     lnN    LUMIXYF         -        LUMIXYF      -    LUMIXYF    -    LUMIXYF
 
-CMSYEAR_PU              shape         1       -         1      1    1   1  1 
+CMSYEAR_PU              shape         1       -         1      -    1   -  1 
 						        
-CMSYEAR_trig_met                shape          1       -          1      1     1    1   1
+CMSYEAR_trig_met                shape          1       -          1      -     1    -   1
 CMSYEAR_trig_ele                shape           -       -        -      -      -        -    -
 
 CMSYEAR_eff_b           shape          1      -            1      -       -      -      1
-CMSYEAR_fake_b          shape          1       -      1       1     1  1 1
+CMSYEAR_fake_b          shape          1       -      1       -     1  - 1
 
 CMSYEAR_EleID         shape           -            -        -         -          -          -      -
 CMSYEAR_EleRECO         shape           -            -        -         -          -          -      -
 
-CMSYEAR_MuTRK         shape           MUTRACKVAL        -     MUTRACKVAL       MUTRACKVAL       MUTRACKVAL      MUTRACKVAL     MUTRACKVAL    
-CMSYEAR_MuISO         shape           1        -     1       1       1      1     1    
-CMSYEAR_MuID         shape           1        -     1       1       1      1     1     
+CMSYEAR_MuTRK         shape           MUTRACKVAL        -     MUTRACKVAL       -       MUTRACKVAL     -     MUTRACKVAL    
+CMSYEAR_MuISO         shape           1        -     1       -       1      -     1    
+CMSYEAR_MuID         shape           1        -     1       -       1      -     1     
 
-CMSYEAR_veto_tau                lnN           1.03        1.03     1.03       1.03       1.03      1.03     1.03   
+CMSYEAR_veto_tau                lnN           1.03        -     1.03      -       1.03     -     1.03   
 
-JECAbsolute shape 1 - 1 1 1 1 1
-JECAbsolute_YEAR shape 1 - 1  1 1 1 1
-JECBBEC1 shape 1 - 1   1 1 1 1
-JECBBEC1_YEAR shape 1 - 1  1 1 1 1
-JECEC2 shape 1 - 1  1 1 1 1
-JECEC2_YEAR shape 1 - 1	1 1 1 1
-JECFlavorQCD shape 1 - 1  1 1 1 1
-JECHF shape 1 - 1  1 1 1 1
-JECHF_YEAR shape 1 - 1 1 1 1 1
-JECRelativeBal shape 1 - 1 1 1 1 1
-JECRelativeSample_YEAR shape 1 - 1	1 1 1 1
-CMSYEAR_prefire shape 1 - 1	1 1 1 1
+JECAbsolute shape 1 - 1 - 1 - 1
+JECAbsolute_YEAR shape 1 - 1  - 1 - 1
+JECBBEC1 shape 1 - 1   - 1 - 1
+JECBBEC1_YEAR shape 1 - 1  - 1 - 1
+JECEC2 shape 1 - 1  - 1 - 1
+JECEC2_YEAR shape 1 - 1	- 1 - 1
+JECFlavorQCD shape 1 - 1  - 1 - 1
+JECHF shape 1 - 1  - 1 - 1
+JECHF_YEAR shape 1 - 1 - 1 - 1
+JECRelativeBal shape 1 - 1 - 1 - 1
+JECRelativeSample_YEAR shape 1 - 1	- 1 - 1
+CMSYEAR_prefire shape 1 - 1	- 1 - 1
 
 wj_hf                   lnN                   1.07 - - - - - -
 zj_hf                   lnN                   - - - - 1.07 - -
-topReweighting          lnN                   - 1.10 - - - - -
+CMSYEAR_topReweighting          lnN                   - TOPPTRWGHTVAL - - - - -
 
 norm_stop               lnN           -         -         1.1        -       -          -            -
 norm_diboson            lnN           -        -          -         -        -          1.2         -
@@ -80,7 +80,7 @@ norm_smh                 lnN           -      -          -        -        -    
 CMSYEAR_pdf       shape - - -	   - - - 1
 CMSYEAR_mu_scale shape - - -    - - - 1
 
-CMSYEAR_qcd_norm        lnN - - - 1.5 - - -
+CMSYEAR_qcd_norm_mu        lnN - - - 2.0 - - -
 #CMSYEAR_eff_t           lnN          1.03       1.03       1.03      1.03     1.03  1.03 1.03 
 #CMSYEAR_eff_met         lnN           1.04        1.04     1.04       1.04       1.04      1.04     1.04
 

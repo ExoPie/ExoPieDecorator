@@ -26,7 +26,7 @@ def myjoin(tojoin):
 anadetails={
     "histFileName":    "AllMETHistos.root",     ## root file with histograms 
     "analysisName":    "bbDM",               ## For which analysis this is being done 
-    "yearStr":         "2018",                  ## For which year data this model is being run, by default it is set to 2016, but can be changed here. 
+    "yearStr":         "2017",                  ## For which year data this model is being run, by default it is set to 2016, but can be changed here. 
     
     
     ## for combined additional information is needed in order to sync all the names etc, e.g. for each type is below, commented for now  '''

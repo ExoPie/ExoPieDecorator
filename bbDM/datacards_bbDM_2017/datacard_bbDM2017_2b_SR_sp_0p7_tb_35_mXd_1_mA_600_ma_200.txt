@@ -38,16 +38,16 @@ process          0        1        2        3        4               5       6  
 rate             -1       1       -1       1       -1             -1         -1    -1
 ------------
 
-lumi_2017         lnN    1.02         -        1.02         -        1.02    1.02    1.02    1.02
-lumi_BeamCC       lnN    1.003         -        1.003         -        1.003    1.003    1.003    1.003
-lumi_BeamBE       lnN    1.006         -        1.006         -        1.006    1.006    1.006    1.006
-lumi_GhostS       lnN    1.003         -        1.003         -        1.003    1.003    1.003    1.003
-lumi_LengthS      lnN    1.003          -        1.003          -        1.003     1.003     1.003     1.003
-lumi_X_Y_Fact     lnN    1.003         -        1.003         -        1.003    1.003    1.003    1.003
+lumi_2017         lnN    1.02         -        1.02         -        1.02    -    1.02    1.02
+lumi_BeamCC       lnN    1.003         -        1.003         -        1.003    -    1.003    1.003
+lumi_BeamBE       lnN    1.006         -        1.006         -        1.006    -    1.006    1.006
+lumi_GhostS       lnN    1.003         -        1.003         -        1.003    -    1.003    1.003
+lumi_LengthS      lnN    1.003          -        1.003          -        1.003     -    1.003     1.003
+lumi_X_Y_Fact     lnN    1.003         -        1.003         -        1.003    -    1.003    1.003
 
-CMS2017_PU        shape    1         -        1         -        1     1     1     1
+CMS2017_PU        shape    1         -        1         -        1     -     1     1
 
-CMS2017_trig_met                shape    1 - 1 -	1 1 1 1
+CMS2017_trig_met                shape    1 - 1 -	1 - 1 1
 CMS2017_trig_ele                shape     -            -        -         -          -          -      -       -   ## this is dummy for SR, it exist only for ele CRs 
 
 CMS2017_eff_b           shape    1          -        1        -       1      -       -         1
@@ -59,21 +59,21 @@ CMS2017_EleRECO       shape     -            -        -         -          -    
 ##CMSYEAR_MuTRK param         shape     -            -        -         -          -          -      -       -   ## this is dummy for SR, it exist only for mu CRs 
 CMS2017_MuID         shape     -            -        -         -          -          -      -       -   ## this is dummy for SR, it exist only for mu CRs 
 CMS2017_MuISO shape     -            -        -         -          -          -      -       -
-CMS2017_veto_tau     lnN    1.03        -    1.03  -        1.03      1.03     1.03     1.03
+CMS2017_veto_tau     lnN    1.03        -    1.03  -        1.03      -     1.03     1.03
 
-JECAbsolute shape 1 - 1	    - 1 1 1	1
-JECAbsolute_2017 shape 1 - 1  - 1 1 1   1
-JECBBEC1 shape 1 - 1   - 1 1 1  1
-JECBBEC1_2017 shape 1 - 1  - 1 1 1      1
-JECEC2 shape 1 - 1  - 1 1 1  1
-JECEC2_2017 shape 1 - 1 - 1 1 1 1
-JECFlavorQCD shape 1 - 1  - 1 1 1       1
-JECHF shape 1 - 1  - 1 1 1  1
-JECHF_2017 shape 1 - 1 - 1 1 1  1
-JECRelativeBal shape 1 - 1 - 1 1 1      1
-JECRelativeSample_2017 shape 1 - 1      - 1 1 1 1
+JECAbsolute shape 1 - 1	    - 1 - 1	1
+JECAbsolute_2017 shape 1 - 1  - 1 - 1   1
+JECBBEC1 shape 1 - 1   - 1 - 1  1
+JECBBEC1_2017 shape 1 - 1  - 1 - 1      1
+JECEC2 shape 1 - 1  - 1 - 1  1
+JECEC2_2017 shape 1 - 1 - 1 - 1 1
+JECFlavorQCD shape 1 - 1  - 1 - 1       1
+JECHF shape 1 - 1  - 1 - 1  1
+JECHF_2017 shape 1 - 1 - 1 - 1  1
+JECRelativeBal shape 1 - 1 - 1 - 1      1
+JECRelativeSample_2017 shape 1 - 1      - 1 - 1 1
 
-CMS2017_prefire shape 1 - 1      - 1 1 1 1
+CMS2017_prefire shape 1 - 1      - 1 - 1 1
 
 CMS2017_2b_SR_wjets_stat_bin1 shape - - 1 - - - - - 
 CMS2017_2b_SR_wjets_stat_bin2 shape - - 1 - - - - - 
@@ -97,7 +97,8 @@ CMS2017_2b_SR_smh_stat_bin4 shape - - - - - - - 1
 
 wj_hf                   lnN     -            -        1.07       -          -          -      -       -
 zj_hf                   lnN     -            1.07        -       -          -          -      -       -
-topReweighting          lnN     -            -           -       1.10       -          -      -       -
+
+CMS2017_topReweighting      lnN     -            -           -       1.07       -          -      -       -
 
 norm_stop               lnN     -            -        -         -          1.1       -      -         -
 norm_diboson            lnN     -            -        -         -          -         -      1.2       -
@@ -106,7 +107,7 @@ norm_smh                lnN     -            -        -         -          -    
 CMS2017_pdf              shape    1        -     -       -   	  -      -     -     1
 CMS2017_mu_scale         shape    1        -     -       -   	  -      -     -     1
 
-CMS2017_qcd_norm        lnN - - - - - 1.5 - -
+CMS2017_qcd_norm        lnN - - - - - 2.0 - -
 
 
 
@@ -120,6 +121,15 @@ CMS2017_qcd_norm        lnN - - - - - 1.5 - -
 #rrv_CMS2017_scale_m_2b param 0.0 1
 #rrv_eletrigeffCMS2017_scale__2b param 0.0 1
 
+
+JECAbsolute param  0.0 1
+JECAbsolute_2017 param  0.0 1
+JECBBEC1 param  0.0 1
+JECFlavorQCD param  0.0 1
+JECRelativeBal param  0.0 1
+JECRelativeSample_2017 param  0.0 1
+
+
 #CMS2017_EleTrig	param  0.0 1
 CMS2017_EleRECO param  0.0 1
 CMS2017_EleID param  0.0 1
@@ -130,6 +140,9 @@ CMS2017_MuISO param  0.0 1
 
 CMS2017_eff_b param 0.0 1
 CMS2017_prefire param 0.0 1
+
+CMS2017_pdf  param  0.0 1
+CMS2017_mu_scale  param  0.0 1
 
 rrv_CMS2017_stats_err_TOPE_tt_2b_bin1 param 0.0 1
 rrv_CMS2017_stats_err_TOPE_tt_2b_bin2 param 0.0 1

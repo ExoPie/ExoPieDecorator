@@ -25,7 +25,7 @@ What to change: There are few parameters which needs to be changed:
 
 if dmsimp==False:
     maList=[50,200,250,300,350,400,500]
-    category="2b"
+    category="1b"
     datacard="datacards_bbDM_{}/datacard_bbDM{}_{}_Merged_sp_0p7_tb_35_mXd_1_mA_600_ma_{}.txt"
     model="2hdma"
 if dmsimp==True:
@@ -37,6 +37,7 @@ datacardCounter=0
 
 
 limithelp=RunLimits(datacard,"161718","bbDM",category,"Run2Combo_"+category,model )
+
 for ma in maList:
     #ma=50
     datacard_2016=datacard.format("2016","2016",category,str(ma))

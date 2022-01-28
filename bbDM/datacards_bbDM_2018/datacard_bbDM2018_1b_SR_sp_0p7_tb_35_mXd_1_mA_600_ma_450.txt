@@ -38,8 +38,16 @@ process          0        1        2        3        4               5       6  
 rate             -1       1       1       -1       -1             -1         -1    -1
 ------------
 
-lumi                    lnN    1.025         -        -         1.025        1.025    1.025    1.025    1.025
-CMS2018_PU        shape    1         -        -         1        1     1     1     1
+
+lumi_2018         lnN    1.015         -           -    1.015     1.015    1.015    1.015    1.015
+lumi_BeamCC       lnN    1.002         -           -    1.002     1.002    1.002    1.002    1.002
+lumi_BeamBE       lnN    1.002         -           -    1.002     1.002    1.002    1.002    1.002
+lumi_GhostS       lnN    1.002         -           -    1.002     1.002    1.002    1.002    1.002
+lumi_LengthS      lnN    1.002          -           -    1.002      1.002     1.002     1.002     1.002
+lumi_X_Y_Fact     lnN    1.02         -           -    1.02     1.02    1.02    1.02    1.02
+
+
+CMS2018_PU        shape    1         -        -         1        1     -     1     1
 
 CMS2018_trig_met                shape    1 - - 1	1 1 1 1
 CMS2018_trig_ele                shape     -            -        -         -          -          -      -       -   ## this is dummy for SR, it exist only for ele CRs 
@@ -50,33 +58,50 @@ CMS2018_fake_b          shape    1 - - 1      1      1     1     1
 CMS2018_EleID         shape     -            -        -         -          -          -      -       -   ## this is dummy for SR, it exist only for ele CRs 
 CMS2018_EleRECO       shape     -            -        -         -          -          -      -       -   ## this is dummy for SR, it exist only for ele CRs 
 
-#CMS2018_MuTRK         shape     -            -        -         -          -          -      -       -   ## this is dummy for SR, it exist only for mu CRs 
+##CMSYEAR_MuTRK param         shape     -            -        -         -          -          -      -       -   ## this is dummy for SR, it exist only for mu CRs 
 CMS2018_MuID         shape     -            -        -         -          -          -      -       -   ## this is dummy for SR, it exist only for mu CRs 
 CMS2018_MuISO         shape     -            -        -         -          -          -      -       -   ## this is dummy for SR, it exist only for mu CRs 
 
-CMS2018_veto_tau     lnN    1.03       - - 1.03       1.03      1.03     1.03     1.03
+CMS2018_veto_tau     lnN    1.03       - - 1.03       1.03      -     1.03     1.03
 
 
-JECAbsolute shape 1 - - 1 1 1 1 1 
-JECAbsolute_2018 shape 1 - -  1 1 1 1	1
-JECBBEC1 shape 1 - -   1 1 1 1	1
-JECBBEC1_2018 shape 1 - -  1 1 1 1	1
-JECEC2 shape 1 - -  1 1 1 1  1
-JECEC2_2018 shape 1 - -	1 1 1 1	1
-JECFlavorQCD shape 1 - -  1 1 1 1	1
-JECHF shape 1 - -  1 1 1 1  1
-JECHF_2018 shape 1 - - 1 1 1 1	1
-JECRelativeBal shape 1 - - 1 1 1 1	1
-JECRelativeSample_2018 shape 1 - -	1 1 1 1	1
-
-eff_bin1 shape 1 - - - - - - -
-eff_bin2 shape 1 - - - - - - -
-eff_bin3 shape 1 - - - - - - -
-eff_bin4 shape 1 - - - - - - -
+JECAbsolute shape 1 - - 1 1 - 1 1 
+JECAbsolute_2018 shape 1 - -  1 1 - 1	1
+JECBBEC1 shape 1 - -   1 1 - 1	1
+JECBBEC1_2018 shape 1 - -  1 1 - 1	1
+JECEC2 shape 1 - -  1 1 - 1  1
+JECEC2_2018 shape 1 - -	1 1 - 1	1
+JECFlavorQCD shape 1 - -  1 1 - 1	1
+JECHF shape 1 - -  1 1 - 1  1
+JECHF_2018 shape 1 - - 1 1 - 1	1
+JECRelativeBal shape 1 - - 1 - 1 1	1
+JECRelativeSample_2018 shape 1 - -	1 1 - 1	1
 
 
-#wj_hf                   lnN     -            -        1.05       -          -          -      -       -  
-#zj_hf                   lnN     -            1.05        -       -          -          -      -       -  
+CMS2018_1b_SR_tt_stat_bin1 shape - - - 1 - - - -
+CMS2018_1b_SR_tt_stat_bin2 shape - - - 1 - - - -
+CMS2018_1b_SR_tt_stat_bin3 shape - - - 1 - - - -
+CMS2018_1b_SR_tt_stat_bin4 shape - - - 1 - - - -
+
+CMS2018_1b_SR_singlet_stat_bin1 shape - - - - 1 - - -
+CMS2018_1b_SR_singlet_stat_bin2 shape - - - - 1 - - -
+CMS2018_1b_SR_singlet_stat_bin3 shape - - - - 1 - - -
+CMS2018_1b_SR_singlet_stat_bin4 shape - - - - 1 - - -
+
+CMS2018_1b_SR_diboson_stat_bin1 shape - - - - - - 1 -
+CMS2018_1b_SR_diboson_stat_bin2 shape - - - - - - 1 -
+CMS2018_1b_SR_diboson_stat_bin3 shape - - - - - - 1 -
+CMS2018_1b_SR_diboson_stat_bin4 shape - - - - - - 1 -
+
+CMS2018_1b_SR_smh_stat_bin1 shape - - - - - - - 1
+CMS2018_1b_SR_smh_stat_bin2 shape - - - - - - - 1
+CMS2018_1b_SR_smh_stat_bin3 shape - - - - - - - 1
+CMS2018_1b_SR_smh_stat_bin4 shape - - - - - - - 1
+
+
+wj_hf                   lnN     -            -        1.07       -          -          -      -       -  
+zj_hf                   lnN     -            1.07        -       -          -          -      -       -  
+CMS2018_topReweighting      lnN     -            -		       	  -    	     1.17          -         -      -       -
 
 norm_stop               lnN     -            -        -         -          1.1       -      -         -
 norm_diboson            lnN     -            -        -         -          -         -      1.2       -
@@ -85,9 +110,9 @@ norm_smh                lnN     -            -        -         -          -    
 CMS2018_pdf              shape    1        -     -       -   	  -      -     -     1
 CMS2018_mu_scale         shape    1        -     -       -   	  -      -     -     1
 
-CMS2018_qcd_norm        lnN - - - - - 1.5 - -
+CMS2018_qcd_norm        lnN - - - - - 2.0 - -
 
-CMS2018_prefire shape 1 - -  1 1 1 1 1
+##CMS2018_prefire shape 1 - -  1 1 1 1 1
 
 ##CMS2018_eff_met         lnN    1.04        1.04     1.04       1.04   	  1.04      1.04     1.04     1.04
 #CMS2018_eff_t           lnN    1.03        1.03     1.03       1.03       1.03      1.03     1.03     1.03
@@ -102,14 +127,14 @@ CMS2018_prefire shape 1 - -  1 1 1 1 1
 
 CMS2018_EleRECO param  0.0 1
 CMS2018_EleID param  0.0 1
-CMS2018_MuTRK param  0.0 1
+##CMSYEAR_MuTRK param param  0.0 1
 CMS2018_MuID param  0.0 1
 CMS2018_trig_ele param 0.0 1
 CMS2018_MuISO param  0.0 1
 
 
 CMS2018_eff_b param 0.0 1
-CMS2018_prefire param 0.0 1
+##CMS2018_prefire param 0.0 1
 
 
 #rrv_CMS2018_stats_err_TOPE_tt_1b_bin1 param 0.0 1
