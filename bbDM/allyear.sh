@@ -1,5 +1,12 @@
+source runall.sh AllMETHistos_v17_12-02-01_cl68pdf.root 2017 AllMETHistos_v17_12-02-01_cl68pdf 4 2hdma 
+
+source runall.sh AllMETHistos_v16_12-02-01_fixedPDF_v3.root 2016 AllMETHistos_v16_12-02-01_fixedPDF_v3 4 2hdma
+source runall.sh AllMETHistos_v17_12-02-01_fixedPDF_v3.root 2017 AllMETHistos_v17_12-02-01_fixedPDF_v3 4 2hdma
+source runall.sh AllMETHistos_v18_12-02-01_fixedPDF_v3.root 2018 AllMETHistos_v18_12-02-01_fixedPDF_v3 4 2hdma
+
+
 #source runall.sh AllMETHistos_v17_12-02-01.root 2017 AllMETHistos_v17_12-02-01 4 2hdma 
-source runall.sh AllMETHistos_v16_12-02-01.root 2016 AllMETHistos_v16_12-02-01 4 2hdma 
+#source runall.sh AllMETHistos_v16_12-02-01.root 2016 AllMETHistos_v16_12-02-01 4 2hdma 
 #source runall.sh AllMETHistos_v17_12-01-01_updatePDF.root 2017 AllMETHistos_v17_12-01-01_updatePDF 4 2hdma
 
 

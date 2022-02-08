@@ -110,7 +110,7 @@ norm_smh                lnN     -            -        -         -          -    
 CMSYEAR_pdf              shape    1        -     -       -   	  -      -     -     1
 CMSYEAR_mu_scale         shape    1        -     -       -   	  -      -     -     1
 
-CMSYEAR_qcd_norm        lnN - - - - - 2.0 - -
+#CMSYEAR_qcd_norm        lnN - - - - - 2.0 - -
 
 CMSYEAR_prefire shape 1 - -  1 1 1 1 1
 
@@ -122,6 +122,15 @@ CMSYEAR_prefire shape 1 - -  1 1 1 1 1
 #rrv_CMSYEAR_scale_e_1b param 0.0 1
 #rrv_CMSYEAR_scale_m_1b param 0.0 1
 #rrv_eletrigeffCMSYEAR_scale__1b param 0.0 1
+
+
+JECAbsolute param  0.0 1
+JECAbsolute_YEAR param  0.0 1
+JECBBEC1 param  0.0 1
+JECFlavorQCD param  0.0 1
+JECRelativeBal param  0.0 1
+JECRelativeSample_YEAR param  0.0 1
+
 
 #CMSYEAR_EleTrig  param  0.0 1
 
@@ -136,6 +145,9 @@ CMSYEAR_MuISO param  0.0 1
 CMSYEAR_eff_b param 0.0 1
 CMSYEAR_prefire param 0.0 1
 
+
+CMSYEAR_pdf  param  0.0 1
+CMSYEAR_mu_scale  param  0.0 1
 
 #rrv_CMSYEAR_stats_err_TOPE_tt_1b_bin1 param 0.0 1
 #rrv_CMSYEAR_stats_err_TOPE_tt_1b_bin2 param 0.0 1

@@ -107,7 +107,7 @@ norm_smh                lnN     -            -        -         -          -    
 CMSYEAR_pdf              shape    1        -     -       -   	  -      -     -     1
 CMSYEAR_mu_scale         shape    1        -     -       -   	  -      -     -     1
 
-CMSYEAR_qcd_norm        lnN - - - - - 2.0 - -
+#CMSYEAR_qcd_norm        lnN - - - - - 2.0 - -
 
 
 

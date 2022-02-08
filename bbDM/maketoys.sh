@@ -1,3 +1,12 @@
+datacard=datacards_bbDM_2018/datacard_bbDM2018_2b_Merged_sp_0p7_tb_35_mXd_1_mA_600_ma_100.txt
+year=2018
+catg=2b
+
+text2workspace.py $datacard --channel-masks
+datacardws=`echo $datacard | sed  's|.txt|.root|g'`
+
+echo $datacardws
+
 combine -M GoodnessOfFit -d $datacardws --algo=saturated -n _result_bonly_CRonly --setParametersForFit mask_SR=1 --setParametersForEval mask_SR=0 --freezeParameters r --setParameters r=0
 
 combine -M GoodnessOfFit -d $datacardws --algo=saturated -n _result_bonly_CRonly_toy --setParametersForFit mask_SR=1 --setParametersForEval mask_SR=0 --freezeParameters r --setParameters r=0,mask_SR=1 -t 100 --toysFrequentist -s 12431 &

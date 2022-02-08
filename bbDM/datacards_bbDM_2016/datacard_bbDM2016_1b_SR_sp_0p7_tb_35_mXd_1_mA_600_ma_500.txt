@@ -123,6 +123,15 @@ CMS2016_prefire shape 1 - -  1 1 1 1 1
 #rrv_CMS2016_scale_m_1b param 0.0 1
 #rrv_eletrigeffCMS2016_scale__1b param 0.0 1
 
+
+JECAbsolute param  0.0 1
+JECAbsolute_2016 param  0.0 1
+JECBBEC1 param  0.0 1
+JECFlavorQCD param  0.0 1
+JECRelativeBal param  0.0 1
+JECRelativeSample_2016 param  0.0 1
+
+
 #CMS2016_EleTrig  param  0.0 1
 
 CMS2016_EleRECO param  0.0 1
@@ -136,6 +145,9 @@ CMS2016_MuISO param  0.0 1
 CMS2016_eff_b param 0.0 1
 CMS2016_prefire param 0.0 1
 
+
+CMS2016_pdf  param  0.0 1
+CMS2016_mu_scale  param  0.0 1
 
 #rrv_CMS2016_stats_err_TOPE_tt_1b_bin1 param 0.0 1
 #rrv_CMS2016_stats_err_TOPE_tt_1b_bin2 param 0.0 1

@@ -4,7 +4,9 @@
 
 
 #sed -i 's/CMSYEAR_MuTRK/#CMSYEAR_MuTRK/g' *b_workspace.txt
-sed -i 's//stat_bin/g' *b_workspace.txt
+sed -i 's/CMSYEAR_qcd_norm_mu/#CMSYEAR_qcd_norm_mu/g' *b_workspace.txt
+sed -i 's/CMSYEAR_qcd_norm_e/#CMSYEAR_qcd_norm_e/g' *b_workspace.txt
+sed -i 's/CMSYEAR_qcd_norm/#CMSYEAR_qcd_norm/g' *b_workspace.txt
 
 
 #sed -i 's/monoHbbYEAR/bbDMYEAR/g' *.txt

@@ -57,7 +57,7 @@ plotImpacts.py -i  impacts_t0.json -o   ${dirname}/impacts_t0_${dirname}_${catg}
 mode=fit_CRonly_result
 
 ## CR only fit pulls 
-combine -M FitDiagnostics -d $datacardws -n _${catg}_${year}_${mode}_${dirname}  --saveShapes --saveWithUncertainties --setParameters mask_SR=1,mask_cat_1b_SR=1,mask_cat_2b_SR=1 --X-rtd MINIMIZER_analytic --cminFallbackAlgo Minuit2,0:1.0  --cminDefaultMinimizerStrategy 0
+combine -M FitDiagnostics -d $datacardws -n _${catg}_${year}_${mode}_${dirname}  --saveShapes --saveWithUncertainties --setParameters mask_SR=1,mask_cat_1b_SR=1,mask_cat_2b_SR=1,mask_d2016_SR=1,mask_d2017_SR=1,mask_d2018_SR=1 --X-rtd MINIMIZER_analytic --cminFallbackAlgo Minuit2,0:1.0  --cminDefaultMinimizerStrategy 0
 root -l -b -q plotPostNuisance_combine.C\(\"fitDiagnostics_${catg}_${year}_${mode}_${dirname}.root\",\"${dirname}/\",\"${catg}_${year}_${mode}_${dirname}\"\)
 
 

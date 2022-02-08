@@ -82,7 +82,7 @@ CMSYEAR_pdf       shape - - -	   - - - 1
 CMSYEAR_mu_scale shape - - -    - - - 1
 
 
-CMSYEAR_qcd_norm_e     lnN - - - 2.0 - - -
+##CMSYEAR_qcd_norm_e     lnN - - - 2.0 - - -
 
 
 #CMSYEAR_eff_met         lnN           1.04        1.04     1.04       1.04       1.04      1.04     1.04

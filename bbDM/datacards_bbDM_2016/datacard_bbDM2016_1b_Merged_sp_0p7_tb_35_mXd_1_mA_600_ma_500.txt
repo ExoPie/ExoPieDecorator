@@ -1,7 +1,7 @@
 Combination of SR=datacards_bbDM_2016/datacard_bbDM2016_1b_SR_sp_0p7_tb_35_mXd_1_mA_600_ma_500.txt  WE=datacards_bbDM_2016/datacard_bbDM2016_1b_WE_sp_0p7_tb_35_mXd_1_mA_600_ma_500.txt  WMU=datacards_bbDM_2016/datacard_bbDM2016_1b_WMU_sp_0p7_tb_35_mXd_1_mA_600_ma_500.txt  ZEE=datacards_bbDM_2016/datacard_bbDM2016_1b_ZEE_sp_0p7_tb_35_mXd_1_mA_600_ma_500.txt  ZMUMU=datacards_bbDM_2016/datacard_bbDM2016_1b_ZMUMU_sp_0p7_tb_35_mXd_1_mA_600_ma_500.txt
 imax 5 number of bins
 jmax 8 number of processes minus 1
-kmax 143 number of nuisance parameters
+kmax 151 number of nuisance parameters
 ----------------------------------------------------------------------------------------------------------------------------------
 shapes *         SR        datacards_bbDM_2016/bbDM_2016_WS.root ws_bbDM_1b_2016:bbDM2016_1b_SR_$PROCESS ws_bbDM_1b_2016:bbDM2016_1b_SR_$PROCESS_$SYSTEMATIC
 shapes data_obs  SR        datacards_bbDM_2016/bbDM_2016_WS.root ws_bbDM_1b_2016:bbDM2016_1b_SR_data_obs
@@ -150,23 +150,31 @@ rrv_CMS2016_stats_err_ZMUMU_dyjets_1b_bin1  param  0.0 1
 rrv_CMS2016_stats_err_ZMUMU_dyjets_1b_bin2  param  0.0 1
 rrv_CMS2016_stats_err_ZMUMU_dyjets_1b_bin3  param  0.0 1
 CMS2016_trig_ele  param  0.0 1
+rrv_CMS2016_stats_err_WE_wjets_1b_bin4  param  0.0 1
 rrv_CMS2016_stats_err_WMU_wjets_1b_bin4  param  0.0 1
 rrv_CMS2016_stats_err_WMU_wjets_1b_bin2  param  0.0 1
 CMS2016_prefire  param  0.0 1
 rrv_CMS2016_stats_err_WMU_wjets_1b_bin1  param  0.0 1
+rrv_CMS2016_stats_err_WE_wjets_1b_bin1  param  0.0 1
+CMS2016_pdf   param  0.0 1
+JECRelativeSample_2016  param  0.0 1
 CMS2016_MuID  param  0.0 1
-rrv_CMS2016_stats_err_WE_wjets_1b_bin4  param  0.0 1
+CMS2016_mu_scale  param  0.0 1
 rrv_CMS2016_stats_err_WE_wjets_1b_bin2  param  0.0 1
 rrv_CMS2016_stats_err_WE_wjets_1b_bin3  param  0.0 1
-rrv_CMS2016_stats_err_WE_wjets_1b_bin1  param  0.0 1
+JECAbsolute   param  0.0 1
+JECAbsolute_2016  param  0.0 1
 rrv_CMS2016_stats_err_ZEE_dyjets_1b_bin1  param  0.0 1
 rrv_CMS2016_stats_err_ZEE_dyjets_1b_bin2  param  0.0 1
 rrv_CMS2016_stats_err_ZEE_dyjets_1b_bin3  param  0.0 1
 rrv_CMS2016_stats_err_ZEE_dyjets_1b_bin4  param  0.0 1
+JECRelativeBal  param  0.0 1
 rrv_CMS2016_stats_err_WMU_wjets_1b_bin3  param  0.0 1
 CMS2016_eff_b  param  0.0 1
+JECBBEC1      param  0.0 1
 CMS2016_EleRECO  param  0.0 1
 CMS2016_MuISO  param  0.0 1
+JECFlavorQCD  param  0.0 1
 CMS2016_MuTRK  param  0.0 1
 tf3_WE_wjets_1b_2016  flatParam
 tf2_ZMUMU_dyjets_1b_2016  flatParam
