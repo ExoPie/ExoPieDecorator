@@ -70,8 +70,8 @@ JECHF_YEAR shape - 1 1 - 1 1 1
 JECRelativeBal shape - 1 1 - 1 1 1
 JECRelativeSample_YEAR shape - 1 1      - 1 1 1
 
-wj_hf                   lnN                   1.07   -   -        -       -          -          -
-zj_hf                   lnN		      	           - - - - 1.07 - -
+#wj_hf                   lnN                   1.07   -   -        -       -          -          -
+#zj_hf                   lnN		      	           - - - - 1.07 - -
 CMSYEAR_topReweighting          lnN                   - TOPPTRWGHTVAL - - - - -
 
 

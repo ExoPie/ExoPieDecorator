@@ -10,7 +10,9 @@
 // added multi canvas : Deepak
 
 // using  a weird default name so that code crash in cse a correct rootfile is not provided 
-void PlotPulls(TString filename="pulls_none.root", TString outdir="", TString postfix_="",int numberOfCanvas=2){ 
+#include <string>
+
+void PlotPulls(TString filename="pulls_none.root", TString outdir="", TString postfix_="",int numberOfCanvas=8){ 
   
   TString plotdir = outdir;
     TFile file(filename,"READ");
@@ -59,7 +61,24 @@ void PlotPulls(TString filename="pulls_none.root", TString outdir="", TString po
     pt2->SetFillStyle(0);
     pt2->SetTextFont(42);
     pt2->SetTextSize(lumitextsize);
-    pt2->AddText(0.81, 0.5, "41.5 fb^{-1} (13 TeV)");
+
+    string yearstring = std::string(filename);
+    if (yearstring.find("2017") != std::string::npos) {
+      numberOfCanvas = 3;
+      pt2->AddText(0.81, 0.5, "41.5 fb^{-1} (13 TeV)");
+    }
+    else if (yearstring.find("2016") != std::string::npos){
+      numberOfCanvas = 3;
+      pt2->AddText(0.81, 0.5, "35.9 fb^{-1} (13 TeV)");
+    }
+    else if (yearstring.find("2018") != std::string::npos){
+      numberOfCanvas = 3;
+      pt2->AddText(0.81, 0.5, "59.6 fb^{-1} (13 TeV)");
+    }
+    else if (yearstring.find("161718") != std::string::npos){
+      numberOfCanvas = 8;
+      pt2->AddText(0.81, 0.5, "138 fb^{-1} (13 TeV)");
+    }
     
     TPaveText *pt3 = new TPaveText(0.0377181,0.85,0.9580537,0.88,"brNDC");
     pt3->SetBorderSize(0);

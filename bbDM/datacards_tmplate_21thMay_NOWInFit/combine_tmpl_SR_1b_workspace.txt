@@ -99,8 +99,8 @@ CMSYEAR_1b_SR_smh_stat_bin3 shape - - - - - - - 1
 CMSYEAR_1b_SR_smh_stat_bin4 shape - - - - - - - 1
 
 
-wj_hf                   lnN     -            -        1.07       -          -          -      -       -  
-zj_hf                   lnN     -            1.07        -       -          -          -      -       -  
+#wj_hf                   lnN     -            -        1.07       -          -          -      -       -  
+#zj_hf                   lnN     -            1.07        -       -          -          -      -       -  
 CMSYEAR_topReweighting      lnN     -            -		       	  -    	     TOPPTRWGHTVAL          -         -      -       -
 
 norm_stop               lnN     -            -        -         -          1.1       -      -         -

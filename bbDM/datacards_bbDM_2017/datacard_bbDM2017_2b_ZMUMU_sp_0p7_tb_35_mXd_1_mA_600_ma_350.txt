@@ -70,8 +70,8 @@ JECRelativeSample_2017 shape 1 1 -      1 1
 CMS2017_prefire shape 1 1 -      1 1
 
 
-wj_hf                   lnN                   -        -       -          -          -
-zj_hf                   lnN                   -        -           1.07          -   -
+#wj_hf                   lnN                   -        -       -          -          -
+#zj_hf                   lnN                   -        -           1.07          -   -
 CMS2017_topReweighting          lnN                   1.07 - - - -
 
 
@@ -85,10 +85,11 @@ norm_smh                 lnN               -          -        -        -       
 #CMS2017_pdf              shape                1.01           1.01       -     1.01  1.01
 #CMS2017_mu_scale              shape                1.01     1.01       -     1.01  1.01
 
-CMS2017_pdf shape  - -	       - - 1
+##CMS2017_pdf_bkg         shape                  1     1       -       1      -
+CMS2017_pdf shape  1 1	       - 1 1
 CMS2017_mu_scale shape	       - -     - - 1
 
-CMS2017_qcd_norm_mu lnN - - - - -
+##CMS2017_qcd_norm_mu lnN - - - - -
 #CMS2017_eff_t           lnN                1.03       1.03      1.03     1.03  1.03 
 #CMS2017_eff_met         lnN                  1.04     1.04       1.04       1.04      1.04    
 

@@ -67,8 +67,8 @@ JECRelativeBal shape 1 1 -      1 1
 JECRelativeSample_YEAR shape 1 1 -      1 1
 CMSYEAR_prefire shape 1 1 -      1 1
 
-wj_hf                   lnN                   -        -       -          -          -     
-zj_hf                   lnN                   -        -           1.07          -   -
+#wj_hf                   lnN                   -        -       -          -          -     
+#zj_hf                   lnN                   -        -           1.07          -   -
 CMSYEAR_topReweighting          lnN                  TOPPTRWGHTVAL - - - -
 
 norm_stop               lnN                -         1.1        -       -          -           
@@ -78,7 +78,9 @@ norm_smh                 lnN               -          -        -        -       
 #CMSYEAR_pdf              shape                1  	  1       -     1  1  
 #CMSYEAR_mu_scale              shape            1  	  1       -     1  1  
 
-CMSYEAR_pdf shape  - - - - 1
+
+#CMSYEAR_pdf_bkg         shape                  1     1       -       1      -
+CMSYEAR_pdf shape  1 1 - 1 1
 CMSYEAR_mu_scale shape  - -	- - 1
 ##CMSYEAR_qcd_norm_e lnN - - - - -
 #CMSYEAR_eff_met         lnN                  1.04     1.04       1.04       1.04      1.04    

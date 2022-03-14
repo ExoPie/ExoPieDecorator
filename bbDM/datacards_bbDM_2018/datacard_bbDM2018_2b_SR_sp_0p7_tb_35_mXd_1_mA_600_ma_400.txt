@@ -95,8 +95,8 @@ CMS2018_2b_SR_smh_stat_bin2 shape - - - - - - - 1
 CMS2018_2b_SR_smh_stat_bin3 shape - - - - - - - 1 
 CMS2018_2b_SR_smh_stat_bin4 shape - - - - - - - 1 
 
-wj_hf                   lnN     -            -        1.07       -          -          -      -       -
-zj_hf                   lnN     -            1.07        -       -          -          -      -       -
+#wj_hf                   lnN     -            -        1.07       -          -          -      -       -
+#zj_hf                   lnN     -            1.07        -       -          -          -      -       -
 
 CMS2018_topReweighting      lnN     -            -           -       1.17       -          -      -       -
 
@@ -104,10 +104,12 @@ norm_stop               lnN     -            -        -         -          1.1  
 norm_diboson            lnN     -            -        -         -          -         -      1.2       -
 norm_smh                lnN     -            -        -         -          -         -      -       1.2	
 
-CMS2018_pdf              shape    1        -     -       -   	  -      -     -     1
-CMS2018_mu_scale         shape    1        -     -       -   	  -      -     -     1
+#CMS2018_pdf_bkg     shape    -        -    1  -        1      -     1     -
+CMS2018_pdf              shape    1        -     1       -   	  1      -     1     1
+##CMS2018_mu_scale         shape    1        -     1       -   	  1      -     1     1
+CMS2018_mu_scale         shape   1        -     -       -   	    -      -     -     1
 
-CMS2018_qcd_norm        lnN - - - - - 2.0 - -
+#CMS2018_qcd_norm        lnN - - - - - 2.0 - -
 
 
 

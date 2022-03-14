@@ -605,7 +605,7 @@ void PrepareWS_withnuisanceInvertTF_noW_nBins(TString model_="monoHbb",TString a
   // Open input file with all the histograms.
   TFile* fin = OpenRootFile(inputdir+"/"+inputfile);
   
-  TH1F* h_binning = (TH1F*) fin->Get("bbDM"+year+"_"+anacat_+"_SR_2HDMa_Ma500_MChi1_MA1200_tb35_st_0p7");
+  TH1F* h_binning = (TH1F*) fin->Get("bbDM"+year+"_"+anacat_+"_SR_2HDMa_Ma500_MChi1_MA600_tb35_st_0p7");
   
   
   Double_t bins[nbins+1];
@@ -1083,7 +1083,7 @@ void PrepareWS_withnuisanceInvertTF_noW_nBins(TString model_="monoHbb",TString a
   std::vector<int> mApoint;
   mApoint.clear();
   mApoint.push_back(600.);
-  mApoint.push_back(1200.);
+  //mApoint.push_back(1200.);
 
 
   Int_t  nsig = signalpoint.size();
@@ -1097,6 +1097,7 @@ void PrepareWS_withnuisanceInvertTF_noW_nBins(TString model_="monoHbb",TString a
       mAs.Form("%d",mApoint[imA]);
       mps.Form("%d",signalpoint[is]);
       if (year=="2016"){
+	if (mApoint[imA] == 1200 ) continue;
 	if ( (signalpoint[is] == 100) && (mApoint[imA] == 1200) ) continue;
 	if ( (signalpoint[is] == 300) && (mApoint[imA] == 1200) ) continue;
       }

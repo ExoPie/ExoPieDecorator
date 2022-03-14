@@ -10,7 +10,6 @@ mode=asimov_t_0
 
 ## create workspace 
 text2workspace.py $datacard --channel-masks
-# --X-rescale-nuisance 'CMS2017_EleID' 0.3 
 datacardws=`echo $datacard | sed  's|.txt|.root|g'`
 echo $datacardws
 
@@ -22,19 +21,20 @@ echo $datacardws
 
 ## run pulls and impact asimov b-only 
 #### pulls 
-combine -M FitDiagnostics  $datacardws --saveShapes --saveWithUncertainties -t -1 --expectSignal 0 -n _${catg}_${year}_${mode}_${dirname} --cminDefaultMinimizerStrategy 0 #--X-rtd MINIMIZER_MaxCalls=999999999 #--setParameters mask_ZEE=1 ## --cminDefaultMinimizerPrecision 1E-12
-python diffNuisances.py fitDiagnostics_${catg}_${year}_${mode}_${dirname}.root --abs --all -g pulls_${catg}_${year}_${mode}_${dirname}.root
+#combine -M FitDiagnostics  $datacardws --saveShapes --saveWithUncertainties -t -1 --expectSignal 0 -n _${catg}_${year}_${mode}_${dirname} --cminDefaultMinimizerStrategy 0 # --freezeParameters CMS2017_EleID #--X-rtd MINIMIZER_MaxCalls=999999999 #--setParameters mask_ZEE=1 ## --cminDefaultMinimizerPrecision 1E-12
+#python diffNuisances.py fitDiagnostics_${catg}_${year}_${mode}_${dirname}.root --abs --all -g pulls_${catg}_${year}_${mode}_${dirname}.root
 root -l -b -q PlotPulls.C\(\"pulls_${catg}_${year}_${mode}_${dirname}.root\",\"${dirname}/\",\"_${catg}_${year}_${mode}_${dirname}\"\)
+#,\"${year}\"\)
 
 
 
 #### impacts
 #--freezeParameters ratett --setParameters ratett=1.2
-text2workspace.py $datacard --channel-masks
-combineTool.py -M Impacts -d $datacardws --doInitialFit --robustFit 1 -m 125 -t -1 --expectSignal 0 --rMin -10 
-combineTool.py -M Impacts -d $datacardws --doFits  --robustFit 1 -m 125 --parallel 32 -t -1 --expectSignal 0 --rMin -10 
-combineTool.py -M Impacts -d  $datacardws -m 125 -o impacts_t0.json
-plotImpacts.py -i  impacts_t0.json -o   ${dirname}/impacts_t0_${dirname}_${catg}
+#text2workspace.py $datacard --channel-masks
+#combineTool.py -M Impacts -d $datacardws --doInitialFit --robustFit 1 -m 125 -t -1 --expectSignal 0 --rMin -10 
+#combineTool.py -M Impacts -d $datacardws --doFits  --robustFit 1 -m 125 --parallel 32 -t -1 --expectSignal 0 --rMin -10 
+#combineTool.py -M Impacts -d  $datacardws -m 125 -o impacts_t0.json
+#plotImpacts.py -i  impacts_t0.json -o   ${dirname}/impacts_t0_${dirname}_${catg}
 
 ## run pulls and impact asimov signal injected 
 ### pulls 
@@ -57,8 +57,8 @@ plotImpacts.py -i  impacts_t0.json -o   ${dirname}/impacts_t0_${dirname}_${catg}
 mode=fit_CRonly_result
 
 ## CR only fit pulls 
-combine -M FitDiagnostics -d $datacardws -n _${catg}_${year}_${mode}_${dirname}  --saveShapes --saveWithUncertainties --setParameters mask_SR=1,mask_cat_1b_SR=1,mask_cat_2b_SR=1,mask_d2016_SR=1,mask_d2017_SR=1,mask_d2018_SR=1 --X-rtd MINIMIZER_analytic --cminFallbackAlgo Minuit2,0:1.0  --cminDefaultMinimizerStrategy 0
-root -l -b -q plotPostNuisance_combine.C\(\"fitDiagnostics_${catg}_${year}_${mode}_${dirname}.root\",\"${dirname}/\",\"${catg}_${year}_${mode}_${dirname}\"\)
+#combine -M FitDiagnostics -d $datacardws -n _${catg}_${year}_${mode}_${dirname}  --saveShapes --saveWithUncertainties --setParameters mask_SR=1,mask_cat_1b_SR=1,mask_cat_2b_SR=1,mask_d2016_SR=1,mask_d2017_SR=1,mask_d2018_SR=1,mask_d2016_cat_1b_SR=1,mask_d2016_cat_2b_SR=1,mask_d2017_cat_1b_SR=1,mask_d2017_cat_2b_SR=1,mask_d2018_cat_1b_SR=1,mask_d2018_cat_2b_SR=1 --X-rtd MINIMIZER_analytic --cminFallbackAlgo Minuit2,0:1.0  --cminDefaultMinimizerStrategy 0
+#root -l -b -q plotPostNuisance_combine.C\(\"fitDiagnostics_${catg}_${year}_${mode}_${dirname}.root\",\"${dirname}/\",\"${catg}_${year}_${mode}_${dirname}\"\)
 
 
 #combine -M FitDiagnostics -d $datacardws -n _${catg}_${year}_${mode}_${dirname}  --saveShapes --saveWithUncertainties --setParameters mask_SR=1,mask_d2016_cat_1b_SR=1,mask_d2016_cat_2b_SR=1,mask_d2017_cat_1b_SR=1,mask_d2017_cat_2b_SR=1,mask_d2018_cat_1b_SR=1,mask_d2018_cat_2b_SR=1, --X-rtd MINIMIZER_analytic --cminFallbackAlgo Minuit2,0:1.0
@@ -77,3 +77,6 @@ root -l -b -q plotPostNuisance_combine.C\(\"fitDiagnostics_${catg}_${year}_${mod
 ## https://indico.cern.ch/event/976099/contributions/4138476/attachments/2163625/3651175/CombineTutorial-2020-debugging.pdf
 
 ##combineTool.py -M FastScan -w datacards_bbDM_2017/datacard_bbDM2017_2b_Merged_sp_0p7_tb_35_mXd_1_mA_600_ma_100.root:w
+
+##--freezeParameters CMS2017_EleID
+# --X-rescale-nuisance 'CMS2017_EleID' 0.3 

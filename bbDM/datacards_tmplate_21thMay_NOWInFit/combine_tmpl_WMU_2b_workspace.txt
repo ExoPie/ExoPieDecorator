@@ -62,8 +62,8 @@ JECHF_YEAR shape - - 1 1 1 1 1
 JECRelativeBal shape - - 1 1 1 1 1
 JECRelativeSample_YEAR shape - - 1	1 1 1 1
 
-#wj_hf                   lnN     1.05         -        -       -          -          -      -       
-#zj_hf                   lnN     -            -        -       -          1.05          -      -      
+##wj_hf                   lnN     1.05         -        -       -          -          -      -       
+##zj_hf                   lnN     -            -        -       -          1.05          -      -      
 
 norm_stop               lnN           -         -         1.1        -       -          -            -
 norm_diboson            lnN           -        -          -         -        -          1.2         - 

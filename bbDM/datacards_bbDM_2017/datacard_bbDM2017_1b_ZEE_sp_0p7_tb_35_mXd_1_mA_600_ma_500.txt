@@ -68,8 +68,8 @@ JECHF_2017 shape 1 1 -	1 1
 JECRelativeBal shape 1 1 -	1 1
 JECRelativeSample_2017 shape 1 1 -	1 1
 
-wj_hf                   lnN                   -        -       -          -          -     
-zj_hf                   lnN                   -        -           1.07          -   -
+#wj_hf                   lnN                   -        -       -          -          -     
+#zj_hf                   lnN                   -        -           1.07          -   -
 CMS2017_topReweighting		        lnN   	                     1.07  - - - -
 
 norm_stop               lnN                -         1.1        -       -          -           
@@ -81,7 +81,7 @@ norm_smh                 lnN               -          -        -        -       
 
 CMS2017_pdf shape  - - - - 1
 CMS2017_mu_scale shape  - -	- - 1
-CMS2017_qcd_norm_e lnN - - - - -
+##CMS2017_qcd_norm_e lnN - - - - -
 #CMS2017_eff_met         lnN                  1.04     1.04       1.04       1.04      1.04    
 
 

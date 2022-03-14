@@ -1,8 +1,16 @@
-source runall.sh AllMETHistos_v17_12-02-01_cl68pdf.root 2017 AllMETHistos_v17_12-02-01_cl68pdf 4 2hdma 
+## updated pdf and also datacards accordingly 
+# using AllMETHistos_v16_12-02-01_cl68pdf_privateSIG.root as this is better than the nominal official samples 
 
-source runall.sh AllMETHistos_v16_12-02-01_fixedPDF_v3.root 2016 AllMETHistos_v16_12-02-01_fixedPDF_v3 4 2hdma
-source runall.sh AllMETHistos_v17_12-02-01_fixedPDF_v3.root 2017 AllMETHistos_v17_12-02-01_fixedPDF_v3 4 2hdma
-source runall.sh AllMETHistos_v18_12-02-01_fixedPDF_v3.root 2018 AllMETHistos_v18_12-02-01_fixedPDF_v3 4 2hdma
+#source runall.sh AllMETHistos_v16_12-02-01_cl68pdf.root 2016 AllMETHistos_v16_12-02-01_cl68pdf 4 2hdma 
+source runall.sh AllMETHistos_v16_12-02-01_cl68pdf_v1_fixedZnunuXsec.root 2016 AllMETHistos_v16_12-02-01_cl68pdf_v1_fixedZnunuXsec 4 2hdma 
+#source runall.sh AllMETHistos_v17_12-02-01_cl68pdf.root 2017 AllMETHistos_v17_12-02-01_cl68pdf 4 2hdma 
+#source runall.sh AllMETHistos_v18_12-02-01_cl68pdf.root 2018 AllMETHistos_v18_12-02-01_cl68pdf 4 2hdma 
+
+
+## USed for jan 2022 meeting 
+#source runall.sh AllMETHistos_v16_12-02-01_fixedPDF_v3.root 2016 AllMETHistos_v16_12-02-01_fixedPDF_v3 4 2hdma
+#source runall.sh AllMETHistos_v17_12-02-01_fixedPDF_v3.root 2017 AllMETHistos_v17_12-02-01_fixedPDF_v3 4 2hdma
+#source runall.sh AllMETHistos_v18_12-02-01_fixedPDF_v3.root 2018 AllMETHistos_v18_12-02-01_fixedPDF_v3 4 2hdma
 
 
 #source runall.sh AllMETHistos_v17_12-02-01.root 2017 AllMETHistos_v17_12-02-01 4 2hdma 

@@ -27,7 +27,7 @@ What to change: There are few parameters which needs to be changed:
 
 if dmsimp==False:
     maList=[10,50,100,200,250,300,350,400,500]
-    category="2b"
+    category="C"
     datacard="datacards_bbDM_{}/datacard_bbDM{}_{}_Merged_sp_0p7_tb_35_mXd_1_mA_600_ma_{}.txt"
     model="2hdma"
 

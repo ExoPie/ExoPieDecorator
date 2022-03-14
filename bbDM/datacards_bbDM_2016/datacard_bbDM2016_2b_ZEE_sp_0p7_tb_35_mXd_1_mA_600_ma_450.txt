@@ -67,8 +67,8 @@ JECRelativeBal shape 1 1 -      1 1
 JECRelativeSample_2016 shape 1 1 -      1 1
 CMS2016_prefire shape 1 1 -      1 1
 
-wj_hf                   lnN                   -        -       -          -          -     
-zj_hf                   lnN                   -        -           1.07          -   -
+#wj_hf                   lnN                   -        -       -          -          -     
+#zj_hf                   lnN                   -        -           1.07          -   -
 CMS2016_topReweighting          lnN                  1.07 - - - -
 
 norm_stop               lnN                -         1.1        -       -          -           
@@ -78,9 +78,11 @@ norm_smh                 lnN               -          -        -        -       
 #CMS2016_pdf              shape                1  	  1       -     1  1  
 #CMS2016_mu_scale              shape            1  	  1       -     1  1  
 
-CMS2016_pdf shape  - - - - 1
+
+#CMS2016_pdf_bkg         shape                  1     1       -       1      -
+CMS2016_pdf shape  1 1 - 1 1
 CMS2016_mu_scale shape  - -	- - 1
-CMS2016_qcd_norm_e lnN - - - - -
+##CMS2016_qcd_norm_e lnN - - - - -
 #CMS2016_eff_met         lnN                  1.04     1.04       1.04       1.04      1.04    
 
 
