@@ -21,9 +21,9 @@ echo $datacardws
 
 ## run pulls and impact asimov b-only 
 #### pulls 
-#combine -M FitDiagnostics  $datacardws --saveShapes --saveWithUncertainties -t -1 --expectSignal 0 -n _${catg}_${year}_${mode}_${dirname} --cminDefaultMinimizerStrategy 0 # --freezeParameters CMS2017_EleID #--X-rtd MINIMIZER_MaxCalls=999999999 #--setParameters mask_ZEE=1 ## --cminDefaultMinimizerPrecision 1E-12
-#python diffNuisances.py fitDiagnostics_${catg}_${year}_${mode}_${dirname}.root --abs --all -g pulls_${catg}_${year}_${mode}_${dirname}.root
-root -l -b -q PlotPulls.C\(\"pulls_${catg}_${year}_${mode}_${dirname}.root\",\"${dirname}/\",\"_${catg}_${year}_${mode}_${dirname}\"\)
+combine -M FitDiagnostics  $datacardws --saveShapes --saveWithUncertainties -t -1 --expectSignal 0 -n _${catg}_${year}_${mode}_${dirname} --cminDefaultMinimizerStrategy 0 # --freezeParameters CMS2017_EleID #--X-rtd MINIMIZER_MaxCalls=999999999 #--setParameters mask_ZEE=1 ## --cminDefaultMinimizerPrecision 1E-12
+python diffNuisances.py fitDiagnostics_${catg}_${year}_${mode}_${dirname}.root --abs --all -g pulls_${catg}_${year}_${mode}_${dirname}.root
+#root -l -b -q PlotPulls.C\(\"pulls_${catg}_${year}_${mode}_${dirname}.root\",\"${dirname}/\",\"_${catg}_${year}_${mode}_${dirname}\"\)
 #,\"${year}\"\)
 
 

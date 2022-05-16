@@ -1,3 +1,11 @@
+## to do in the limit model 
+
+1. test the code with 12 bins 
+2. why muon id and muon scale are so shifted in run 2 combo plot (cr only fit): check the shape of all the needd nuisances, and smooth them if needed,  
+3. 
+
+
+
 ## Only for Raman 
 I don't have setup of correct version of combine, so i source this script in my area, you might want to install the combine correctly. 
 source envsetter.sh
