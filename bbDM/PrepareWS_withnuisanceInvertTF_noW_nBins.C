@@ -1088,8 +1088,16 @@ void PrepareWS_withnuisanceInvertTF_noW_nBins(TString model_="monoHbb",TString a
   nuisancesName.push_back("CMS"+year+"_MuIDUp");
   nuisancesName.push_back("CMS"+year+"_MuISOUp");
   nuisancesName.push_back("CMS"+year+"_pdfUp");
+  
   nuisancesName.push_back("CMS"+year+"_mu_scaleUp");
-
+  nuisancesName.push_back("CMS"+year+"_mu_scale_zjetsUp");
+  nuisancesName.push_back("CMS"+year+"_mu_scale_wjetsUp");
+  nuisancesName.push_back("CMS"+year+"_mu_scale_ttUp");
+  nuisancesName.push_back("CMS"+year+"_mu_scale_singletUp");
+  nuisancesName.push_back("CMS"+year+"_mu_scale_qcdUp");
+  nuisancesName.push_back("CMS"+year+"_mu_scale_dibosonUp");
+  nuisancesName.push_back("CMS"+year+"_mu_scale_smhUp");
+  
 
   nuisancesName.push_back("JECAbsoluteUp");
   nuisancesName.push_back("JECAbsolute_"+year+"Up");
@@ -1119,7 +1127,17 @@ void PrepareWS_withnuisanceInvertTF_noW_nBins(TString model_="monoHbb",TString a
   nuisancesName.push_back("CMS"+year+"_MuIDDown");
   nuisancesName.push_back("CMS"+year+"_MuISODown");
   nuisancesName.push_back("CMS"+year+"_pdfDown");
+  
+  
   nuisancesName.push_back("CMS"+year+"_mu_scaleDown");
+  nuisancesName.push_back("CMS"+year+"_mu_scale_zjetsDown");
+  nuisancesName.push_back("CMS"+year+"_mu_scale_wjetsDown");
+  nuisancesName.push_back("CMS"+year+"_mu_scale_ttDown");
+  nuisancesName.push_back("CMS"+year+"_mu_scale_singletDown");
+  nuisancesName.push_back("CMS"+year+"_mu_scale_qcdDown");
+  nuisancesName.push_back("CMS"+year+"_mu_scale_dibosonDown");
+  nuisancesName.push_back("CMS"+year+"_mu_scale_smhDown");
+
 
   nuisancesName.push_back("JECAbsoluteDown");
   nuisancesName.push_back("JECAbsolute_"+year+"Down");

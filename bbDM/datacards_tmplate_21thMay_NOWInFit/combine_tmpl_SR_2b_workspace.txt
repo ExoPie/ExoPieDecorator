@@ -113,13 +113,13 @@ CMSYEAR_pdf              shape    1        -     1       -   	  1      -     1  
 #signal     zjets  wjets    tt     singlet        qcd      diboson    smh
 
 #CMSYEAR_mu_scale_signal  shape  1 - - - - - - -
-CMSYEAR_mu_scale_wjets   shape  - 1 - - - - - -
+#CMSYEAR_mu_scale_zjets   shape  - 1 - - - - - -
 CMSYEAR_mu_scale_wjets   shape  - - 1 - - - - -
-CMSYEAR_mu_scale_wjets   shape  - - - 1 - - - - 
-CMSYEAR_mu_scale_wjets   shape  - - - - 1 - - - 
-CMSYEAR_mu_scale_wjets   shape  - - - - - 1 - -
-CMSYEAR_mu_scale_wjets   shape  - - - - - - 1 -
-CMSYEAR_mu_scale_wjets   shape  - - - - - - - 1
+#CMSYEAR_mu_scale_tt   shape  - - - 1 - - - - 
+CMSYEAR_mu_scale_singlet   shape  - - - - 1 - - - 
+CMSYEAR_mu_scale_qcd   shape  - - - - - 1 - -
+CMSYEAR_mu_scale_diboson   shape  - - - - - - 1 -
+CMSYEAR_mu_scale_smh   shape  - - - - - - - 1
 
 
 #CMSYEAR_qcd_norm        lnN - - - - - 2.0 - -
