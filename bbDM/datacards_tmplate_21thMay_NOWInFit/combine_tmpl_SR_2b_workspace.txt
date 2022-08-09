@@ -107,7 +107,20 @@ norm_smh                lnN     -            -        -         -          -    
 #CMSYEAR_pdf_bkg     shape    -        -    1  -        1      -     1     -
 CMSYEAR_pdf              shape    1        -     1       -   	  1      -     1     1
 ##CMSYEAR_mu_scale         shape    1        -     1       -   	  1      -     1     1
-CMSYEAR_mu_scale         shape   1        -     -       -   	    -      -     -     1
+
+#CMSYEAR_mu_scale         shape   1        -     -       -   	    -      -     -     1
+
+#signal     zjets  wjets    tt     singlet        qcd      diboson    smh
+
+#CMSYEAR_mu_scale_signal  shape  1 - - - - - - -
+CMSYEAR_mu_scale_wjets   shape  - 1 - - - - - -
+CMSYEAR_mu_scale_wjets   shape  - - 1 - - - - -
+CMSYEAR_mu_scale_wjets   shape  - - - 1 - - - - 
+CMSYEAR_mu_scale_wjets   shape  - - - - 1 - - - 
+CMSYEAR_mu_scale_wjets   shape  - - - - - 1 - -
+CMSYEAR_mu_scale_wjets   shape  - - - - - - 1 -
+CMSYEAR_mu_scale_wjets   shape  - - - - - - - 1
+
 
 #CMSYEAR_qcd_norm        lnN - - - - - 2.0 - -
 

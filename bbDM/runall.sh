@@ -29,7 +29,7 @@ then
     
     # create cards
     #python RunLimits.py -c --model 2hdma_all --region "SR WE WMU ZEE ZMUMU" --category=sr1 --year ${year}
-    #python RunLimits.py -c --model 2hdma_all --region "SR TOPE TOPMU ZEE ZMUMU" --category=sr2 --year ${year}
+    python RunLimits.py -c --model 2hdma_all --region "SR TOPE TOPMU ZEE ZMUMU" --category=sr2 --year ${year}
     #python RunLimits.py -c --model 2hdma_all --region "bbDM${year}_datacardslist_1b_2hdma_all.txt bbDM${year}_datacardslist_2b_2hdma_all.txt" --category=srall --year ${year}
     
     # run limits #
@@ -127,3 +127,9 @@ cp -r plots_limit/$postfix /afs/cern.ch/work/k/khurana/public/AnalysisStuff/bbDM
 
 # datacards_bbDM_2017_b/datacard_bbDM2017_1b_SR_sp_0p7_tb_35_mXd_1_mA_600_ma_200.txt : 1.9375
 # datacards_bbDM_2017_b/datacard_bbDM2017_2b_SR_sp_0p7_tb_35_mXd_1_mA_600_ma_200.txt : 0.6621
+
+
+
+
+#bbDM2016_2b_SR_2HDMa_Ma500_MChi1_MA1200_tb35_st_0p7_CMS2016_mu_scale_2HDMa_Ma500_MChi1_MA1200_tb35_st_0p7Down
+# bbDM2016_2b_SR_wjets_CMS2016_mu_scale_wjetsDown

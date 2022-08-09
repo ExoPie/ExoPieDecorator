@@ -314,7 +314,7 @@ void createRegion(RooRealVar met, TH1F* h_sr_bkg , TH1F* h_cr_bkg,
   RooRealVar tf4 ("tf4_"+region_proc_cr+anacat_+"_"+year_,"tf4_"+region_proc_cr+anacat_+year_,bincontents_htf_cr_bkg[3]) ;
 
   // -- Following code is to extend the number of bins
-  RooRealVar tf5 ("tf5_"+region_proc_cr+anacat_+"_"+year_,"tf5_"+region_proc_cr+anacat_+year_,bincontents_htf_cr_bkg[4]) ;
+  /*RooRealVar tf5 ("tf5_"+region_proc_cr+anacat_+"_"+year_,"tf5_"+region_proc_cr+anacat_+year_,bincontents_htf_cr_bkg[4]) ;
   RooRealVar tf6 ("tf6_"+region_proc_cr+anacat_+"_"+year_,"tf6_"+region_proc_cr+anacat_+year_,bincontents_htf_cr_bkg[5]) ;
   RooRealVar tf7 ("tf7_"+region_proc_cr+anacat_+"_"+year_,"tf7_"+region_proc_cr+anacat_+year_,bincontents_htf_cr_bkg[6]) ;
   RooRealVar tf8 ("tf8_"+region_proc_cr+anacat_+"_"+year_,"tf8_"+region_proc_cr+anacat_+year_,bincontents_htf_cr_bkg[7]) ;
@@ -323,7 +323,7 @@ void createRegion(RooRealVar met, TH1F* h_sr_bkg , TH1F* h_cr_bkg,
   RooRealVar tf10 ("tf10_"+region_proc_cr+anacat_+"_"+year_,"tf10_"+region_proc_cr+anacat_+year_,bincontents_htf_cr_bkg[9]) ;
   RooRealVar tf11 ("tf11_"+region_proc_cr+anacat_+"_"+year_,"tf11_"+region_proc_cr+anacat_+year_,bincontents_htf_cr_bkg[10]) ;
   RooRealVar tf12 ("tf12_"+region_proc_cr+anacat_+"_"+year_,"tf12_"+region_proc_cr+anacat_+year_,bincontents_htf_cr_bkg[11]) ;
-
+  */
 
   // at this moment keeping this code here for add systematics on the TF,
   // considered only two nuisances, will complete the list later on, once i know which other nuisances has to be here
@@ -401,7 +401,7 @@ void createRegion(RooRealVar met, TH1F* h_sr_bkg , TH1F* h_cr_bkg,
   TString rfv_bin3 = rfv_bin1;
   TString rfv_bin4 = rfv_bin1;
   // following code is to be extend 
-  TString rfv_bin5 = rfv_bin1;
+  /*TString rfv_bin5 = rfv_bin1;
   TString rfv_bin6 = rfv_bin1;
   TString rfv_bin7 = rfv_bin1;
   TString rfv_bin8 = rfv_bin1;
@@ -410,7 +410,7 @@ void createRegion(RooRealVar met, TH1F* h_sr_bkg , TH1F* h_cr_bkg,
   TString rfv_bin10 = rfv_bin1;
   TString rfv_bin11 = rfv_bin1;
   TString rfv_bin12 = rfv_bin1;
-
+  */
   
   
   std::vector<std::string> rfv_tf_stats_err_vector = createnuisance(tf_stats_err_vector, nHistbins, syst_counter++);
@@ -420,7 +420,7 @@ void createRegion(RooRealVar met, TH1F* h_sr_bkg , TH1F* h_cr_bkg,
   rfv_bin3  += rfv_tf_stats_err_vector[2] ;
   rfv_bin4  += rfv_tf_stats_err_vector[3] ;
   //following code is to be extend
-  if (nHistbins>=5 )   rfv_bin5  += rfv_tf_stats_err_vector[4] ;
+  /*if (nHistbins>=5 )   rfv_bin5  += rfv_tf_stats_err_vector[4] ;
   if (nHistbins>=6 )   rfv_bin6  += rfv_tf_stats_err_vector[5] ;
   if (nHistbins>=7 )   rfv_bin7  += rfv_tf_stats_err_vector[6] ;
   if (nHistbins>=8 )   rfv_bin8  += rfv_tf_stats_err_vector[7] ;
@@ -429,7 +429,7 @@ void createRegion(RooRealVar met, TH1F* h_sr_bkg , TH1F* h_cr_bkg,
   if (nHistbins>=10 )   rfv_bin10  += rfv_tf_stats_err_vector[9] ;
   if (nHistbins>=11 )   rfv_bin11  += rfv_tf_stats_err_vector[10] ;
   if (nHistbins>=12 )   rfv_bin12  += rfv_tf_stats_err_vector[11] ;
-
+  */
   std::cout<<" stats error added "<<std::endl;
 
   // allow the stats error to vary fom 0 to  1* sigma
@@ -440,7 +440,7 @@ void createRegion(RooRealVar met, TH1F* h_sr_bkg , TH1F* h_cr_bkg,
   RooRealVar rrv_stats_err_bin4("rrv_CMS"+year_+"_stats_err_"+region_proc_cr+anacat_+"_bin4", "rrv_stats_err_"+region_proc_cr+"_bin4",tf_stats_err_vector[3],  0.5*tf_stats_err_vector[3],2.*tf_stats_err_vector[3]);
 
   // -- Following code is to extend the number of bins
-  RooRealVar rrv_stats_err_bin5("rrv_CMS"+year_+"_stats_err_"+region_proc_cr+anacat_+"_bin5", "rrv_stats_err_"+region_proc_cr+"_bin5",tf_stats_err_vector[4],  0.5*tf_stats_err_vector[4],2.*tf_stats_err_vector[4]);
+  /*RooRealVar rrv_stats_err_bin5("rrv_CMS"+year_+"_stats_err_"+region_proc_cr+anacat_+"_bin5", "rrv_stats_err_"+region_proc_cr+"_bin5",tf_stats_err_vector[4],  0.5*tf_stats_err_vector[4],2.*tf_stats_err_vector[4]);
   RooRealVar rrv_stats_err_bin6("rrv_CMS"+year_+"_stats_err_"+region_proc_cr+anacat_+"_bin6", "rrv_stats_err_"+region_proc_cr+"_bin6",tf_stats_err_vector[5],  0.5*tf_stats_err_vector[5],2.*tf_stats_err_vector[5]);
   RooRealVar rrv_stats_err_bin7("rrv_CMS"+year_+"_stats_err_"+region_proc_cr+anacat_+"_bin7", "rrv_stats_err_"+region_proc_cr+"_bin7",tf_stats_err_vector[6],  0.5*tf_stats_err_vector[6],2.*tf_stats_err_vector[6]);
   RooRealVar rrv_stats_err_bin8("rrv_CMS"+year_+"_stats_err_"+region_proc_cr+anacat_+"_bin8", "rrv_stats_err_"+region_proc_cr+"_bin8",tf_stats_err_vector[7],  0.5*tf_stats_err_vector[7],2.*tf_stats_err_vector[7]);
@@ -449,13 +449,14 @@ void createRegion(RooRealVar met, TH1F* h_sr_bkg , TH1F* h_cr_bkg,
   RooRealVar rrv_stats_err_bin10("rrv_CMS"+year_+"_stats_err_"+region_proc_cr+anacat_+"_bin10", "rrv_stats_err_"+region_proc_cr+"_bin10",tf_stats_err_vector[9],  0.5*tf_stats_err_vector[9],2.*tf_stats_err_vector[9]);
   RooRealVar rrv_stats_err_bin11("rrv_CMS"+year_+"_stats_err_"+region_proc_cr+anacat_+"_bin11", "rrv_stats_err_"+region_proc_cr+"_bin11",tf_stats_err_vector[10],  0.5*tf_stats_err_vector[10],2.*tf_stats_err_vector[10]);
   RooRealVar rrv_stats_err_bin12("rrv_CMS"+year_+"_stats_err_"+region_proc_cr+anacat_+"_bin12", "rrv_stats_err_"+region_proc_cr+"_bin12",tf_stats_err_vector[11],  0.5*tf_stats_err_vector[11],2.*tf_stats_err_vector[11]);
-
+  */
 
   RooArgList ral_bin1;
   RooArgList ral_bin2;
   RooArgList ral_bin3;
   RooArgList ral_bin4;
 
+  /*
   RooArgList ral_bin5;
   RooArgList ral_bin6;
   RooArgList ral_bin7;
@@ -465,7 +466,7 @@ void createRegion(RooRealVar met, TH1F* h_sr_bkg , TH1F* h_cr_bkg,
   RooArgList ral_bin10;
   RooArgList ral_bin11;
   RooArgList ral_bin12;
-  
+  */
   
 
   ral_bin1.add(tf1);
@@ -474,7 +475,7 @@ void createRegion(RooRealVar met, TH1F* h_sr_bkg , TH1F* h_cr_bkg,
   ral_bin4.add(tf4);
 
   // Following code is to extend the number of bins 
-  if (nHistbins>=5 )  ral_bin5.add(tf5);
+  /*if (nHistbins>=5 )  ral_bin5.add(tf5);
   if (nHistbins>=6 )  ral_bin6.add(tf6);
   if (nHistbins>=7 )  ral_bin7.add(tf7);
   if (nHistbins>=8 )  ral_bin8.add(tf8);
@@ -483,7 +484,7 @@ void createRegion(RooRealVar met, TH1F* h_sr_bkg , TH1F* h_cr_bkg,
   if (nHistbins>=10 )  ral_bin10.add(tf10);
   if (nHistbins>=11 )  ral_bin11.add(tf11);
   if (nHistbins>=12 )  ral_bin12.add(tf12);
-
+  */
 
   ral_bin1.add(rrv_stats_err_bin1);
   ral_bin2.add(rrv_stats_err_bin2);
@@ -491,7 +492,7 @@ void createRegion(RooRealVar met, TH1F* h_sr_bkg , TH1F* h_cr_bkg,
   ral_bin4.add(rrv_stats_err_bin4);
 
   //  -- Following code is to extend the number of bins
-  if (nHistbins>=5 ) ral_bin5.add(rrv_stats_err_bin5);
+  /*if (nHistbins>=5 ) ral_bin5.add(rrv_stats_err_bin5);
   if (nHistbins>=6 ) ral_bin6.add(rrv_stats_err_bin6);
   if (nHistbins>=7 ) ral_bin7.add(rrv_stats_err_bin7);
   if (nHistbins>=8 ) ral_bin8.add(rrv_stats_err_bin8);
@@ -500,7 +501,7 @@ void createRegion(RooRealVar met, TH1F* h_sr_bkg , TH1F* h_cr_bkg,
   if (nHistbins>=10 ) ral_bin10.add(rrv_stats_err_bin10);
   if (nHistbins>=11 ) ral_bin11.add(rrv_stats_err_bin11);
   if (nHistbins>=12 ) ral_bin12.add(rrv_stats_err_bin12);
-
+  */
 
   RooRealVar* rrv_syst;
   //RooRealVar* rrv_syst_bin2;
@@ -536,7 +537,7 @@ void createRegion(RooRealVar met, TH1F* h_sr_bkg , TH1F* h_cr_bkg,
     rfv_bin4 += "*"+add_logN_systematic[3];
     
     // following code is to be exten
-    if (nHistbins>=5 ) rfv_bin5 += "*"+add_logN_systematic[4];
+    /*if (nHistbins>=5 ) rfv_bin5 += "*"+add_logN_systematic[4];
     if (nHistbins>=6 ) rfv_bin6 += "*"+add_logN_systematic[5];
     if (nHistbins>=7 ) rfv_bin7 += "*"+add_logN_systematic[6];
     if (nHistbins>=8 ) rfv_bin8 += "*"+add_logN_systematic[7];
@@ -545,18 +546,19 @@ void createRegion(RooRealVar met, TH1F* h_sr_bkg , TH1F* h_cr_bkg,
     if (nHistbins>=10 ) rfv_bin10 += "*"+add_logN_systematic[9];
     if (nHistbins>=11 ) rfv_bin11 += "*"+add_logN_systematic[10];
     if (nHistbins>=12 ) rfv_bin12 += "*"+add_logN_systematic[11];
-
+    */
+    
     std::cout<<" bin 1 stats unc "<< rfv_bin1<<" after including "<<nuisanceName[nuisIndex[isys]]<<std::endl;
     std::cout<<" bin 2 stats unc "<< rfv_bin2<<" after including "<<nuisanceName[nuisIndex[isys]]<<std::endl;
     std::cout<<" bin 3 stats unc "<< rfv_bin3<<" after including "<<nuisanceName[nuisIndex[isys]]<<std::endl;
     std::cout<<" bin 4 stats unc "<< rfv_bin4<<" after including "<<nuisanceName[nuisIndex[isys]]<<std::endl;
     
     // following code is to be extend
-    if (nHistbins>=5 ) std::cout<<" bin 5 stats unc "<< rfv_bin5<<" after including "<<nuisanceName[nuisIndex[isys]]<<std::endl;
+    /*if (nHistbins>=5 ) std::cout<<" bin 5 stats unc "<< rfv_bin5<<" after including "<<nuisanceName[nuisIndex[isys]]<<std::endl;
     if (nHistbins>=6 ) std::cout<<" bin 6 stats unc "<< rfv_bin6<<" after including "<<nuisanceName[nuisIndex[isys]]<<std::endl;
     if (nHistbins>=7 ) std::cout<<" bin 7 stats unc "<< rfv_bin7<<" after including "<<nuisanceName[nuisIndex[isys]]<<std::endl;
     if (nHistbins>=8 ) std::cout<<" bin 8 stats unc "<< rfv_bin8<<" after including "<<nuisanceName[nuisIndex[isys]]<<std::endl;
-
+    */
 
     //rrv_syst = new RooRealVar(nuisanceName[nuisIndex[isys]]+anacat_, "rrv_"+nuisanceName[nuisIndex[isys]], nuisanceValue[nuisIndex[isys]], 0., 1.*nuisanceValue[nuisIndex[isys]]);
     rrv_syst = new RooRealVar(nuisanceName[nuisIndex[isys]], "rrv_"+nuisanceName[nuisIndex[isys]], nuisanceValue[nuisIndex[isys]], 0., 1.*nuisanceValue[nuisIndex[isys]]);
@@ -567,7 +569,7 @@ void createRegion(RooRealVar met, TH1F* h_sr_bkg , TH1F* h_cr_bkg,
     ral_bin4.add(*rrv_syst); // it has to be pointer for some reason, otherwise it gives seg fault, not sure yet, why?
     
     //  -- Following code is to extend the number of bins
-    if (nHistbins>=5 ) ral_bin5.add(*rrv_syst);
+    /*if (nHistbins>=5 ) ral_bin5.add(*rrv_syst);
     if (nHistbins>=6 ) ral_bin6.add(*rrv_syst);
     if (nHistbins>=7 ) ral_bin7.add(*rrv_syst);
     if (nHistbins>=8 ) ral_bin8.add(*rrv_syst);
@@ -576,7 +578,7 @@ void createRegion(RooRealVar met, TH1F* h_sr_bkg , TH1F* h_cr_bkg,
     if (nHistbins>=10 ) ral_bin10.add(*rrv_syst);
     if (nHistbins>=11 ) ral_bin11.add(*rrv_syst);
     if (nHistbins>=12 ) ral_bin12.add(*rrv_syst);
-
+    */
   }
 
   std::cout<<" bins already included in the lists "<<ral_bin1<<std::endl;
@@ -594,7 +596,7 @@ void createRegion(RooRealVar met, TH1F* h_sr_bkg , TH1F* h_cr_bkg,
   RooFormulaVar TF4("TF4"+region_proc_cr+anacat_+"_"+year_,"Transfer factor",rfv_bin4, ral_bin4);
 
   //  -- Following code is to extend the number of bins
-  RooFormulaVar TF5("TF5"+region_proc_cr+anacat_+"_"+year_,"Transfer factor",rfv_bin5, ral_bin5);
+  /*RooFormulaVar TF5("TF5"+region_proc_cr+anacat_+"_"+year_,"Transfer factor",rfv_bin5, ral_bin5);
   RooFormulaVar TF6("TF6"+region_proc_cr+anacat_+"_"+year_,"Transfer factor",rfv_bin6, ral_bin6);
   RooFormulaVar TF7("TF7"+region_proc_cr+anacat_+"_"+year_,"Transfer factor",rfv_bin7, ral_bin7);
   RooFormulaVar TF8("TF8"+region_proc_cr+anacat_+"_"+year_,"Transfer factor",rfv_bin8, ral_bin8);
@@ -603,7 +605,7 @@ void createRegion(RooRealVar met, TH1F* h_sr_bkg , TH1F* h_cr_bkg,
   RooFormulaVar TF10("TF10"+region_proc_cr+anacat_+"_"+year_,"Transfer factor",rfv_bin10, ral_bin10);
   RooFormulaVar TF11("TF11"+region_proc_cr+anacat_+"_"+year_,"Transfer factor",rfv_bin11, ral_bin11);
   RooFormulaVar TF12("TF12"+region_proc_cr+anacat_+"_"+year_,"Transfer factor",rfv_bin12, ral_bin12);
-
+  */
 
   /*
     Then need to make each bin of the background in the control region a function of the background in the signal and the transfer factor -
@@ -624,7 +626,7 @@ void createRegion(RooRealVar met, TH1F* h_sr_bkg , TH1F* h_cr_bkg,
   RooFormulaVar rfv_cr_bkg4("rfv_"+region_proc_cr+"4"+anacat_+"_"+year_,"Background yield in control region, bin 4","(1.0/@0)*@1",RooArgList(TF4,rrvbc_sr_bkg.at(3)));
 
   //  -- Following code is to extend the number of bins
-  RooFormulaVar rfv_cr_bkg5("rfv_"+region_proc_cr+"5"+anacat_+"_"+year_,"Background yield in control region, bin 5","(1.0/@0)*@1",RooArgList(TF5,rrvbc_sr_bkg.at(4)));
+  /*RooFormulaVar rfv_cr_bkg5("rfv_"+region_proc_cr+"5"+anacat_+"_"+year_,"Background yield in control region, bin 5","(1.0/@0)*@1",RooArgList(TF5,rrvbc_sr_bkg.at(4)));
   RooFormulaVar rfv_cr_bkg6("rfv_"+region_proc_cr+"6"+anacat_+"_"+year_,"Background yield in control region, bin 6","(1.0/@0)*@1",RooArgList(TF6,rrvbc_sr_bkg.at(5)));
   RooFormulaVar rfv_cr_bkg7("rfv_"+region_proc_cr+"7"+anacat_+"_"+year_,"Background yield in control region, bin 7","(1.0/@0)*@1",RooArgList(TF7,rrvbc_sr_bkg.at(6)));
   RooFormulaVar rfv_cr_bkg8("rfv_"+region_proc_cr+"8"+anacat_+"_"+year_,"Background yield in control region, bin 8","(1.0/@0)*@1",RooArgList(TF8,rrvbc_sr_bkg.at(7)));
@@ -633,7 +635,7 @@ void createRegion(RooRealVar met, TH1F* h_sr_bkg , TH1F* h_cr_bkg,
   RooFormulaVar rfv_cr_bkg10("rfv_"+region_proc_cr+"10"+anacat_+"_"+year_,"Background yield in control region, bin 10","(1.0/@0)*@1",RooArgList(TF10,rrvbc_sr_bkg.at(9)));
   RooFormulaVar rfv_cr_bkg11("rfv_"+region_proc_cr+"11"+anacat_+"_"+year_,"Background yield in control region, bin 11","(1.0/@0)*@1",RooArgList(TF11,rrvbc_sr_bkg.at(10)));
   RooFormulaVar rfv_cr_bkg12("rfv_"+region_proc_cr+"12"+anacat_+"_"+year_,"Background yield in control region, bin 12","(1.0/@0)*@1",RooArgList(TF12,rrvbc_sr_bkg.at(11)));
-
+  */
 
 
   // --------------------------------------------------------------
@@ -647,7 +649,7 @@ void createRegion(RooRealVar met, TH1F* h_sr_bkg , TH1F* h_cr_bkg,
   ral_cr_bkg.add(rfv_cr_bkg4);
 
   //  -- Following code is to extend the number of bins
-  if (nHistbins>=5 ) ral_cr_bkg.add(rfv_cr_bkg5);
+  /*if (nHistbins>=5 ) ral_cr_bkg.add(rfv_cr_bkg5);
   if (nHistbins>=6 ) ral_cr_bkg.add(rfv_cr_bkg6);
   if (nHistbins>=7 ) ral_cr_bkg.add(rfv_cr_bkg7);
   if (nHistbins>=8 ) ral_cr_bkg.add(rfv_cr_bkg8);
@@ -656,7 +658,7 @@ void createRegion(RooRealVar met, TH1F* h_sr_bkg , TH1F* h_cr_bkg,
   if (nHistbins>=10 ) ral_cr_bkg.add(rfv_cr_bkg10);
   if (nHistbins>=11 ) ral_cr_bkg.add(rfv_cr_bkg11);
   if (nHistbins>=12 ) ral_cr_bkg.add(rfv_cr_bkg12);
-
+  */
 
   RooParametricHist rph_cr_bkg("rph_"+region_proc_cr+anacat_+"_"+year_, "Background PDF in control region",met,ral_cr_bkg, *h_sr_data);
   RooAddition rph_cr_bkg_norm("rph_"+region_proc_cr+anacat_+"_"+year_+"_norm","Total Number of events from background in control region", ral_cr_bkg);
@@ -803,7 +805,8 @@ void PrepareWS_withnuisanceInvertTF_noW_nBins(TString model_="monoHbb",TString a
   nuisanceName.push_back("JECRelativeSample_"+year);   nuisanceValue.push_back(0.01); // 14
   
   nuisanceName.push_back(nuisancePostfix+"pdf"); nuisanceValue.push_back(0.10); // 15 
-  nuisanceName.push_back(nuisancePostfix+"mu_scale"); nuisanceValue.push_back(0.10); // 16 
+  nuisanceName.push_back(nuisancePostfix+"pdf"); nuisanceValue.push_back(0.10); // 16 thiis need to be fixed with scale 
+  //nuisanceName.push_back(nuisancePostfix+"mu_scale"); nuisanceValue.push_back(0.10); // 16 
 				   
   
   /*nuisanceName.push_back(nuisancePostfix+"");   nuisanceValue.push_back(0.01); // 15

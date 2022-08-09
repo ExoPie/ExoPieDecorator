@@ -114,3 +114,7 @@ rrvbc_SR_tt_2b3_2016 flatParam
 rrvbc_SR_tt_2b4_2016 flatParam
 
 
+tf1_TOPMU_tt_2b_2016 flatParam
+tf2_TOPMU_tt_2b_2016 flatParam
+tf3_TOPMU_tt_2b_2016 flatParam
+tf4_TOPMU_tt_2b_2016 flatParam
