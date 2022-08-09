@@ -1,0 +1,1 @@
+combine -M AsymptoticLimits datacards_bbDM_2017/datacard_bbDM2017_2b_Merged_sp_0p7_tb_35_mXd_1_mA_600_ma_100.txt  -t -1
