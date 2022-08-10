@@ -1,4 +1,4 @@
-# Simple counting experiment, with one signal and a few background processes 
+# Simple counting experiment, with one signal and a few background processes
 # First iteration of the monoHbb YEAR
 
 imax *  number of channels
@@ -7,14 +7,14 @@ kmax *  number of nuisance parameters (sources of systematical uncertainties)
 ---------------------------------------------------------------------------------------------------------------------------------
 
 ## these are new shapes for the fitting model
-## shapes  process   region    path 
+## shapes  process   region    path
 
 shapes *         bbDMYEAR_CATEGORY_TOPE       bbDM_YEAR_WS.root ws_bbDM_CATEGFULL_YEAR:bbDMYEAR_CATEGORY_TOPE_$PROCESS ws_bbDM_CATEGFULL_YEAR:bbDMYEAR_CATEGORY_TOPE_$PROCESS_$SYSTEMATIC
 shapes tt     bbDMYEAR_CATEGORY_TOPE       bbDM_YEAR_WS.root ws_bbDM_CATEGFULL_YEAR:rph_TOPE_tt_1b
 
 
 ------------
-bin   bbDMYEAR_CATEGORY_TOPE 
+bin   bbDMYEAR_CATEGORY_TOPE
 observation -1
 ------------
 
@@ -23,11 +23,11 @@ observation -1
 # the second 'process' line must have a positive number for backgrounds, and 0 for signal
 # then we list the independent sources of uncertainties, and give their effect (syst. error)
 # on each process and bin
-bin                          bbDMYEAR_CATEGORY_TOPE  bbDMYEAR_CATEGORY_TOPE  bbDMYEAR_CATEGORY_TOPE  bbDMYEAR_CATEGORY_TOPE   bbDMYEAR_CATEGORY_TOPE  bbDMYEAR_CATEGORY_TOPE  bbDMYEAR_CATEGORY_TOPE  
-process                             wjets      tt        singlet      qcd    dyjets  diboson   smh 
-process                               1        2           3           4        5        6   7   
-rate                                 -1        1         -1          -1       -1       -1    -1   
-------------					        
+bin                          bbDMYEAR_CATEGORY_TOPE  bbDMYEAR_CATEGORY_TOPE  bbDMYEAR_CATEGORY_TOPE  bbDMYEAR_CATEGORY_TOPE   bbDMYEAR_CATEGORY_TOPE  bbDMYEAR_CATEGORY_TOPE  bbDMYEAR_CATEGORY_TOPE
+process                             wjets      tt        singlet      qcd    dyjets  diboson   smh
+process                               1        2           3           4        5        6   7
+rate                                 -1        1         -1          -1       -1       -1    -1
+------------
 
 lumi_YEAR         lnN    LUMIVAL         -        LUMIVAL      LUMIVAL    LUMIVAL    LUMIVAL    LUMIVAL
 lumi_BeamCC       lnN    LUMIBCC         -        LUMIBCC      LUMIBCC    LUMIBCC    LUMIBCC    LUMIBCC
@@ -36,21 +36,21 @@ lumi_GhostS       lnN    LUMIGHS         -        LUMIGHS      LUMIGHS    LUMIGH
 lumi_LengthS      lnN    LUMILS          -        LUMILS       LUMILS     LUMILS     LUMILS     LUMILS
 lumi_X_Y_Fact     lnN    LUMIXYF         -        LUMIXYF      LUMIXYF    LUMIXYF    LUMIXYF    LUMIXYF
 
-CMSYEAR_PU              shape         1       -         1      1    1   1  1 
+CMSYEAR_PU              shape         1       -         1      1    1   1  1
 
 CMSYEAR_trig_met        shape          -       -          -      -     -    -   -
 CMSYEAR_trig_ele        shape           1       -        1      1      1      1    1
-						        
+
 CMSYEAR_eff_b           shape          1      -            1      -       -      -      1
 CMSYEAR_fake_b          shape          1       -      1       1     1  1 1
 
-CMSYEAR_EleID           shape           1        -     1       1       1      1     1     
-CMSYEAR_EleRECO         shape           1        -     1       1       1      1     1     
+CMSYEAR_EleID           shape           1        -     1       1       1      1     1
+CMSYEAR_EleRECO         shape           1        -     1       1       1      1     1
 
 #CMSYEAR_MuTRK           shape           -            -        -         -          -          -      -
 CMSYEAR_MuID            shape           -            -        -         -          -          -      -
 
-CMSYEAR_veto_tau        lnN           1.03        1.03     1.03       1.03       1.03      1.03     1.03    
+CMSYEAR_veto_tau        lnN           1.03        1.03     1.03       1.03       1.03      1.03     1.03
 
 JECAbsolute shape 1 - 1	1 1 1 1
 JECAbsolute_YEAR shape 1 - 1  1 1 1 1
@@ -72,8 +72,8 @@ norm_stop               lnN           -         -         1.1        -       -  
 norm_diboson            lnN           -        -          -         -        -          1.2         -
 norm_smh                lnN           -     -          -        -        -             -         1.2
 
-#CMSYEAR_pdf              shape    1        -     1       1       1      1     1     
-#CMSYEAR_mu_scale         shape    1        -     1       1       1      1     1     
+#CMSYEAR_pdf              shape    1        -     1       1       1      1     1
+#CMSYEAR_mu_scale         shape    1        -     1       1       1      1     1
 
 CMSYEAR_pdf       shape - - -	   - - - 1
 CMSYEAR_mu_scale shape - - -    - - - 1
