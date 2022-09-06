@@ -1,4 +1,4 @@
-# Simple counting experiment, with one signal and a few background processes 
+# Simple counting experiment, with one signal and a few background processes
 # First iteration of the monoHbb YEAR
 
 imax *  number of channels
@@ -7,14 +7,14 @@ kmax *  number of nuisance parameters (sources of systematical uncertainties)
 ---------------------------------------------------------------------------------------------------------------------------------
 
 ## these are new shapes for the fitting model
-## shapes  process   region    path 
+## shapes  process   region    path
 
 shapes *         bbDMYEAR_CATEGORY_TOPMU       bbDM_YEAR_WS.root ws_bbDM_CATEGFULL_YEAR:bbDMYEAR_CATEGORY_TOPMU_$PROCESS ws_bbDM_CATEGFULL_YEAR:bbDMYEAR_CATEGORY_TOPMU_$PROCESS_$SYSTEMATIC
 shapes tt     bbDMYEAR_CATEGORY_TOPMU       bbDM_YEAR_WS.root ws_bbDM_CATEGFULL_YEAR:rph_TOPMU_tt_1b
 
 
 ------------
-bin   bbDMYEAR_CATEGORY_TOPMU 
+bin   bbDMYEAR_CATEGORY_TOPMU
 observation -1
 ------------
 
@@ -23,11 +23,11 @@ observation -1
 # the second 'process' line must have a positive number for backgrounds, and 0 for signal
 # then we list the independent sources of uncertainties, and give their effect (syst. error)
 # on each process and bin
-bin                          bbDMYEAR_CATEGORY_TOPMU  bbDMYEAR_CATEGORY_TOPMU  bbDMYEAR_CATEGORY_TOPMU  bbDMYEAR_CATEGORY_TOPMU   bbDMYEAR_CATEGORY_TOPMU  bbDMYEAR_CATEGORY_TOPMU  bbDMYEAR_CATEGORY_TOPMU  
-process                             wjets      tt        singlet      qcd    dyjets  diboson   smh 
-process                               1        2           3           4        5        6   7   
-rate                                 -1        1         -1          -1       -1       -1    -1   
-------------					        
+bin                          bbDMYEAR_CATEGORY_TOPMU  bbDMYEAR_CATEGORY_TOPMU  bbDMYEAR_CATEGORY_TOPMU  bbDMYEAR_CATEGORY_TOPMU   bbDMYEAR_CATEGORY_TOPMU  bbDMYEAR_CATEGORY_TOPMU  bbDMYEAR_CATEGORY_TOPMU
+process                             wjets      tt        singlet      qcd    dyjets  diboson   smh
+process                               1        2           3           4        5        6   7
+rate                                 -1        1         -1          -1       -1       -1    -1
+------------
 
 
 lumi_YEAR         lnN    LUMIVAL         -        LUMIVAL      LUMIVAL    LUMIVAL    LUMIVAL    LUMIVAL
@@ -37,8 +37,8 @@ lumi_GhostS       lnN    LUMIGHS         -        LUMIGHS      LUMIGHS    LUMIGH
 lumi_LengthS      lnN    LUMILS          -        LUMILS       LUMILS     LUMILS     LUMILS     LUMILS
 lumi_X_Y_Fact     lnN    LUMIXYF         -        LUMIXYF      LUMIXYF    LUMIXYF    LUMIXYF    LUMIXYF
 
-CMSYEAR_PU              shape         1       -         1      1    1   1  1 
-						        
+CMSYEAR_PU              shape         1       -         1      1    1   1  1
+
 CMSYEAR_trig_met                shape          1       -          1      1     1    1   1
 CMSYEAR_trig_ele                shape           -       -        -      -      -        -    -
 
@@ -48,10 +48,10 @@ CMSYEAR_fake_b          shape          1       -      1       1     1  1 1
 CMSYEAR_EleID         shape           -            -        -         -          -          -      -
 CMSYEAR_EleRECO         shape           -            -        -         -          -          -      -
 
-#CMSYEAR_MuTRK         shape           1        -     1       1       1      1     1    
-CMSYEAR_MuID         shape           1        -     1       1       1      1     1     
+#CMSYEAR_MuTRK         shape           1        -     1       1       1      1     1
+CMSYEAR_MuID         shape           1        -     1       1       1      1     1
 
-CMSYEAR_veto_tau                lnN           1.03        1.03     1.03       1.03       1.03      1.03     1.03   
+CMSYEAR_veto_tau                lnN           1.03        1.03     1.03       1.03       1.03      1.03     1.03
 
 JECAbsolute shape 1 - 1		1 1 1 1
 JECAbsolute_YEAR shape 1 - 1  1 1 1 1
@@ -72,14 +72,14 @@ norm_stop               lnN           -         -         1.1        -       -  
 norm_diboson            lnN           -        -          -         -        -          1.2         -
 norm_smh                 lnN           -      -          -        -        -             -         1.2
 
-#CMSYEAR_pdf              shape    1        -     1       1       1      1     1     
-#CMSYEAR_mu_scale         shape    1        -     1       1       1      1     1     
+#CMSYEAR_pdf              shape    1        -     1       1       1      1     1
+#CMSYEAR_mu_scale         shape    1        -     1       1       1      1     1
 
 CMSYEAR_pdf       shape - - -	   - - - 1
 CMSYEAR_mu_scale shape - - -    - - - 1
 
 #CMSYEAR_qcd_norm        lnN - - - 1.5 - - -
-#CMSYEAR_eff_t           lnN          1.03       1.03       1.03      1.03     1.03  1.03 1.03 
+#CMSYEAR_eff_t           lnN          1.03       1.03       1.03      1.03     1.03  1.03 1.03
 #CMSYEAR_eff_met         lnN           1.04        1.04     1.04       1.04       1.04      1.04     1.04
 
 tf1_TOPMU_tt_1b_YEAR flatParam
@@ -90,5 +90,3 @@ rrvbc_SR_tt_1b1_YEAR flatParam
 rrvbc_SR_tt_1b2_YEAR flatParam
 rrvbc_SR_tt_1b3_YEAR flatParam
 rrvbc_SR_tt_1b4_YEAR flatParam
-
-
