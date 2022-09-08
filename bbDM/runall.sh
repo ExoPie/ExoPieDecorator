@@ -8,14 +8,19 @@ echo $nbins
 
 nbins_1b=4
 
-#root -l -b -q PrepareWS_withnuisanceInvertTF_noW_nBins.C"(\"bbDM\", \"1b\", \"RECREATE\", \"AllMETHistos\", \"$rootfile\", \"${year}\", $nbins_1b)"
-root -l -b -q PrepareWS_withnuisanceInvertTF_noW_nBins.C"(\"bbDM\", \"2b\", \"RECREATE\", \"AllMETHistos\", \"$rootfile\", \"${year}\", $nbins)"
+# root -l -b -q PrepareWS_withnuisanceInvertTF_noW_nBins.C"(\"bbDM\", \"1b\", \"RECREATE\", \"AllMETHistos\", \"$rootfile\", \"${year}\", $nbins)"
+# root -l -b -q PrepareWS_withnuisanceInvertTF_noW_nBins.C"(\"bbDM\", \"2b\", \"RECREATE\", \"AllMETHistos\", \"$rootfile\", \"${year}\", $nbins)"
+
+# root -l -b -q PrepareWS_withnuisanceInvertTF_noW_nBins.C"(\"bbDM\", \"2b\", \"UPDATE\", \"AllMETHistos\", \"$rootfile\", \"${year}\", $nbins)"
 
 #root -l -b -q PrepareWS_withnuisanceInvertTF_noW_nBins.C"(\"bbDM\", \"2b_ML\", \"RECREATE\", \"AllMETHistos\", \"$rootfile\", \"${year}\", $nbins)"
 #python RunLimits.py -c --model 2hdma_all --region "SR TOPE TOPMU ZEE ZMUMU" --category=sr2 --year ${year}
 #cp bbDM_${year}_WS.root datacards_bbDM_${year}/bbDM_${year}_WS.root
 #python RunLimits.py -A -L -v 0 -i bbDM${year}_datacardslist_2b_ML_2hdma_all.txt --category=sr2 --postfix $postfix --savepdf --outlog="running limits for 2b"  --year ${year}
 
+python runPrepareWS.py -M bbDM -c 1b -m RECREATE -I AllMETHistos -i ${rootfile} -y ${year} -b ${nbins}
+# python runPrepareWS.py -M bbDM -c 2b -m RECREATE -I AllMETHistos -i ${rootfile} -y ${year} -b ${nbins}
+python runPrepareWS.py -M bbDM -c 2b -m UPDATE -I AllMETHistos -i ${rootfile} -y ${year} -b ${nbins}
 
 cp bbDM_${year}_WS.root datacards_bbDM_${year}/bbDM_${year}_WS.root
 
@@ -23,33 +28,33 @@ cp bbDM_${year}_WS.root datacards_bbDM_${year}/bbDM_${year}_WS.root
 
 
 if [[ $model == "2hdma" ]]
-then 
-    echo "preparing datacards for :", $model
-    sleep 2
-    
-    # create cards
-    #python RunLimits.py -c --model 2hdma_all --region "SR WE WMU ZEE ZMUMU" --category=sr1 --year ${year}
-    python RunLimits.py -c --model 2hdma_all --region "SR TOPE TOPMU ZEE ZMUMU" --category=sr2 --year ${year}
-    #python RunLimits.py -c --model 2hdma_all --region "bbDM${year}_datacardslist_1b_2hdma_all.txt bbDM${year}_datacardslist_2b_2hdma_all.txt" --category=srall --year ${year}
-    
-    # run limits #
-    #python RunLimits.py -A -L -v 0 -i bbDM${year}_datacardslist_1b_2hdma_all.txt --category=sr1 --postfix $postfix --savepdf --outlog="running limits for 1b"  --year ${year}
-    #python RunLimits.py -A -L -v 0 -i bbDM${year}_datacardslist_2b_2hdma_all.txt --category=sr2 --postfix $postfix --savepdf --outlog="running limits for 2b"  --year ${year}
-    #python RunLimits.py -A -L -v 0 -i bbDM${year}_datacardslist_C_2hdma_all.txt --category=srall --postfix $postfix --savepdf --outlog="running limits for 1b+2b"  --year ${year}
-
-    #python RunLimits.py --savepdf --limitTextFile bin/$postfix/limits_bbDM_${model}_1b_${year}.txt --outlog "saving pdf for 1b" --category=sr1  --year ${year} 
-    #python RunLimits.py --savepdf --limitTextFile bin/$postfix/limits_bbDM_${model}_2b_${year}.txt --outlog "saving pdf for 2b" --category=sr2  --year ${year} 
-    #python RunLimits.py --savepdf --limitTextFile bin/$postfix/limits_bbDM_${model}_combined_${year}.txt --outlog "saving pdf for 1b+2b" --category=srall  --year ${year} 
-    
-fi 
-
-
-
-if  [[ $model == "dmsimp" ]] 
 then
     echo "preparing datacards for :", $model
     sleep 2
-    
+
+    # create cards
+   #  python RunLimits.py -c --model 2hdma_all --region "SR WE WMU ZEE ZMUMU" --category=sr1 --year ${year}
+    python RunLimits.py -c --model 2hdma_all --region "SR TOPE TOPMU ZEE ZMUMU" --category=sr2 --year ${year}
+   #  python RunLimits.py -c --model 2hdma_all --region "bbDM${year}_datacardslist_1b_2hdma_all.txt bbDM${year}_datacardslist_2b_2hdma_all.txt" --category=srall --year ${year}
+
+    # run limits #
+   #  python RunLimits.py -A -L -v 0 -i bbDM${year}_datacardslist_1b_2hdma_all.txt --category=sr1 --postfix $postfix --savepdf --outlog="running limits for 1b"  --year ${year}
+    python RunLimits.py -A -L -v 0 -i bbDM${year}_datacardslist_2b_2hdma_all.txt --category=sr2 --postfix $postfix --savepdf --outlog="running limits for 2b"  --year ${year}
+   #  python RunLimits.py -A -L -v 0 -i bbDM${year}_datacardslist_C_2hdma_all.txt --category=srall --postfix $postfix --savepdf --outlog="running limits for 1b+2b"  --year ${year}
+
+    #python RunLimits.py --savepdf --limitTextFile bin/$postfix/limits_bbDM_${model}_1b_${year}.txt --outlog "saving pdf for 1b" --category=sr1  --year ${year}
+    #python RunLimits.py --savepdf --limitTextFile bin/$postfix/limits_bbDM_${model}_2b_${year}.txt --outlog "saving pdf for 2b" --category=sr2  --year ${year}
+    #python RunLimits.py --savepdf --limitTextFile bin/$postfix/limits_bbDM_${model}_combined_${year}.txt --outlog "saving pdf for 1b+2b" --category=srall  --year ${year}
+
+fi
+
+
+
+if  [[ $model == "dmsimp" ]]
+then
+    echo "preparing datacards for :", $model
+    sleep 2
+
     # create cards
     #python RunLimits.py -c --model dmsimp_all --region "SR WE WMU ZEE ZMUMU" --category=sr1 --year ${year}
     python RunLimits.py -c --model dmsimp_all --region "SR TOPE TOPMU ZEE ZMUMU" --category=sr2 --year ${year}
@@ -81,7 +86,7 @@ cp -r plots_limit/$postfix /afs/cern.ch/work/k/khurana/public/AnalysisStuff/bbDM
 
 
 
-## for pull etc 
+## for pull etc
 #root -l -b -q PrepareWS_withnuisance.C"(\"bbDM\", \"1b\", \"RECREATE\", \"AllMETHistos\", \"$rootfile\", \"${year}\")"
 #root -l -b -q PrepareWS_withnuisance.C"(\"bbDM\", \"2b\", \"UPDATE\", \"AllMETHistos\", \"$rootfile\", \"${year}\")"
 #python RunLimits.py -c --model 2hdma --region "SR TOPE TOPMU WE WMU ZEE ZMUMU" --category=sr1  --year ${year}
@@ -90,12 +95,12 @@ cp -r plots_limit/$postfix /afs/cern.ch/work/k/khurana/public/AnalysisStuff/bbDM
 #python RunLimits.py --pulls --runmode asimov -i bbDM2017_datacardslist_C_2hdma.txt  --outlog "testing the pulls for asimov" --category srall --year ${year}
 #python PlotPreFitPostFit.py fitDiagnostics_combined_2017_asimov.root plots_limit/postfitOverlay/ _combined_2017_
 
-#python RunLimits.py --pulls --runmode data -i bbDM2016_datacardslist_C_2hdma.txt  --outlog "testing the pulls for data" --category srall                                                               
+#python RunLimits.py --pulls --runmode data -i bbDM2016_datacardslist_C_2hdma.txt  --outlog "testing the pulls for data" --category srall
 
-#python RunLimits.py --pulls --runmode cronly -i bbDM2016_datacardslist_C_2hdma.txt  --outlog "testing the pulls for data" --category srall --year ${year}                                                              
-#python RunLimits.py --pulls --runmode cronly -i bbDM2017_datacardslist_C_2hdma.txt  --outlog "testing the pulls for data" --category srall --year ${year}                                                              
-#python RunLimits.py --pulls --runmode cronly -i bbDM2018_datacardslist_C_2hdma.txt  --outlog "testing the pulls for data" --category srall --year ${year}                                                              
-#																	    
+#python RunLimits.py --pulls --runmode cronly -i bbDM2016_datacardslist_C_2hdma.txt  --outlog "testing the pulls for data" --category srall --year ${year}
+#python RunLimits.py --pulls --runmode cronly -i bbDM2017_datacardslist_C_2hdma.txt  --outlog "testing the pulls for data" --category srall --year ${year}
+#python RunLimits.py --pulls --runmode cronly -i bbDM2018_datacardslist_C_2hdma.txt  --outlog "testing the pulls for data" --category srall --year ${year}
+#
 #python RunLimits.py --pulls --runmode cronly -i bbDM2017_datacardslist_1b_2hdma.txt  --outlog "testing the pulls for data" --category sr1b --year ${year}
 #python RunLimits.py --pulls --runmode cronly -i bbDM2017_datacardslist_2b_2hdma.txt  --outlog "testing the pulls for data" --category sr2b --year ${year}
 #python RunLimits.py --pulls --runmode cronly -i bbDM2017_datacardslist_C_2hdma.txt  --outlog "testing the pulls for data" --category srall --year ${year}
@@ -113,7 +118,7 @@ cp -r plots_limit/$postfix /afs/cern.ch/work/k/khurana/public/AnalysisStuff/bbDM
 ## combine -M AsymptoticLimits datacards_bbDM_2017/datacard_bbDM2017_C_Merged_sp_0p7_tb_35_mXd_1_mA_600_ma_10.txt  --noFitAsimov  -v 0 --rMin 1e-07 --rMax 30
 
 
-## impact: asimov 
+## impact: asimov
 #combineTool.py -M Impacts -d  datacards_bbDM_2017/datacard_bbDM2017_C_Merged_sp_0p7_tb_35_mXd_1_mA_600_ma_100.root -m 200 --rMin -1 --rMax 2 --robustFit 1 --doInitialFit  -t -1 --expectSignal 0
 #combineTool.py -M Impacts -d datacards_bbDM_2017/datacard_bbDM2017_C_Merged_sp_0p7_tb_35_mXd_1_mA_600_ma_100.root -m 200 --rMin -1 --rMax 2 --robustFit 1 --doFits  -t -1 --expectSignal 0
 #combineTool.py -M Impacts -d datacards_bbDM_2017/datacard_bbDM2017_C_Merged_sp_0p7_tb_35_mXd_1_mA_600_ma_100.root -m 200 --rMin -1 --rMax 2 --robustFit 1 --output impacts.json
@@ -122,7 +127,7 @@ cp -r plots_limit/$postfix /afs/cern.ch/work/k/khurana/public/AnalysisStuff/bbDM
 
 
 
-#combine -M AsymptoticLimits datacards_bbDM_2017/datacard_bbDM2017_C_Merged_sp_0p7_tb_35_mXd_1_mA_600_ma_250.txt  --noFitAsimov  -v 0 --rMin 1e-07 --rMax 30 
+#combine -M AsymptoticLimits datacards_bbDM_2017/datacard_bbDM2017_C_Merged_sp_0p7_tb_35_mXd_1_mA_600_ma_250.txt  --noFitAsimov  -v 0 --rMin 1e-07 --rMax 30
 
 
 # datacards_bbDM_2017_b/datacard_bbDM2017_1b_SR_sp_0p7_tb_35_mXd_1_mA_600_ma_200.txt : 1.9375
